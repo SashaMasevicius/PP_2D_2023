@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "xkS7sZXQBYN5HSNAsx9cBAVSf5h6jvnnZ7Jend0R23no+DigB2VXbNGIXx23YAFJ/fbDv+NzSdjavR58FaPFhA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sasha\\OneDrive\\Escritorio\\c#\\PP2D__2023\\FrmCarniceria\\FrmCarniceria.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sasha\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\sasha\\.nuget\\packages\\xamarin.essentials\\1.7.5\\xamarin.essentials.1.7.5.nupkg.sha512"
+  ],
+  "logs": []
+}
