@@ -71,7 +71,7 @@ namespace FrmCarniceria
         }
 
 
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -82,12 +82,7 @@ namespace FrmCarniceria
             miHeladera.AgregarKilosPorCorteSeleccionado(indexCorte, cantidadKilosSeleccionado);
 
 
-            foreach (Producto item in miHeladera.MiListaDeProductosEnHeladera)
-            {
-                MessageBox.Show($" {item.TipoCarne} {item.Peso} {item.PrecioPorKg}");
-            }
-
-                //this.labelDetalles.Text = mostrarDetalleDeProductos();
+            this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();asdasdasdad
 
         }
 
