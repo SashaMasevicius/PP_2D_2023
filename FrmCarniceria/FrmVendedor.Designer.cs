@@ -56,7 +56,7 @@
             // 
             // numericUpDownKilos
             // 
-            numericUpDownKilos.Location = new Point(83, 100);
+            numericUpDownKilos.Location = new Point(83, 101);
             numericUpDownKilos.Maximum = new decimal(new int[] { 150, 0, 0, 0 });
             numericUpDownKilos.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownKilos.Name = "numericUpDownKilos";
@@ -82,13 +82,13 @@
             comboBoxNuevoCorte.Name = "comboBoxNuevoCorte";
             comboBoxNuevoCorte.Size = new Size(174, 23);
             comboBoxNuevoCorte.TabIndex = 3;
-            comboBoxNuevoCorte.Text = "Ingresar nuevo corte";
+            comboBoxNuevoCorte.Text = "Selecciona corte";
             // 
             // comboBoxCortePrecio
             // 
             comboBoxCortePrecio.Font = new Font("Segoe UI Light", 9F, FontStyle.Italic, GraphicsUnit.Point);
             comboBoxCortePrecio.FormattingEnabled = true;
-            comboBoxCortePrecio.Items.AddRange(new object[] { "Asadao", "Vacio", "Matambre", "Chorizo" });
+            comboBoxCortePrecio.Items.AddRange(new object[] { "Asado", "Vacio", "Matambre", "Chorizo" });
             comboBoxCortePrecio.Location = new Point(23, 55);
             comboBoxCortePrecio.Name = "comboBoxCortePrecio";
             comboBoxCortePrecio.Size = new Size(156, 23);
@@ -107,7 +107,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(47, 30);
+            label1.Location = new Point(59, 26);
             label1.Name = "label1";
             label1.Size = new Size(133, 20);
             label1.TabIndex = 6;
@@ -246,11 +246,12 @@
             // labelDetalles
             // 
             labelDetalles.AutoSize = true;
+            labelDetalles.Font = new Font("Segoe UI Light", 11F, FontStyle.Italic, GraphicsUnit.Point);
             labelDetalles.Location = new Point(446, 284);
             labelDetalles.Name = "labelDetalles";
-            labelDetalles.Size = new Size(37, 15);
+            labelDetalles.Size = new Size(40, 20);
             labelDetalles.TabIndex = 17;
-            labelDetalles.Text = "label8";
+            labelDetalles.Text = "stock";
             // 
             // FrmVendedor
             // 
@@ -265,6 +266,7 @@
             Font = new Font("Segoe UI Light", 9F, FontStyle.Italic, GraphicsUnit.Point);
             Name = "FrmVendedor";
             Text = "asd";
+            Load += FrmVendedor_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilos).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

@@ -9,17 +9,17 @@ namespace Entidades
     public class Producto
     {
         eCarne tipoCarne;
-        float peso;
+        int peso;
         double precioPorKg;
 
-        public Producto(eCarne tipoCarne, float peso, double precioPorKg)
+        public Producto(eCarne tipoCarne, int peso, double precioPorKg)
         {
             this.TipoCarne = tipoCarne;
             this.peso = peso;
             this.precioPorKg = precioPorKg;
         }
 
-        public float Peso 
+        public int Peso 
         { 
             get => peso; 
             set => peso = value; 

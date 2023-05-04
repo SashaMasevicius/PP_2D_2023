@@ -28,292 +28,305 @@
         /// </summary>
         private void InitializeComponent()
         {
-            checkBoxAsado = new CheckBox();
-            checkBoxVacio = new CheckBox();
-            checkBoxChorizo = new CheckBox();
-            checkBoxMatambre = new CheckBox();
-            checkBoxBifeChorizo = new CheckBox();
-            checkBoxPollo = new CheckBox();
-            comboBoxAsado = new ComboBox();
-            comboBoxVacio = new ComboBox();
-            comboBoxMatambre = new ComboBox();
-            comboBoxChorizo = new ComboBox();
-            comboBoxBifeChorizo = new ComboBox();
-            comboBoxPollo = new ComboBox();
-            groupBoxCortesCarne = new GroupBox();
-            labelPollo = new Label();
-            labelBifeChorizo = new Label();
-            labelChorizo = new Label();
-            labelMatambre = new Label();
-            labelVacio = new Label();
-            labelAsado = new Label();
-            label2 = new Label();
+            labelBienvenido = new Label();
+            textBoxDineroDisponible = new TextBox();
+            groupBox1 = new GroupBox();
             label1 = new Label();
-            groupBoxCortesCarne.SuspendLayout();
+            buttonAceptarDineroDisponible = new Button();
+            numericUpDownKilosAsado = new NumericUpDown();
+            labelDatos = new Label();
+            groupBox2 = new GroupBox();
+            checkedListBox1 = new CheckedListBox();
+            numericUpDownKilosVacio = new NumericUpDown();
+            numericUpDownKilosMatambre = new NumericUpDown();
+            numericUpDownKilosChorizo = new NumericUpDown();
+            label2 = new Label();
+            button1 = new Button();
+            radioButtonEfectivo = new RadioButton();
+            radioButtonTarjeta = new RadioButton();
+            groupBox3 = new GroupBox();
+            label3 = new Label();
+            groupBox4 = new GroupBox();
+            label4pPrecioDisponibleIngresado = new Label();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownKilosAsado).BeginInit();
+            groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownKilosVacio).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownKilosMatambre).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownKilosChorizo).BeginInit();
+            groupBox3.SuspendLayout();
+            groupBox4.SuspendLayout();
             SuspendLayout();
             // 
-            // checkBoxAsado
+            // labelBienvenido
             // 
-            checkBoxAsado.AutoSize = true;
-            checkBoxAsado.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            checkBoxAsado.Location = new Point(51, 56);
-            checkBoxAsado.Name = "checkBoxAsado";
-            checkBoxAsado.Size = new Size(110, 41);
-            checkBoxAsado.TabIndex = 0;
-            checkBoxAsado.Text = "Asado";
-            checkBoxAsado.UseVisualStyleBackColor = true;
+            labelBienvenido.AutoSize = true;
+            labelBienvenido.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            labelBienvenido.Location = new Point(145, 9);
+            labelBienvenido.Name = "labelBienvenido";
+            labelBienvenido.Size = new Size(149, 37);
+            labelBienvenido.TabIndex = 1;
+            labelBienvenido.Text = "Bienvenido";
+            labelBienvenido.Click += labelBienvenido_Click;
             // 
-            // checkBoxVacio
+            // textBoxDineroDisponible
             // 
-            checkBoxVacio.AutoSize = true;
-            checkBoxVacio.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            checkBoxVacio.Location = new Point(51, 103);
-            checkBoxVacio.Name = "checkBoxVacio";
-            checkBoxVacio.Size = new Size(100, 41);
-            checkBoxVacio.TabIndex = 1;
-            checkBoxVacio.Text = "Vacio";
-            checkBoxVacio.UseVisualStyleBackColor = true;
+            textBoxDineroDisponible.BackColor = SystemColors.Window;
+            textBoxDineroDisponible.Location = new Point(17, 42);
+            textBoxDineroDisponible.Name = "textBoxDineroDisponible";
+            textBoxDineroDisponible.PlaceholderText = "Ingresar solo numeros";
+            textBoxDineroDisponible.ReadOnly = true;
+            textBoxDineroDisponible.Size = new Size(191, 23);
+            textBoxDineroDisponible.TabIndex = 2;
             // 
-            // checkBoxChorizo
+            // groupBox1
             // 
-            checkBoxChorizo.AutoSize = true;
-            checkBoxChorizo.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            checkBoxChorizo.Location = new Point(51, 197);
-            checkBoxChorizo.Name = "checkBoxChorizo";
-            checkBoxChorizo.Size = new Size(15, 14);
-            checkBoxChorizo.TabIndex = 2;
-            checkBoxChorizo.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxMatambre
-            // 
-            checkBoxMatambre.AutoSize = true;
-            checkBoxMatambre.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            checkBoxMatambre.Location = new Point(51, 150);
-            checkBoxMatambre.Name = "checkBoxMatambre";
-            checkBoxMatambre.Size = new Size(15, 14);
-            checkBoxMatambre.TabIndex = 3;
-            checkBoxMatambre.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxBifeChorizo
-            // 
-            checkBoxBifeChorizo.AutoSize = true;
-            checkBoxBifeChorizo.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            checkBoxBifeChorizo.Location = new Point(51, 244);
-            checkBoxBifeChorizo.Name = "checkBoxBifeChorizo";
-            checkBoxBifeChorizo.Size = new Size(15, 14);
-            checkBoxBifeChorizo.TabIndex = 4;
-            checkBoxBifeChorizo.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxPollo
-            // 
-            checkBoxPollo.AutoSize = true;
-            checkBoxPollo.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            checkBoxPollo.Location = new Point(51, 291);
-            checkBoxPollo.Name = "checkBoxPollo";
-            checkBoxPollo.Size = new Size(15, 14);
-            checkBoxPollo.TabIndex = 5;
-            checkBoxPollo.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxAsado
-            // 
-            comboBoxAsado.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxAsado.FormattingEnabled = true;
-            comboBoxAsado.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
-            comboBoxAsado.Location = new Point(321, 72);
-            comboBoxAsado.Name = "comboBoxAsado";
-            comboBoxAsado.Size = new Size(121, 23);
-            comboBoxAsado.TabIndex = 6;
-            // 
-            // comboBoxVacio
-            // 
-            comboBoxVacio.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxVacio.FormattingEnabled = true;
-            comboBoxVacio.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
-            comboBoxVacio.Location = new Point(321, 119);
-            comboBoxVacio.Name = "comboBoxVacio";
-            comboBoxVacio.Size = new Size(121, 23);
-            comboBoxVacio.TabIndex = 7;
-            // 
-            // comboBoxMatambre
-            // 
-            comboBoxMatambre.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxMatambre.FormattingEnabled = true;
-            comboBoxMatambre.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
-            comboBoxMatambre.Location = new Point(321, 166);
-            comboBoxMatambre.Name = "comboBoxMatambre";
-            comboBoxMatambre.Size = new Size(121, 23);
-            comboBoxMatambre.TabIndex = 8;
-            // 
-            // comboBoxChorizo
-            // 
-            comboBoxChorizo.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxChorizo.FormattingEnabled = true;
-            comboBoxChorizo.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
-            comboBoxChorizo.Location = new Point(321, 213);
-            comboBoxChorizo.Name = "comboBoxChorizo";
-            comboBoxChorizo.Size = new Size(121, 23);
-            comboBoxChorizo.TabIndex = 9;
-            // 
-            // comboBoxBifeChorizo
-            // 
-            comboBoxBifeChorizo.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxBifeChorizo.FormattingEnabled = true;
-            comboBoxBifeChorizo.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
-            comboBoxBifeChorizo.Location = new Point(321, 260);
-            comboBoxBifeChorizo.Name = "comboBoxBifeChorizo";
-            comboBoxBifeChorizo.Size = new Size(121, 23);
-            comboBoxBifeChorizo.TabIndex = 10;
-            // 
-            // comboBoxPollo
-            // 
-            comboBoxPollo.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxPollo.FormattingEnabled = true;
-            comboBoxPollo.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
-            comboBoxPollo.Location = new Point(321, 307);
-            comboBoxPollo.Name = "comboBoxPollo";
-            comboBoxPollo.Size = new Size(121, 23);
-            comboBoxPollo.TabIndex = 11;
-            // 
-            // groupBoxCortesCarne
-            // 
-            groupBoxCortesCarne.Controls.Add(labelPollo);
-            groupBoxCortesCarne.Controls.Add(labelBifeChorizo);
-            groupBoxCortesCarne.Controls.Add(labelChorizo);
-            groupBoxCortesCarne.Controls.Add(labelMatambre);
-            groupBoxCortesCarne.Controls.Add(labelVacio);
-            groupBoxCortesCarne.Controls.Add(labelAsado);
-            groupBoxCortesCarne.Controls.Add(label2);
-            groupBoxCortesCarne.Controls.Add(label1);
-            groupBoxCortesCarne.Controls.Add(comboBoxPollo);
-            groupBoxCortesCarne.Controls.Add(comboBoxBifeChorizo);
-            groupBoxCortesCarne.Controls.Add(comboBoxChorizo);
-            groupBoxCortesCarne.Controls.Add(comboBoxMatambre);
-            groupBoxCortesCarne.Controls.Add(comboBoxVacio);
-            groupBoxCortesCarne.Controls.Add(comboBoxAsado);
-            groupBoxCortesCarne.Controls.Add(checkBoxPollo);
-            groupBoxCortesCarne.Controls.Add(checkBoxBifeChorizo);
-            groupBoxCortesCarne.Controls.Add(checkBoxMatambre);
-            groupBoxCortesCarne.Controls.Add(checkBoxChorizo);
-            groupBoxCortesCarne.Controls.Add(checkBoxVacio);
-            groupBoxCortesCarne.Controls.Add(checkBoxAsado);
-            groupBoxCortesCarne.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBoxCortesCarne.Location = new Point(12, 12);
-            groupBoxCortesCarne.Name = "groupBoxCortesCarne";
-            groupBoxCortesCarne.Size = new Size(563, 373);
-            groupBoxCortesCarne.TabIndex = 12;
-            groupBoxCortesCarne.TabStop = false;
-            groupBoxCortesCarne.Text = "Selecciona corte y cantidad de kilos que desee comprar";
-            // 
-            // labelPollo
-            // 
-            labelPollo.AutoSize = true;
-            labelPollo.Location = new Point(491, 315);
-            labelPollo.Name = "labelPollo";
-            labelPollo.Size = new Size(35, 15);
-            labelPollo.TabIndex = 20;
-            labelPollo.Text = "1200";
-            // 
-            // labelBifeChorizo
-            // 
-            labelBifeChorizo.AutoSize = true;
-            labelBifeChorizo.Location = new Point(491, 268);
-            labelBifeChorizo.Name = "labelBifeChorizo";
-            labelBifeChorizo.Size = new Size(35, 15);
-            labelBifeChorizo.TabIndex = 19;
-            labelBifeChorizo.Text = "2000";
-            // 
-            // labelChorizo
-            // 
-            labelChorizo.AutoSize = true;
-            labelChorizo.Location = new Point(491, 221);
-            labelChorizo.Name = "labelChorizo";
-            labelChorizo.Size = new Size(35, 15);
-            labelChorizo.TabIndex = 18;
-            labelChorizo.Text = "1000";
-            // 
-            // labelMatambre
-            // 
-            labelMatambre.AutoSize = true;
-            labelMatambre.Location = new Point(491, 174);
-            labelMatambre.Name = "labelMatambre";
-            labelMatambre.Size = new Size(35, 15);
-            labelMatambre.TabIndex = 17;
-            labelMatambre.Text = "1400";
-            // 
-            // labelVacio
-            // 
-            labelVacio.AutoSize = true;
-            labelVacio.Location = new Point(491, 127);
-            labelVacio.Name = "labelVacio";
-            labelVacio.Size = new Size(35, 15);
-            labelVacio.TabIndex = 16;
-            labelVacio.Text = "1500";
-            // 
-            // labelAsado
-            // 
-            labelAsado.AutoSize = true;
-            labelAsado.Location = new Point(491, 80);
-            labelAsado.Name = "labelAsado";
-            labelAsado.Size = new Size(35, 15);
-            labelAsado.TabIndex = 15;
-            labelAsado.Text = "1300";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(349, 25);
-            label2.Name = "label2";
-            label2.Size = new Size(37, 28);
-            label2.TabIndex = 14;
-            label2.Text = "Kg";
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(buttonAceptarDineroDisponible);
+            groupBox1.Controls.Add(textBoxDineroDisponible);
+            groupBox1.Location = new Point(54, 76);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(259, 146);
+            groupBox1.TabIndex = 3;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Ingresar dinero disponible para comprar";
+            groupBox1.Enter += groupBox1_Enter;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(74, 25);
+            label1.Location = new Point(33, 73);
             label1.Name = "label1";
-            label1.Size = new Size(73, 28);
-            label1.TabIndex = 13;
-            label1.Text = "Cortes";
+            label1.Size = new Size(157, 15);
+            label1.TabIndex = 4;
+            label1.Text = "Min dinero para cargar: 1000";
+            // 
+            // buttonAceptarDineroDisponible
+            // 
+            buttonAceptarDineroDisponible.Location = new Point(165, 105);
+            buttonAceptarDineroDisponible.Name = "buttonAceptarDineroDisponible";
+            buttonAceptarDineroDisponible.Size = new Size(75, 23);
+            buttonAceptarDineroDisponible.TabIndex = 3;
+            buttonAceptarDineroDisponible.Text = "Agregar dinero";
+            buttonAceptarDineroDisponible.UseVisualStyleBackColor = true;
+            buttonAceptarDineroDisponible.Click += buttonAceptarDineroDisponible_Click;
+            // 
+            // numericUpDownKilosAsado
+            // 
+            numericUpDownKilosAsado.Location = new Point(544, 282);
+            numericUpDownKilosAsado.Maximum = new decimal(new int[] { 150, 0, 0, 0 });
+            numericUpDownKilosAsado.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDownKilosAsado.Name = "numericUpDownKilosAsado";
+            numericUpDownKilosAsado.Size = new Size(48, 23);
+            numericUpDownKilosAsado.TabIndex = 17;
+            numericUpDownKilosAsado.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // labelDatos
+            // 
+            labelDatos.AutoSize = true;
+            labelDatos.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            labelDatos.Location = new Point(52, 42);
+            labelDatos.Name = "labelDatos";
+            labelDatos.Size = new Size(48, 20);
+            labelDatos.TabIndex = 19;
+            labelDatos.Text = "Datos";
+            labelDatos.Click += labelDatos_Click;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(labelDatos);
+            groupBox2.Location = new Point(54, 243);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(249, 185);
+            groupBox2.TabIndex = 20;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Stock de la carniceria";
+            // 
+            // checkedListBox1
+            // 
+            checkedListBox1.BackColor = SystemColors.Menu;
+            checkedListBox1.BorderStyle = BorderStyle.None;
+            checkedListBox1.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            checkedListBox1.FormattingEnabled = true;
+            checkedListBox1.Items.AddRange(new object[] { "Asado", "Vacio", "Matambre", "Chorizo" });
+            checkedListBox1.Location = new Point(403, 282);
+            checkedListBox1.Name = "checkedListBox1";
+            checkedListBox1.Size = new Size(121, 104);
+            checkedListBox1.TabIndex = 21;
+            // 
+            // numericUpDownKilosVacio
+            // 
+            numericUpDownKilosVacio.Location = new Point(544, 311);
+            numericUpDownKilosVacio.Maximum = new decimal(new int[] { 150, 0, 0, 0 });
+            numericUpDownKilosVacio.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDownKilosVacio.Name = "numericUpDownKilosVacio";
+            numericUpDownKilosVacio.Size = new Size(48, 23);
+            numericUpDownKilosVacio.TabIndex = 22;
+            numericUpDownKilosVacio.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // numericUpDownKilosMatambre
+            // 
+            numericUpDownKilosMatambre.Location = new Point(544, 340);
+            numericUpDownKilosMatambre.Maximum = new decimal(new int[] { 150, 0, 0, 0 });
+            numericUpDownKilosMatambre.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDownKilosMatambre.Name = "numericUpDownKilosMatambre";
+            numericUpDownKilosMatambre.Size = new Size(48, 23);
+            numericUpDownKilosMatambre.TabIndex = 23;
+            numericUpDownKilosMatambre.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // numericUpDownKilosChorizo
+            // 
+            numericUpDownKilosChorizo.Location = new Point(544, 369);
+            numericUpDownKilosChorizo.Maximum = new decimal(new int[] { 150, 0, 0, 0 });
+            numericUpDownKilosChorizo.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDownKilosChorizo.Name = "numericUpDownKilosChorizo";
+            numericUpDownKilosChorizo.Size = new Size(48, 23);
+            numericUpDownKilosChorizo.TabIndex = 24;
+            numericUpDownKilosChorizo.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(464, 254);
+            label2.Name = "label2";
+            label2.Size = new Size(168, 20);
+            label2.TabIndex = 25;
+            label2.Text = "Seleccionar corte y kilos";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(578, 405);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 26;
+            button1.Text = "Comprar";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonEfectivo
+            // 
+            radioButtonEfectivo.AutoSize = true;
+            radioButtonEfectivo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            radioButtonEfectivo.Location = new Point(6, 53);
+            radioButtonEfectivo.Name = "radioButtonEfectivo";
+            radioButtonEfectivo.Size = new Size(82, 25);
+            radioButtonEfectivo.TabIndex = 27;
+            radioButtonEfectivo.TabStop = true;
+            radioButtonEfectivo.Text = "Efectivo";
+            radioButtonEfectivo.UseVisualStyleBackColor = true;
+            radioButtonEfectivo.CheckedChanged += radioButtonEfectivo_CheckedChanged;
+            // 
+            // radioButtonTarjeta
+            // 
+            radioButtonTarjeta.AutoSize = true;
+            radioButtonTarjeta.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            radioButtonTarjeta.Location = new Point(6, 22);
+            radioButtonTarjeta.Name = "radioButtonTarjeta";
+            radioButtonTarjeta.Size = new Size(73, 25);
+            radioButtonTarjeta.TabIndex = 28;
+            radioButtonTarjeta.TabStop = true;
+            radioButtonTarjeta.Text = "Tarjeta";
+            radioButtonTarjeta.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(label3);
+            groupBox3.Controls.Add(radioButtonTarjeta);
+            groupBox3.Controls.Add(radioButtonEfectivo);
+            groupBox3.Location = new Point(425, 76);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(198, 88);
+            groupBox3.TabIndex = 30;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "MEDIOS DE PAGO";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(85, 29);
+            label3.Name = "label3";
+            label3.Size = new Size(102, 15);
+            label3.TabIndex = 29;
+            label3.Text = "tarjeta 5% recargo";
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(label4pPrecioDisponibleIngresado);
+            groupBox4.Location = new Point(425, 181);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(155, 56);
+            groupBox4.TabIndex = 31;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "DINERO INGRESADO";
+            // 
+            // label4pPrecioDisponibleIngresado
+            // 
+            label4pPrecioDisponibleIngresado.AutoSize = true;
+            label4pPrecioDisponibleIngresado.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label4pPrecioDisponibleIngresado.Location = new Point(20, 19);
+            label4pPrecioDisponibleIngresado.Name = "label4pPrecioDisponibleIngresado";
+            label4pPrecioDisponibleIngresado.Size = new Size(67, 28);
+            label4pPrecioDisponibleIngresado.TabIndex = 32;
+            label4pPrecioDisponibleIngresado.Text = "00000";
             // 
             // FrmComprador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(groupBoxCortesCarne);
+            Controls.Add(groupBox4);
+            Controls.Add(groupBox3);
+            Controls.Add(button1);
+            Controls.Add(groupBox2);
+            Controls.Add(label2);
+            Controls.Add(numericUpDownKilosChorizo);
+            Controls.Add(numericUpDownKilosMatambre);
+            Controls.Add(numericUpDownKilosVacio);
+            Controls.Add(checkedListBox1);
+            Controls.Add(numericUpDownKilosAsado);
+            Controls.Add(groupBox1);
+            Controls.Add(labelBienvenido);
             Name = "FrmComprador";
             Text = "FrmComprador";
-            groupBoxCortesCarne.ResumeLayout(false);
-            groupBoxCortesCarne.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownKilosAsado).EndInit();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownKilosVacio).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownKilosMatambre).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownKilosChorizo).EndInit();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private CheckBox checkBoxAsado;
-        private CheckBox checkBoxVacio;
-        private CheckBox checkBoxChorizo;
-        private CheckBox checkBoxMatambre;
-        private CheckBox checkBoxBifeChorizo;
-        private CheckBox checkBoxPollo;
-        private ComboBox comboBoxAsado;
-        private ComboBox comboBoxVacio;
-        private ComboBox comboBoxMatambre;
-        private ComboBox comboBoxChorizo;
-        private ComboBox comboBoxBifeChorizo;
-        private ComboBox comboBoxPollo;
-        private GroupBox groupBoxCortesCarne;
-        private Label labelPollo;
-        private Label labelBifeChorizo;
-        private Label labelChorizo;
-        private Label labelMatambre;
-        private Label labelVacio;
         private Label label3Asado;
-        private Label label2;
+        private Label labelBienvenido;
+        private TextBox textBoxDineroDisponible;
+        private GroupBox groupBox1;
+        private Button buttonAceptarDineroDisponible;
         private Label label1;
-        private Label labelAsado;
+        private NumericUpDown numericUpDownKilosAsado;
+        private Label labelDatos;
+        private GroupBox groupBox2;
+        private CheckedListBox checkedListBox1;
+        private NumericUpDown numericUpDownKilosVacio;
+        private NumericUpDown numericUpDownKilosMatambre;
+        private NumericUpDown numericUpDownKilosChorizo;
+        private Label label2;
+        private Button button1;
+        private RadioButton radioButton1;
+        private RadioButton radioButton2;
+        private RadioButton radioButtonEfectivo;
+        private RadioButton radioButtonTarjeta;
+        private GroupBox groupBox3;
+        private Label label3;
+        private GroupBox groupBox4;
+        private Label label4pPrecioDisponibleIngresado;
     }
 }

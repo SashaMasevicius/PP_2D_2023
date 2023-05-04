@@ -18,8 +18,10 @@ namespace FrmCarniceria
     public partial class FrmVendedor : Form
     {
         List<Producto> listaDeProductos;
+        List<Comprador> miListaDeCompradoresFijos;
         Vendedor vendedor;
         Heladera miHeladera;
+        string msj;
 
         public FrmVendedor()
         {
@@ -35,15 +37,15 @@ namespace FrmCarniceria
 
             //harcodeo productos para agregar a la heladera
 
-            Producto prodUno = new Producto(eCarne.Asado, 20, 2000);
-            Producto prodDos = new Producto(eCarne.Vacio, 15, 2200);
-            Producto prodTres = new Producto(eCarne.Matambre, 10, 2500);
-            Producto prodCuatro = new Producto(eCarne.Chorizo, 0, 1500);
+            Producto prodUno = new Producto(eCarne.Asado, 100, 2000);
+            Producto prodDos = new Producto(eCarne.Vacio, 150, 2200);
+            Producto prodTres = new Producto(eCarne.Matambre, 120, 2500);
+            Producto prodCuatro = new Producto(eCarne.Chorizo, 40, 1500);
 
 
             //creo una lista del tipo producto
 
-           listaDeProductos = new List<Producto>();
+            listaDeProductos = new List<Producto>();
             listaDeProductos.Add(prodUno);
             listaDeProductos.Add(prodDos);
             listaDeProductos.Add(prodTres);
@@ -55,143 +57,98 @@ namespace FrmCarniceria
             Comprador miCompradorFijoDos = new Comprador("restauranteAleman@gmail.com", "AAAA", "Restaurante Aleman");
             Comprador miCompradorFijoTres = new Comprador("restauranteVenezolano@gmail.com", "ABCD", "Restaurante Venezolano");
 
+            miListaDeCompradoresFijos = new List<Comprador>();
+            miListaDeCompradoresFijos.Add(miCompradorFijoUno);
+            miListaDeCompradoresFijos.Add(miCompradorFijoDos);
+            miListaDeCompradoresFijos.Add(miCompradorFijoTres);
+
 
             //instancio el objeto heladera
 
-            miHeladera = new Heladera(listaDeProductos);
+            miHeladera = new Heladera(listaDeProductos, miListaDeCompradoresFijos);
 
 
             // creo label con informacion
-           this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
+            this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
 
         }
         private void textBoxAgregarCorte_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
 
-        
+        //boton agregar kg
         private void button1_Click(object sender, EventArgs e)
         {
 
 
             int indexCorte = this.comboBoxNuevoCorte.SelectedIndex;
             int cantidadKilosSeleccionado = (int)numericUpDownKilos.Value;
-
             miHeladera.AgregarKilosPorCorteSeleccionado(indexCorte, cantidadKilosSeleccionado);
-
-
-            this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();asdasdasdad
+            this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
 
         }
 
-             
+
 
         private void button3_Click(object sender, EventArgs e)
         {
-            // MessageBox.Show(Heladera.mostrarDetalleDeProductos());
-            //MessageBox.Show(mostrarDetalleDeProductos());
+            this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
 
-           
         }
 
+
+        // bootton cambiar precio
         private void button2_Click(object sender, EventArgs e)
         {
-            double nuevoPrecioElegido = double.Parse(this.textBoxPrecio.Text);
+            string precioValidador = this.textBoxPrecio.Text;
+            double nuevoPrecioElegido;
+            bool boolNuevoPrecioNoString = double.TryParse(precioValidador, out nuevoPrecioElegido);
             int indiceCorteCarne = this.comboBoxCortePrecio.SelectedIndex;
 
-    
-
-     
-       
-
-           /// this.labelDetalles.Text = mostrarDetalleDeProductos();
-
-
+            if (boolNuevoPrecioNoString) // valido si no ess strring
+            {
+                if (nuevoPrecioElegido > 0)
+                {
+                    miHeladera.cambiarPrecioDelCorte(indiceCorteCarne, nuevoPrecioElegido);
+                }
+                else
+                {
+                    MessageBox.Show("El numero es incorrecto");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No ingresaste ningun numero");
+            }
+            this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
         }
 
-  
+
         private void buttonVenderListaDeClientes_Click(object sender, EventArgs e)
         {
-            //int indiceRestaurante = this.comboBoxRestaurante.SelectedIndex;
-            //int indiceCorteCarne = this.comboBoxCortesVenta.SelectedIndex;
-            //int kilosElegidos = (int)this.numericUpDownKilosVenta.Value;
-            //double precioDeVenta;
+            int indiceComprador = this.comboBoxRestaurante.SelectedIndex;
+            int indiceCorteCarne = this.comboBoxCortesVenta.SelectedIndex;
+            int kilosVendidos = (int)this.numericUpDownKilosVenta.Value;
 
-            //switch (indiceRestaurante)
-            //{
-            //    case 0:
-            //        switch (indiceCorteCarne)
-            //        {
-            //            case 0:
-            //                miAcumuladorDeKilos.AcumuladorKilosAsado = miAcumuladorDeKilos.AcumuladorKilosAsado - kilosElegidos;
-            //                precioDeVenta = kilosElegidos * miNuevoPrecio.NuevoPrecioAsado;
-            //                MessageBox.Show($"Vendiste {kilosElegidos} kilos de asado al Restaurante Madero, precio de venta : {precioDeVenta}");
-            //                break;
-            //            case 1:
-            //                miAcumuladorDeKilos.AcumuladorKilosVacio = miAcumuladorDeKilos.AcumuladorKilosVacio - kilosElegidos;
-            //                precioDeVenta = kilosElegidos * miNuevoPrecio.NuevoPrecioVacio;
-            //                break;
-            //            case 2:
-            //                miAcumuladorDeKilos.AcumuladorKilosMatambre = miAcumuladorDeKilos.AcumuladorKilosMatambre - kilosElegidos;
-            //                precioDeVenta = kilosElegidos * miNuevoPrecio.NuevoPrecioMatambre;
-            //                break;
-            //            case 3:
-            //                miAcumuladorDeKilos.AcumuladorKilosChorizo = miAcumuladorDeKilos.AcumuladorKilosChorizo - kilosElegidos;
-            //                precioDeVenta = kilosElegidos * miNuevoPrecio.NuevoPrecioChorizo;
-            //                break;
-            //        }
-            //        break;
-            //    case 1:
-            //        switch (indiceCorteCarne)
-            //        {
-            //            case 0:
-            //                miAcumuladorDeKilos.AcumuladorKilosAsado = miAcumuladorDeKilos.AcumuladorKilosAsado - kilosElegidos;
-            //                precioDeVenta = kilosElegidos * miNuevoPrecio.NuevoPrecioAsado;
+            // muesro msjs y modifico datos de kg
+            MessageBox.Show(miHeladera.recorrerVendedoresSelecionadosYGuardarMensaje(indiceComprador, indiceCorteCarne, kilosVendidos));            
 
-            //                break;
-            //            case 1:
-            //                miAcumuladorDeKilos.AcumuladorKilosVacio = miAcumuladorDeKilos.AcumuladorKilosVacio - kilosElegidos;
-            //                precioDeVenta = kilosElegidos * miNuevoPrecio.NuevoPrecioVacio;
-            //                break;
-            //            case 2:
-            //                miAcumuladorDeKilos.AcumuladorKilosMatambre = miAcumuladorDeKilos.AcumuladorKilosMatambre - kilosElegidos;
-            //                precioDeVenta = kilosElegidos * miNuevoPrecio.NuevoPrecioMatambre;
-            //                break;
-            //            case 3:
-            //                miAcumuladorDeKilos.AcumuladorKilosChorizo = miAcumuladorDeKilos.AcumuladorKilosChorizo - kilosElegidos;
-            //                precioDeVenta = kilosElegidos * miNuevoPrecio.NuevoPrecioChorizo;
 
-            //                break;
-            //        }
-            //        break;
-            //    case 2:
-            //        switch (indiceCorteCarne)
-            //        {
-            //            case 0:
-            //                miAcumuladorDeKilos.AcumuladorKilosAsado = miAcumuladorDeKilos.AcumuladorKilosAsado - kilosElegidos;
-            //                precioDeVenta = kilosElegidos * miNuevoPrecio.NuevoPrecioAsado;
-            //                break;
-            //            case 1:
-            //                miAcumuladorDeKilos.AcumuladorKilosVacio = miAcumuladorDeKilos.AcumuladorKilosVacio - kilosElegidos;
-            //                precioDeVenta = kilosElegidos * miNuevoPrecio.NuevoPrecioVacio;
-            //                break;
-            //            case 2:
-            //                miAcumuladorDeKilos.AcumuladorKilosMatambre = miAcumuladorDeKilos.AcumuladorKilosMatambre - kilosElegidos;
-            //                precioDeVenta = kilosElegidos * miNuevoPrecio.NuevoPrecioMatambre;
-            //                break;
-            //            case 3:
-            //                miAcumuladorDeKilos.AcumuladorKilosChorizo = miAcumuladorDeKilos.AcumuladorKilosChorizo - kilosElegidos;
-            //                precioDeVenta = kilosElegidos * miNuevoPrecio.NuevoPrecioChorizo;
-            //                break;
-            //        }
-            //        break;
-            //}
-            //this.labelDetalles.Text = mostrarDetalleDeProductos();
+            this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
+      
+
+         
+
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmVendedor_Load(object sender, EventArgs e)
         {
 
         }
