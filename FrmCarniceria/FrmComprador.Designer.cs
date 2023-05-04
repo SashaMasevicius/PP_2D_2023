@@ -41,13 +41,16 @@
             numericUpDownKilosMatambre = new NumericUpDown();
             numericUpDownKilosChorizo = new NumericUpDown();
             label2 = new Label();
-            button1 = new Button();
+            buttonComprar = new Button();
             radioButtonEfectivo = new RadioButton();
             radioButtonTarjeta = new RadioButton();
             groupBox3 = new GroupBox();
+            buttonAgregarMedioDePago = new Button();
             label3 = new Label();
-            groupBox4 = new GroupBox();
-            label4pPrecioDisponibleIngresado = new Label();
+            groupBoxDineroIngresado = new GroupBox();
+            labelpPrecioDisponibleIngresado = new Label();
+            groupBoxMedioDePago = new GroupBox();
+            labelMedioDePago = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosAsado).BeginInit();
             groupBox2.SuspendLayout();
@@ -55,7 +58,8 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosMatambre).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosChorizo).BeginInit();
             groupBox3.SuspendLayout();
-            groupBox4.SuspendLayout();
+            groupBoxDineroIngresado.SuspendLayout();
+            groupBoxMedioDePago.SuspendLayout();
             SuspendLayout();
             // 
             // labelBienvenido
@@ -75,7 +79,6 @@
             textBoxDineroDisponible.Location = new Point(17, 42);
             textBoxDineroDisponible.Name = "textBoxDineroDisponible";
             textBoxDineroDisponible.PlaceholderText = "Ingresar solo numeros";
-            textBoxDineroDisponible.ReadOnly = true;
             textBoxDineroDisponible.Size = new Size(191, 23);
             textBoxDineroDisponible.TabIndex = 2;
             // 
@@ -151,7 +154,7 @@
             checkedListBox1.Items.AddRange(new object[] { "Asado", "Vacio", "Matambre", "Chorizo" });
             checkedListBox1.Location = new Point(403, 282);
             checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(121, 104);
+            checkedListBox1.Size = new Size(121, 108);
             checkedListBox1.TabIndex = 21;
             // 
             // numericUpDownKilosVacio
@@ -194,14 +197,15 @@
             label2.TabIndex = 25;
             label2.Text = "Seleccionar corte y kilos";
             // 
-            // button1
+            // buttonComprar
             // 
-            button1.Location = new Point(578, 405);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 26;
-            button1.Text = "Comprar";
-            button1.UseVisualStyleBackColor = true;
+            buttonComprar.Location = new Point(578, 405);
+            buttonComprar.Name = "buttonComprar";
+            buttonComprar.Size = new Size(75, 23);
+            buttonComprar.TabIndex = 26;
+            buttonComprar.Text = "Comprar";
+            buttonComprar.UseVisualStyleBackColor = true;
+            buttonComprar.Click += button1_Click;
             // 
             // radioButtonEfectivo
             // 
@@ -219,6 +223,7 @@
             // radioButtonTarjeta
             // 
             radioButtonTarjeta.AutoSize = true;
+            radioButtonTarjeta.BackColor = SystemColors.Control;
             radioButtonTarjeta.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             radioButtonTarjeta.Location = new Point(6, 22);
             radioButtonTarjeta.Name = "radioButtonTarjeta";
@@ -226,19 +231,30 @@
             radioButtonTarjeta.TabIndex = 28;
             radioButtonTarjeta.TabStop = true;
             radioButtonTarjeta.Text = "Tarjeta";
-            radioButtonTarjeta.UseVisualStyleBackColor = true;
+            radioButtonTarjeta.UseVisualStyleBackColor = false;
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(buttonAgregarMedioDePago);
             groupBox3.Controls.Add(label3);
             groupBox3.Controls.Add(radioButtonTarjeta);
             groupBox3.Controls.Add(radioButtonEfectivo);
-            groupBox3.Location = new Point(425, 76);
+            groupBox3.Location = new Point(425, 47);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(198, 88);
+            groupBox3.Size = new Size(198, 117);
             groupBox3.TabIndex = 30;
             groupBox3.TabStop = false;
             groupBox3.Text = "MEDIOS DE PAGO";
+            // 
+            // buttonAgregarMedioDePago
+            // 
+            buttonAgregarMedioDePago.Location = new Point(18, 78);
+            buttonAgregarMedioDePago.Name = "buttonAgregarMedioDePago";
+            buttonAgregarMedioDePago.Size = new Size(169, 23);
+            buttonAgregarMedioDePago.TabIndex = 30;
+            buttonAgregarMedioDePago.Text = "Agregar medio de pago";
+            buttonAgregarMedioDePago.UseVisualStyleBackColor = true;
+            buttonAgregarMedioDePago.Click += buttonAgregarMedioDePago_Click;
             // 
             // label3
             // 
@@ -249,34 +265,55 @@
             label3.TabIndex = 29;
             label3.Text = "tarjeta 5% recargo";
             // 
-            // groupBox4
+            // groupBoxDineroIngresado
             // 
-            groupBox4.Controls.Add(label4pPrecioDisponibleIngresado);
-            groupBox4.Location = new Point(425, 181);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(155, 56);
-            groupBox4.TabIndex = 31;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "DINERO INGRESADO";
+            groupBoxDineroIngresado.Controls.Add(labelpPrecioDisponibleIngresado);
+            groupBoxDineroIngresado.Location = new Point(394, 181);
+            groupBoxDineroIngresado.Name = "groupBoxDineroIngresado";
+            groupBoxDineroIngresado.Size = new Size(164, 56);
+            groupBoxDineroIngresado.TabIndex = 31;
+            groupBoxDineroIngresado.TabStop = false;
+            groupBoxDineroIngresado.Text = "DINERO INGRESADO";
             // 
-            // label4pPrecioDisponibleIngresado
+            // labelpPrecioDisponibleIngresado
             // 
-            label4pPrecioDisponibleIngresado.AutoSize = true;
-            label4pPrecioDisponibleIngresado.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label4pPrecioDisponibleIngresado.Location = new Point(20, 19);
-            label4pPrecioDisponibleIngresado.Name = "label4pPrecioDisponibleIngresado";
-            label4pPrecioDisponibleIngresado.Size = new Size(67, 28);
-            label4pPrecioDisponibleIngresado.TabIndex = 32;
-            label4pPrecioDisponibleIngresado.Text = "00000";
+            labelpPrecioDisponibleIngresado.AutoSize = true;
+            labelpPrecioDisponibleIngresado.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            labelpPrecioDisponibleIngresado.Location = new Point(9, 19);
+            labelpPrecioDisponibleIngresado.Name = "labelpPrecioDisponibleIngresado";
+            labelpPrecioDisponibleIngresado.Size = new Size(157, 28);
+            labelpPrecioDisponibleIngresado.TabIndex = 32;
+            labelpPrecioDisponibleIngresado.Text = "No ha ingresado";
+            // 
+            // groupBoxMedioDePago
+            // 
+            groupBoxMedioDePago.Controls.Add(labelMedioDePago);
+            groupBoxMedioDePago.Location = new Point(564, 181);
+            groupBoxMedioDePago.Name = "groupBoxMedioDePago";
+            groupBoxMedioDePago.Size = new Size(166, 56);
+            groupBoxMedioDePago.TabIndex = 32;
+            groupBoxMedioDePago.TabStop = false;
+            groupBoxMedioDePago.Text = "MEDIO DE PAGO";
+            // 
+            // labelMedioDePago
+            // 
+            labelMedioDePago.AutoSize = true;
+            labelMedioDePago.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            labelMedioDePago.Location = new Point(0, 19);
+            labelMedioDePago.Name = "labelMedioDePago";
+            labelMedioDePago.Size = new Size(167, 25);
+            labelMedioDePago.TabIndex = 32;
+            labelMedioDePago.Text = "No ha seleccionado";
             // 
             // FrmComprador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(groupBox4);
+            Controls.Add(groupBoxMedioDePago);
+            Controls.Add(groupBoxDineroIngresado);
             Controls.Add(groupBox3);
-            Controls.Add(button1);
+            Controls.Add(buttonComprar);
             Controls.Add(groupBox2);
             Controls.Add(label2);
             Controls.Add(numericUpDownKilosChorizo);
@@ -288,6 +325,7 @@
             Controls.Add(labelBienvenido);
             Name = "FrmComprador";
             Text = "FrmComprador";
+            Load += FrmComprador_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosAsado).EndInit();
@@ -298,8 +336,10 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosChorizo).EndInit();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
-            groupBox4.ResumeLayout(false);
-            groupBox4.PerformLayout();
+            groupBoxDineroIngresado.ResumeLayout(false);
+            groupBoxDineroIngresado.PerformLayout();
+            groupBoxMedioDePago.ResumeLayout(false);
+            groupBoxMedioDePago.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -326,7 +366,11 @@
         private RadioButton radioButtonTarjeta;
         private GroupBox groupBox3;
         private Label label3;
-        private GroupBox groupBox4;
-        private Label label4pPrecioDisponibleIngresado;
+        private GroupBox groupBoxDineroIngresado;
+        private Label labelpPrecioDisponibleIngresado;
+        private Button buttonAgregarMedioDePago;
+        private GroupBox groupBoxMedioDePago;
+        private Label labelMedioDePago;
+        private Button buttonComprar;
     }
 }

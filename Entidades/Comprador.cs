@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entidades
+﻿namespace Entidades
 {
     public class Comprador : Usuario
     {
@@ -12,13 +6,13 @@ namespace Entidades
 
         float dineroMaximoDisponible;
         string nombreComprador;
-        
+
 
         //Constructor
 
         public Comprador(string email, string contrasenia) : base(email, contrasenia)
         {
-            
+
         }
         //Genero constructor para clientes, la cual el vendedor podra acceder, ver su nombre y realizarle ventas
         public Comprador(string email, string contrasenia, string nombreComprador) : base(email, contrasenia)
@@ -26,10 +20,10 @@ namespace Entidades
 
         }
 
-        public float DineroMaximoDisponible 
-        { 
-            get => dineroMaximoDisponible; 
-            set => dineroMaximoDisponible = value; 
+        public float DineroMaximoDisponible
+        {
+            get => dineroMaximoDisponible;
+            set => dineroMaximoDisponible = value;
         }
         public string NombreComprador { get => nombreComprador; set => nombreComprador = value; }
 
@@ -50,7 +44,7 @@ namespace Entidades
             string precioValidador = precioIngresado;
             double nuevoPrecioElegido;
             bool boolNuevoPrecioNoString = double.TryParse(precioValidador, out nuevoPrecioElegido);
-            
+
             if (boolNuevoPrecioNoString) // valido si no ess strring
             {
                 if (nuevoPrecioElegido >= 1000)
@@ -70,7 +64,24 @@ namespace Entidades
             return -1;
         }
 
-    }
+        // si elige tarjeta retorna 1 efectivo 2 
+        public static int ObtenerFormaDePago(bool tarjeta, bool efectivo)
+        {
+            if (tarjeta == true)
+            {
+                return 1;
+            }
+            if (efectivo == true)
+            {
+                return 2;
+            }
+            return -1;
+        }
+
+
+
+
+    } //fin
 
 
 }

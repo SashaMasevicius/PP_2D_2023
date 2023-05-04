@@ -15,6 +15,8 @@ namespace FrmCarniceria
     {
         Comprador miComprador;
         Heladera miHeladera;
+        bool validarPrecioParaComprar;
+        bool validarMedioDePagoParaComprar;
 
         public FrmComprador()
         {
@@ -54,13 +56,14 @@ namespace FrmCarniceria
         }
 
         /// <summary>
-        /// Boton para obtener valor del dinero que ingresa el usuario para realizar compras
+        /// Boton para ingresar dinero y mostrar mensaje, el monto queda guardado en la pantalla para que sea visible al usuario
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void buttonAceptarDineroDisponible_Click(object sender, EventArgs e)
         {
             string montoDisponibleStr = textBoxDineroDisponible.Text;
+            double montoDisponible;
 
             if (Comprador.validarPrecioDisponible(montoDisponibleStr) == -1)
             {
@@ -68,12 +71,50 @@ namespace FrmCarniceria
             }
             else
             {
-                double montoDisponible = Comprador.validarPrecioDisponible(montoDisponibleStr);
+                montoDisponible = Comprador.validarPrecioDisponible(montoDisponibleStr);
                 MessageBox.Show($"Tu dinero disponible es : {montoDisponible}");
+                labelpPrecioDisponibleIngresado.Text = montoDisponibleStr + "$";
+                validarPrecioParaComprar = true;
+
             }
 
 
         }
+
+        // Boton para ingresar medio de pago y mostrar mensaje, el monto queda guardado en la pantalla para que sea visible al usuario
+        private void buttonAgregarMedioDePago_Click(object sender, EventArgs e)
+        {
+            bool tarjeta = radioButtonTarjeta.Checked;
+            bool efectivo = radioButtonEfectivo.Checked;
+
+
+            if (Comprador.ObtenerFormaDePago(tarjeta, efectivo) == 1)
+            {
+                MessageBox.Show("El medio de pago elegido es: TARJETA");
+                this.labelMedioDePago.Text = "TARJETA";
+                validarMedioDePagoParaComprar = true;
+            }
+            else if (Comprador.ObtenerFormaDePago(tarjeta, efectivo) == 2)
+            {
+                MessageBox.Show("El medio de pago elegido es: EFECTIVO");
+                this.labelMedioDePago.Text = "EFECTIVO";
+                validarMedioDePagoParaComprar = true;
+            }
+
+
+
+        }
+
+        //boton comprar
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(validarPrecioParaComprar == false && validarMedioDePagoParaComprar == false)
+            {
+                MessageBox.Show("ERROR: Debe ingresar monto y medio de pago para poder realizar la compra");
+            }
+        }
+
+
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -94,5 +135,12 @@ namespace FrmCarniceria
         {
 
         }
+
+        private void FrmComprador_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
