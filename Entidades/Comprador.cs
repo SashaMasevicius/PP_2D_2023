@@ -64,7 +64,6 @@
             return -1;
         }
 
-        // si elige tarjeta retorna 1 efectivo 2 
         public static int ObtenerFormaDePago(bool tarjeta, bool efectivo)
         {
             if (tarjeta == true)
@@ -77,8 +76,6 @@
             }
             return -1;
         }
-
-
 
 
     } //fin

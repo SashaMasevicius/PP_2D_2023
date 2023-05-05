@@ -18,7 +18,7 @@ namespace FrmCarniceria
     public partial class FrmVendedor : Form
     {
         List<Producto> listaDeProductos;
-        List<Comprador> miListaDeCompradoresFijos;
+        
         Vendedor vendedor;
         Heladera miHeladera;
         string msj;
@@ -31,7 +31,7 @@ namespace FrmCarniceria
         {
             this.vendedor = miVendedor;
             MessageBox.Show($"Bienvenido {this.vendedor.Email}");
-
+            
 
 
 
@@ -53,19 +53,23 @@ namespace FrmCarniceria
 
             //instancio y creo lista de clientes habituales a las cuales el vendedor puede acceder y vender
             // CAMBIAR ESTO??
-            Comprador miCompradorFijoUno = new Comprador("restauranteMadero@gmail.com", "1234", "Restaurante Madero");
-            Comprador miCompradorFijoDos = new Comprador("restauranteAleman@gmail.com", "AAAA", "Restaurante Aleman");
-            Comprador miCompradorFijoTres = new Comprador("restauranteVenezolano@gmail.com", "ABCD", "Restaurante Venezolano");
+            miVendedor.AgregarClientesALista("Restaurante Madero");
+            miVendedor.AgregarClientesALista("Restaurante Aleman");
+            miVendedor.AgregarClientesALista("Restaurante Venezolano");
+           
 
-            miListaDeCompradoresFijos = new List<Comprador>();
-            miListaDeCompradoresFijos.Add(miCompradorFijoUno);
-            miListaDeCompradoresFijos.Add(miCompradorFijoDos);
-            miListaDeCompradoresFijos.Add(miCompradorFijoTres);
+            //Comprador miCompradorFijoDos = new Comprador("restauranteAleman@gmail.com", "AAAA", "Restaurante Aleman");
+            //Comprador miCompradorFijoTres = new Comprador("restauranteVenezolano@gmail.com", "ABCD", "Restaurante Venezolano");
+
+            //miListaDeCompradoresFijos = new List<Comprador>();
+            //miListaDeCompradoresFijos.Add(miCompradorFijoUno);
+            //miListaDeCompradoresFijos.Add(miCompradorFijoDos);
+            //miListaDeCompradoresFijos.Add(miCompradorFijoTres);
 
 
             //instancio el objeto heladera
 
-            miHeladera = new Heladera(listaDeProductos, miListaDeCompradoresFijos);
+            miHeladera = new Heladera(listaDeProductos);
 
 
             // creo label con informacion
@@ -132,14 +136,18 @@ namespace FrmCarniceria
             int indiceCorteCarne = this.comboBoxCortesVenta.SelectedIndex;
             int kilosVendidos = (int)this.numericUpDownKilosVenta.Value;
 
-            // muesro msjs y modifico datos de kg
-            MessageBox.Show(miHeladera.recorrerVendedoresSelecionadosYGuardarMensaje(indiceComprador, indiceCorteCarne, kilosVendidos));            
+
+            MessageBox.Show(this.vendedor.RetornarMensajeCliente(miHeladera, indiceCorteCarne, kilosVendidos));
+            
+                
+            
 
 
-            this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
-      
+            //// muesro msjs y modifico datos de kg
+            //MessageBox.Show(miHeladera.recorrerCompradoresSelecionadosYGuardarMensaje(indiceComprador, indiceCorteCarne, kilosVendidos));            
 
-         
+                this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
+
 
         }
 

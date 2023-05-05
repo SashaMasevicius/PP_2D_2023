@@ -108,10 +108,37 @@ namespace FrmCarniceria
         //boton comprar
         private void button1_Click(object sender, EventArgs e)
         {
-            if(validarPrecioParaComprar == false && validarMedioDePagoParaComprar == false)
-            {
-                MessageBox.Show("ERROR: Debe ingresar monto y medio de pago para poder realizar la compra");
-            }
+            //int cortesIndice = this.checkedListBoxCortes.SelectedIndex;
+
+            //int kilosAsado = (int)this.numericUpDownKilosAsado.Value;
+            //int kilosVacio = (int)this.numericUpDownKilosAsado.Value;
+            //int kilosMatambre = (int)this.numericUpDownKilosAsado.Value;
+            //int kilosChorizo = (int)this.numericUpDownKilosAsado.Value;
+
+            //if (validarPrecioParaComprar == false && validarMedioDePagoParaComprar == false)
+            //{
+            //    MessageBox.Show("ERROR: Debe ingresar monto y medio de pago para poder realizar la compra");
+            //}
+            //else
+            //{
+            //    if (cortesIndice == 0) // asado
+            //    {
+            //        kilosAsado;
+            //    }
+            //    if (cortesIndice == 1) // asado
+            //    {
+            //        kilosVacio;
+            //    }
+            //    if ((cortesIndice) == 2) // asado
+            //    {
+            //        kilosMatambre;
+            //    }
+            //    if ((cortesIndice) == 3) // asado
+            //    {
+            //        kilosChorizo;
+            //    }
+            //}
+
         }
 
 

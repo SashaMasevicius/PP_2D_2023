@@ -11,7 +11,7 @@ namespace Entidades
     {
         //atributos
         List<Producto> miListaDeProductosEnHeladera;
-        List<Comprador> miListaDeClientesFijos;
+        
 
         public Heladera(List<Producto> miListaDeProductosEnHeladera)
         {
@@ -21,30 +21,17 @@ namespace Entidades
 
         }
         //genero constructor de lista de productos
-        public Heladera(List<Producto> miListaDeProductosEnHeladera, List<Comprador> miListaDeClientesFijos)
-        {
 
-            this.MiListaDeProductosEnHeladera = miListaDeProductosEnHeladera;
-            this.MiListaDeClientesFijos = miListaDeClientesFijos;
-
-        }
 
 
         public List<Producto> MiListaDeProductosEnHeladera
         { 
             get => miListaDeProductosEnHeladera; set => miListaDeProductosEnHeladera = value; 
         }
-        public List<Comprador> MiListaDeClientesFijos { get => miListaDeClientesFijos; set => miListaDeClientesFijos = value; }
-
-        public void agregarPorCorte()
-        {
-            //foreach(Producto item in this.miListaDeProductosEnHeladera)
-            //{
-               
-            //}
-        }
+     
 
 
+        //MUESTRA DETALLES DE PRODUCTOS
         public string mostrarDetalleDeProductos()
         {
             StringBuilder sb = new StringBuilder();
@@ -56,7 +43,7 @@ namespace Entidades
             return sb.ToString();
         }
 
-
+        //AGREGA KILOS AL ITEM ELEGIDO
         public void AgregarKilosPorCorteSeleccionado(int  indexCarne, int cantidadDeKilos)
         {
 
@@ -89,7 +76,7 @@ namespace Entidades
 
         }
 
-       
+       //CAMBIA PRECIO DE CORTES
         public void cambiarPrecioDelCorte(int indexCarne, double precioPorKilo)
         {
             foreach (Producto item in this.MiListaDeProductosEnHeladera)
@@ -121,116 +108,91 @@ namespace Entidades
 
         }
 
+  
 
-        public string recorrerVendedoresSelecionadosYGuardarMensaje( int indiceCompradorFijo,int indexCarneCombo, int kilosVendidos)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach(Comprador item in this.MiListaDeClientesFijos)
-            {
-                if(indiceCompradorFijo == 0 && this.MiListaDeClientesFijos.IndexOf(item) ==0)
-                {
-                    //sb.AppendLine($"Destino: Restaurante Madero");
-                    sb.AppendLine(venderProductosAClientesSeleccionados(indexCarneCombo, kilosVendidos));
-                    break;
-                }
-                else if (indiceCompradorFijo == 1 && this.MiListaDeClientesFijos.IndexOf(item) == 1)
-                {
-                    sb.AppendLine($"Destino: Restaurante Aleman");
-                    sb.AppendLine(venderProductosAClientesSeleccionados(indexCarneCombo, kilosVendidos));
-                    break;
-                    
-                }
-                else if (indiceCompradorFijo == 2 && this.MiListaDeClientesFijos.IndexOf(item) == 2)
-                {
-                    sb.AppendLine($"Destino: Restaurante Venezolano");
-                    sb.AppendLine(venderProductosAClientesSeleccionados(indexCarneCombo, kilosVendidos));
-                    break;
-                    
-                }
-            }
-            return sb.ToString();
-        }
+        // vende productos y muestra mensaje
+        //cambiar en dos funciones
+    //    public string venderProductosAClientesSeleccionados(int indexCarneCombo,  int kilosVendidos)
+    //    {
+    //        StringBuilder sb = new StringBuilder();
+    //        foreach (Producto item in this.MiListaDeProductosEnHeladera)
+    //        {
 
-        public string venderProductosAClientesSeleccionados(int indexCarneCombo,  int kilosVendidos)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (Producto item in this.MiListaDeProductosEnHeladera)
-            {
-
-                if (indexCarneCombo == (int)eCarne.Asado && this.MiListaDeProductosEnHeladera.IndexOf(item) == 0)
-                {
-                    if(kilosVendidos <=item.Peso)
-                    {
-                        item.Peso -= kilosVendidos;
-                        sb.AppendLine($"Producto: Carne");
-                        sb.AppendLine($"Kilos vendidos: {kilosVendidos}kg");
-                        sb.AppendLine($"Stock disponible: {item.Peso}kg");
-                        break;
-                    }
-                    else
-                    {
-                        sb.AppendLine("Error, estas intentando vender mas kg del stock disponible ");
-                        sb.AppendLine("Venta no realizada");
-                        break;
-                    }
+    //            if (indexCarneCombo == (int)eCarne.Asado && this.MiListaDeProductosEnHeladera.IndexOf(item) == 0)
+    //            {
+    //                if(kilosVendidos <=item.Peso)
+    //                {
+    //                    item.Peso -= kilosVendidos;
+                        
+    //                    sb.AppendLine($"Producto: Carne");
+    //                    sb.AppendLine($"Kilos vendidos: {kilosVendidos}kg");
+    //                    sb.AppendLine($"Stock disponible: {item.Peso}kg");
+    //                    break;
+    //                }
+    //                else
+    //                {
+    //                    sb.AppendLine("Error, estas intentando vender mas kg del stock disponible ");
+    //                    sb.AppendLine("Venta no realizada");
+    //                    break;
+    //                }
                                      
-                }
-                else if (indexCarneCombo == (int)eCarne.Vacio && this.MiListaDeProductosEnHeladera.IndexOf(item) == 1)
-                {
-                    if (kilosVendidos <= item.Peso)
-                    {
-                        item.Peso -= kilosVendidos;
-                        sb.AppendLine($"Producto: Vacio");
-                        sb.AppendLine($"Kilos vendidos: {kilosVendidos}kg");
-                        sb.AppendLine($"Stock disponible: {item.Peso}kg");
-                        break;
-                    }
-                    else
-                    {
-                        sb.AppendLine("Error, estas intentando vender mas kg del stock disponible");
-                        sb.AppendLine("Venta no realizada");
-                        break;
-                    }
-                }
-                else if (indexCarneCombo == (int)eCarne.Matambre && this.MiListaDeProductosEnHeladera.IndexOf(item) == 2)
-                {
-                    if (kilosVendidos <= item.Peso)
-                    {
-                        item.Peso -= kilosVendidos;
-                        sb.AppendLine($"Producto: Matambre");
-                        sb.AppendLine($"Kilos vendidos: {kilosVendidos}kg");
-                        sb.AppendLine($"Stock disponible: {item.Peso}kg");
-                        break;
-                    }
-                    else
-                    {
-                        sb.AppendLine("Error, estas intentando vender mas kg del stock disponible");
-                        sb.AppendLine("Venta no realizada");
-                        break;
-                    }
-                }
-                else if (indexCarneCombo == (int)eCarne.Chorizo && this.MiListaDeProductosEnHeladera.IndexOf(item) == 3)
-                {
-                    if (kilosVendidos <= item.Peso)
-                    {
-                        item.Peso -= kilosVendidos;
-                        sb.AppendLine($"Producto: Chorizo");
-                        sb.AppendLine($"Kilos vendidos: {kilosVendidos}kg");
-                        sb.AppendLine($"Stock disponible: {item.Peso}kg");
-                        break;
-                    }
-                    else
-                    {
-                        sb.AppendLine("Error, estas intentando vender mas kg del stock disponible");
-                        sb.AppendLine("Venta no realizada");
-                        break;
-                    }
-                }
+    //            }
+    //            else if (indexCarneCombo == (int)eCarne.Vacio && this.MiListaDeProductosEnHeladera.IndexOf(item) == 1)
+    //            {
+    //                if (kilosVendidos <= item.Peso)
+    //                {
+    //                    item.Peso -= kilosVendidos;
+    //                    sb.AppendLine($"Producto: Vacio");
+    //                    sb.AppendLine($"Kilos vendidos: {kilosVendidos}kg");
+    //                    sb.AppendLine($"Stock disponible: {item.Peso}kg");
+    //                    break;
+    //                }
+    //                else
+    //                {
+    //                    sb.AppendLine("Error, estas intentando vender mas kg del stock disponible");
+    //                    sb.AppendLine("Venta no realizada");
+    //                    break;
+    //                }
+    //            }
+    //            else if (indexCarneCombo == (int)eCarne.Matambre && this.MiListaDeProductosEnHeladera.IndexOf(item) == 2)
+    //            {
+    //                if (kilosVendidos <= item.Peso)
+    //                {
+    //                    item.Peso -= kilosVendidos;
+    //                    sb.AppendLine($"Producto: Matambre");
+    //                    sb.AppendLine($"Kilos vendidos: {kilosVendidos}kg");
+    //                    sb.AppendLine($"Stock disponible: {item.Peso}kg");
+    //                    break;
+    //                }
+    //                else
+    //                {
+    //                    sb.AppendLine("Error, estas intentando vender mas kg del stock disponible");
+    //                    sb.AppendLine("Venta no realizada");
+    //                    break;
+    //                }
+    //            }
+    //            else if (indexCarneCombo == (int)eCarne.Chorizo && this.MiListaDeProductosEnHeladera.IndexOf(item) == 3)
+    //            {
+    //                if (kilosVendidos <= item.Peso)
+    //                {
+    //                    item.Peso -= kilosVendidos;
+    //                    sb.AppendLine($"Producto: Chorizo");
+    //                    sb.AppendLine($"Kilos vendidos: {kilosVendidos}kg");
+    //                    sb.AppendLine($"Stock disponible: {item.Peso}kg");
+    //                    break;
+    //                }
+    //                else
+    //                {
+    //                    sb.AppendLine("Error, estas intentando vender mas kg del stock disponible");
+    //                    sb.AppendLine("Venta no realizada");
+    //                    break;
+    //                }
+    //            }
 
-            }
+    //        }
 
-            return sb.ToString();
-        }
+    //        return sb.ToString();
+    //    }
 
 
 

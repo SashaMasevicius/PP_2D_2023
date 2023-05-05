@@ -36,7 +36,7 @@
             numericUpDownKilosAsado = new NumericUpDown();
             labelDatos = new Label();
             groupBox2 = new GroupBox();
-            checkedListBox1 = new CheckedListBox();
+            checkedListBoxCortes = new CheckedListBox();
             numericUpDownKilosVacio = new NumericUpDown();
             numericUpDownKilosMatambre = new NumericUpDown();
             numericUpDownKilosChorizo = new NumericUpDown();
@@ -145,17 +145,17 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Stock de la carniceria";
             // 
-            // checkedListBox1
+            // checkedListBoxCortes
             // 
-            checkedListBox1.BackColor = SystemColors.Menu;
-            checkedListBox1.BorderStyle = BorderStyle.None;
-            checkedListBox1.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Items.AddRange(new object[] { "Asado", "Vacio", "Matambre", "Chorizo" });
-            checkedListBox1.Location = new Point(403, 282);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(121, 108);
-            checkedListBox1.TabIndex = 21;
+            checkedListBoxCortes.BackColor = SystemColors.Menu;
+            checkedListBoxCortes.BorderStyle = BorderStyle.None;
+            checkedListBoxCortes.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            checkedListBoxCortes.FormattingEnabled = true;
+            checkedListBoxCortes.Items.AddRange(new object[] { "Asado", "Vacio", "Matambre", "Chorizo" });
+            checkedListBoxCortes.Location = new Point(403, 282);
+            checkedListBoxCortes.Name = "checkedListBoxCortes";
+            checkedListBoxCortes.Size = new Size(121, 108);
+            checkedListBoxCortes.TabIndex = 21;
             // 
             // numericUpDownKilosVacio
             // 
@@ -319,7 +319,7 @@
             Controls.Add(numericUpDownKilosChorizo);
             Controls.Add(numericUpDownKilosMatambre);
             Controls.Add(numericUpDownKilosVacio);
-            Controls.Add(checkedListBox1);
+            Controls.Add(checkedListBoxCortes);
             Controls.Add(numericUpDownKilosAsado);
             Controls.Add(groupBox1);
             Controls.Add(labelBienvenido);
@@ -354,7 +354,7 @@
         private NumericUpDown numericUpDownKilosAsado;
         private Label labelDatos;
         private GroupBox groupBox2;
-        private CheckedListBox checkedListBox1;
+        private CheckedListBox checkedListBoxCortes;
         private NumericUpDown numericUpDownKilosVacio;
         private NumericUpDown numericUpDownKilosMatambre;
         private NumericUpDown numericUpDownKilosChorizo;
