@@ -36,7 +36,6 @@
             numericUpDownKilosAsado = new NumericUpDown();
             labelDatos = new Label();
             groupBox2 = new GroupBox();
-            checkedListBoxCortes = new CheckedListBox();
             numericUpDownKilosVacio = new NumericUpDown();
             numericUpDownKilosMatambre = new NumericUpDown();
             numericUpDownKilosChorizo = new NumericUpDown();
@@ -51,6 +50,10 @@
             labelpPrecioDisponibleIngresado = new Label();
             groupBoxMedioDePago = new GroupBox();
             labelMedioDePago = new Label();
+            checkBoxAsado = new CheckBox();
+            checkBoxVacio = new CheckBox();
+            checkBoxMatambre = new CheckBox();
+            checkBoxChorizo = new CheckBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosAsado).BeginInit();
             groupBox2.SuspendLayout();
@@ -144,18 +147,6 @@
             groupBox2.TabIndex = 20;
             groupBox2.TabStop = false;
             groupBox2.Text = "Stock de la carniceria";
-            // 
-            // checkedListBoxCortes
-            // 
-            checkedListBoxCortes.BackColor = SystemColors.Menu;
-            checkedListBoxCortes.BorderStyle = BorderStyle.None;
-            checkedListBoxCortes.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            checkedListBoxCortes.FormattingEnabled = true;
-            checkedListBoxCortes.Items.AddRange(new object[] { "Asado", "Vacio", "Matambre", "Chorizo" });
-            checkedListBoxCortes.Location = new Point(403, 282);
-            checkedListBoxCortes.Name = "checkedListBoxCortes";
-            checkedListBoxCortes.Size = new Size(121, 108);
-            checkedListBoxCortes.TabIndex = 21;
             // 
             // numericUpDownKilosVacio
             // 
@@ -305,11 +296,55 @@
             labelMedioDePago.TabIndex = 32;
             labelMedioDePago.Text = "No ha seleccionado";
             // 
+            // checkBoxAsado
+            // 
+            checkBoxAsado.AutoSize = true;
+            checkBoxAsado.Location = new Point(415, 283);
+            checkBoxAsado.Name = "checkBoxAsado";
+            checkBoxAsado.Size = new Size(59, 19);
+            checkBoxAsado.TabIndex = 33;
+            checkBoxAsado.Text = "Asado";
+            checkBoxAsado.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxVacio
+            // 
+            checkBoxVacio.AutoSize = true;
+            checkBoxVacio.Location = new Point(415, 311);
+            checkBoxVacio.Name = "checkBoxVacio";
+            checkBoxVacio.Size = new Size(54, 19);
+            checkBoxVacio.TabIndex = 34;
+            checkBoxVacio.Text = "Vacio";
+            checkBoxVacio.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxMatambre
+            // 
+            checkBoxMatambre.AutoSize = true;
+            checkBoxMatambre.Location = new Point(415, 341);
+            checkBoxMatambre.Name = "checkBoxMatambre";
+            checkBoxMatambre.Size = new Size(81, 19);
+            checkBoxMatambre.TabIndex = 35;
+            checkBoxMatambre.Text = "Matambre";
+            checkBoxMatambre.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxChorizo
+            // 
+            checkBoxChorizo.AutoSize = true;
+            checkBoxChorizo.Location = new Point(415, 369);
+            checkBoxChorizo.Name = "checkBoxChorizo";
+            checkBoxChorizo.Size = new Size(67, 19);
+            checkBoxChorizo.TabIndex = 36;
+            checkBoxChorizo.Text = "Chorizo";
+            checkBoxChorizo.UseVisualStyleBackColor = true;
+            // 
             // FrmComprador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(checkBoxChorizo);
+            Controls.Add(checkBoxMatambre);
+            Controls.Add(checkBoxVacio);
+            Controls.Add(checkBoxAsado);
             Controls.Add(groupBoxMedioDePago);
             Controls.Add(groupBoxDineroIngresado);
             Controls.Add(groupBox3);
@@ -319,7 +354,6 @@
             Controls.Add(numericUpDownKilosChorizo);
             Controls.Add(numericUpDownKilosMatambre);
             Controls.Add(numericUpDownKilosVacio);
-            Controls.Add(checkedListBoxCortes);
             Controls.Add(numericUpDownKilosAsado);
             Controls.Add(groupBox1);
             Controls.Add(labelBienvenido);
@@ -354,7 +388,6 @@
         private NumericUpDown numericUpDownKilosAsado;
         private Label labelDatos;
         private GroupBox groupBox2;
-        private CheckedListBox checkedListBoxCortes;
         private NumericUpDown numericUpDownKilosVacio;
         private NumericUpDown numericUpDownKilosMatambre;
         private NumericUpDown numericUpDownKilosChorizo;
@@ -372,5 +405,9 @@
         private GroupBox groupBoxMedioDePago;
         private Label labelMedioDePago;
         private Button buttonComprar;
+        private CheckBox checkBoxAsado;
+        private CheckBox checkBoxVacio;
+        private CheckBox checkBoxMatambre;
+        private CheckBox checkBoxChorizo;
     }
 }

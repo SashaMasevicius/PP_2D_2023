@@ -42,7 +42,15 @@ namespace Entidades
             }
             return sb.ToString();
         }
-
+        public double obtenerPrecio(int indice)
+        {
+            foreach (Producto item in this.MiListaDeProductosEnHeladera)
+            {
+                if (this.MiListaDeProductosEnHeladera.IndexOf(item) == indice)
+                   return item.PrecioPorKg;
+            }
+            return -1;         
+        }
         //AGREGA KILOS AL ITEM ELEGIDO
         public void AgregarKilosPorCorteSeleccionado(int  indexCarne, int cantidadDeKilos)
         {

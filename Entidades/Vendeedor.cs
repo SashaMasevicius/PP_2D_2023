@@ -28,7 +28,7 @@ namespace Entidades
 
         public int VenderProductoACliente(Heladera miHeladera, int indexCarne, int kilosVendidos)
         {
-            StringBuilder sb = new StringBuilder();
+           
 
             foreach (Producto item in miHeladera.MiListaDeProductosEnHeladera)
             {
@@ -120,19 +120,19 @@ namespace Entidades
             return sb.ToString();
         }
 
-        public string ObtenerMensajeDelNombreDelComprador(Vendedor miVendedor, Heladera miHeladera, int indiceCompradorFijo, int indexCarneCombo, int kilosVendidos)
+        public string ObtenerMensajeDelNombreDelComprador(Vendedor miVendedor, Heladera miHeladera, int indiceCompradorFijo)
         {
             StringBuilder sb = new StringBuilder();
             foreach (String item in miVendedor.ListaDeClientesFijos)
             {
                 if (indiceCompradorFijo == 0 && miVendedor.ListaDeClientesFijos.IndexOf(item) == 0)
                 {
-                    sb.AppendLine($"Destino: Restaurante Venezolano");
+                    sb.AppendLine($"Destino: Restaurante Madero");
                     break;
                 }
                 else if (indiceCompradorFijo == 1 && miVendedor.ListaDeClientesFijos.IndexOf(item) == 1)
                 {
-                    sb.AppendLine($"Destino: Restaurante Venezolano");
+                    sb.AppendLine($"Destino: Restaurante Aleman");
                     break;
 
                 }

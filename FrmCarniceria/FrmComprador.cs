@@ -18,6 +18,7 @@ namespace FrmCarniceria
         bool validarPrecioParaComprar;
         bool validarMedioDePagoParaComprar;
 
+
         public FrmComprador()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace FrmCarniceria
         {
             this.miComprador = comprador;
             MessageBox.Show($"Bienvenido {this.miComprador.Email}");
+
 
             List<Producto> listaDeProductos;
 
@@ -46,6 +48,8 @@ namespace FrmCarniceria
             listaDeProductos.Add(prodDos);
             listaDeProductos.Add(prodTres);
             listaDeProductos.Add(prodCuatro);
+
+
 
             //instancio el objeto heladera
 
@@ -73,7 +77,7 @@ namespace FrmCarniceria
             {
                 montoDisponible = Comprador.validarPrecioDisponible(montoDisponibleStr);
                 MessageBox.Show($"Tu dinero disponible es : {montoDisponible}");
-                labelpPrecioDisponibleIngresado.Text = montoDisponibleStr + "$";
+                labelpPrecioDisponibleIngresado.Text = montoDisponibleStr;
                 validarPrecioParaComprar = true;
 
             }
@@ -108,36 +112,67 @@ namespace FrmCarniceria
         //boton comprar
         private void button1_Click(object sender, EventArgs e)
         {
-            //int cortesIndice = this.checkedListBoxCortes.SelectedIndex;
+            
 
-            //int kilosAsado = (int)this.numericUpDownKilosAsado.Value;
-            //int kilosVacio = (int)this.numericUpDownKilosAsado.Value;
-            //int kilosMatambre = (int)this.numericUpDownKilosAsado.Value;
-            //int kilosChorizo = (int)this.numericUpDownKilosAsado.Value;
+            int kilosAsado = (int)this.numericUpDownKilosAsado.Value;
+            int kilosVacio = (int)this.numericUpDownKilosVacio.Value;
+            int kilosMatambre = (int)this.numericUpDownKilosMatambre.Value;
+            int kilosChorizo = (int)this.numericUpDownKilosChorizo.Value;
+            
 
-            //if (validarPrecioParaComprar == false && validarMedioDePagoParaComprar == false)
-            //{
-            //    MessageBox.Show("ERROR: Debe ingresar monto y medio de pago para poder realizar la compra");
-            //}
-            //else
-            //{
-            //    if (cortesIndice == 0) // asado
-            //    {
-            //        kilosAsado;
-            //    }
-            //    if (cortesIndice == 1) // asado
-            //    {
-            //        kilosVacio;
-            //    }
-            //    if ((cortesIndice) == 2) // asado
-            //    {
-            //        kilosMatambre;
-            //    }
-            //    if ((cortesIndice) == 3) // asado
-            //    {
-            //        kilosChorizo;
-            //    }
-            //}
+            double obtenerPrecioAsado = miHeladera.obtenerPrecio(0);
+            double obtenerPrecioVacio = miHeladera.obtenerPrecio(1);
+            double obtenerPrecioMatambre = miHeladera.obtenerPrecio(2);
+            double obtenerPrecioChorizo = miHeladera.obtenerPrecio(3);
+
+            // Obtener el texto del Label
+            string textoLabel = labelpPrecioDisponibleIngresado.Text;
+
+            // Convertir el texto en un número decimal
+            double precioDisponible;
+            Double.TryParse(textoLabel, out precioDisponible);
+
+            double nuevoPrecio = 0;
+
+
+
+
+
+            if (validarPrecioParaComprar == false && validarMedioDePagoParaComprar == false)
+            {
+                MessageBox.Show("ERROR: Debe ingresar monto y medio de pago para poder realizar la compra");
+            }
+            else
+            {
+                nuevoPrecio = precioDisponible;
+                if (this.checkBoxAsado.Checked)
+                {
+                    // El primer elemento está seleccionado
+                    nuevoPrecio = miComprador.obte(miHeladera, kilosAsado, 0, nuevoPrecio, 0, obtenerPrecioAsado);
+                }
+                if (this.checkBoxVacio.Checked)
+                {
+                    // El segundo elemento está seleccionado
+                    nuevoPrecio = miComprador.obte(miHeladera, kilosVacio, 1, nuevoPrecio, 1, obtenerPrecioVacio);
+                }
+                if (this.checkBoxMatambre.Checked)
+                {
+                    // El tercer elemento está seleccionado
+                    nuevoPrecio = miComprador.obte(miHeladera, kilosMatambre, 2, nuevoPrecio, 2, obtenerPrecioMatambre);
+                }
+                if (this.checkBoxChorizo.Checked)
+                {
+                    // El cuarto elemento está seleccionado
+                    nuevoPrecio = miComprador.obte(miHeladera, kilosChorizo, 3, nuevoPrecio, 3, obtenerPrecioChorizo);
+                }
+
+
+
+
+            }
+
+            this.labelDatos.Text = miHeladera.mostrarDetalleDeProductos();
+            labelpPrecioDisponibleIngresado.Text = nuevoPrecio.ToString();
 
         }
 
@@ -168,6 +203,9 @@ namespace FrmCarniceria
 
         }
 
+        private void checkedListBoxCortes_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

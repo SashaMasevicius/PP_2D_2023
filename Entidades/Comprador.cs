@@ -77,6 +77,33 @@
             return -1;
         }
 
+        public double obte(Heladera miHeladera, int kilosVendidos, int indexCarne,double montoDisponible, int indiceLista,double precioCarne)
+        {
+
+                foreach (Producto item in miHeladera.MiListaDeProductosEnHeladera)
+                {
+
+                    if (indexCarne == indiceLista && miHeladera.MiListaDeProductosEnHeladera.IndexOf(item) == indiceLista)
+                    {
+                        if (kilosVendidos <= item.Peso)
+                        {
+                            item.Peso -= kilosVendidos;
+                            montoDisponible =  montoDisponible - (precioCarne * kilosVendidos);
+                             return montoDisponible;
+                        }
+                        else
+                        {
+                        return -1;
+                            
+                        }
+                    }
+
+                }
+            return -1;
+            
+        }
+          
+
 
     } //fin
 

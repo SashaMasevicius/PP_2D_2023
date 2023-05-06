@@ -18,6 +18,7 @@ namespace FrmCarniceria
     public partial class FrmVendedor : Form
     {
         List<Producto> listaDeProductos;
+        List<string> verDetallesDeVentas;
         
         Vendedor vendedor;
         Heladera miHeladera;
@@ -98,7 +99,10 @@ namespace FrmCarniceria
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
+           foreach(string item in verDetallesDeVentas)
+            {
+                MessageBox.Show(item);
+            }
 
         }
 
@@ -137,16 +141,12 @@ namespace FrmCarniceria
             int kilosVendidos = (int)this.numericUpDownKilosVenta.Value;
 
 
-            MessageBox.Show(this.vendedor.RetornarMensajeCliente(miHeladera, indiceCorteCarne, kilosVendidos));
-            
-                
-            
+
+            MessageBox.Show(this.vendedor.ObtenerMensajeDelNombreDelComprador(this.vendedor, miHeladera, indiceComprador) + this.vendedor.RetornarMensajeCliente(miHeladera, indiceCorteCarne, kilosVendidos));
 
 
-            //// muesro msjs y modifico datos de kg
-            //MessageBox.Show(miHeladera.recorrerCompradoresSelecionadosYGuardarMensaje(indiceComprador, indiceCorteCarne, kilosVendidos));            
 
-                this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
+            this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
 
 
         }
