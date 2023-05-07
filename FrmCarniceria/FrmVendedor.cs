@@ -53,7 +53,7 @@ namespace FrmCarniceria
             listaDeProductos.Add(prodCuatro);
 
             //instancio y creo lista de clientes habituales a las cuales el vendedor puede acceder y vender
-            // CAMBIAR ESTO??
+         
             miVendedor.AgregarClientesALista("Restaurante Madero");
             miVendedor.AgregarClientesALista("Restaurante Aleman");
             miVendedor.AgregarClientesALista("Restaurante Venezolano");

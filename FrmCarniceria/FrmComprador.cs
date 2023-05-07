@@ -1,13 +1,4 @@
 ﻿using Entidades;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace FrmCarniceria
 {
@@ -112,13 +103,13 @@ namespace FrmCarniceria
         //boton comprar
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
 
             int kilosAsado = (int)this.numericUpDownKilosAsado.Value;
             int kilosVacio = (int)this.numericUpDownKilosVacio.Value;
             int kilosMatambre = (int)this.numericUpDownKilosMatambre.Value;
             int kilosChorizo = (int)this.numericUpDownKilosChorizo.Value;
-            
+
 
             double obtenerPrecioAsado = miHeladera.obtenerPrecio(0);
             double obtenerPrecioVacio = miHeladera.obtenerPrecio(1);
@@ -129,12 +120,16 @@ namespace FrmCarniceria
             string textoLabel = labelpPrecioDisponibleIngresado.Text;
 
             // Convertir el texto en un número decimal
-            double precioDisponible;
-            Double.TryParse(textoLabel, out precioDisponible);
+            double dineroDisponible;
+            Double.TryParse(textoLabel, out dineroDisponible);
 
             double nuevoPrecio = 0;
 
-
+            double precioAsadoPorKilosElegidos = 0;
+            double precioVacioPorKilosElegidos = 0;
+            double precioMatambrePorKilosElegidos = 0;
+            double precioChorizoPorKilosElegidos = 0;
+            double precioTotalDeLaCompra = 0;
 
 
 
@@ -144,27 +139,73 @@ namespace FrmCarniceria
             }
             else
             {
-                nuevoPrecio = precioDisponible;
+                // busco el precio de cada corte elegido por el usuario y lo multiplico por los kilos, el valor final de cada producto lo sumo y
+                // lo guardo en su atributo
                 if (this.checkBoxAsado.Checked)
                 {
-                    // El primer elemento está seleccionado
-                    nuevoPrecio = miComprador.obte(miHeladera, kilosAsado, 0, nuevoPrecio, 0, obtenerPrecioAsado);
+                    precioAsadoPorKilosElegidos = miComprador.obtenerPrecioCortePorKilo(miHeladera, kilosAsado, 0, 0, obtenerPrecioAsado);
                 }
                 if (this.checkBoxVacio.Checked)
                 {
-                    // El segundo elemento está seleccionado
-                    nuevoPrecio = miComprador.obte(miHeladera, kilosVacio, 1, nuevoPrecio, 1, obtenerPrecioVacio);
+                    precioVacioPorKilosElegidos = miComprador.obtenerPrecioCortePorKilo(miHeladera, kilosVacio, 1, 1, obtenerPrecioVacio);
                 }
                 if (this.checkBoxMatambre.Checked)
                 {
-                    // El tercer elemento está seleccionado
-                    nuevoPrecio = miComprador.obte(miHeladera, kilosMatambre, 2, nuevoPrecio, 2, obtenerPrecioMatambre);
+                    precioMatambrePorKilosElegidos = miComprador.obtenerPrecioCortePorKilo(miHeladera, kilosMatambre, 2, 2, obtenerPrecioMatambre);
                 }
                 if (this.checkBoxChorizo.Checked)
                 {
-                    // El cuarto elemento está seleccionado
-                    nuevoPrecio = miComprador.obte(miHeladera, kilosChorizo, 3, nuevoPrecio, 3, obtenerPrecioChorizo);
+                    precioChorizoPorKilosElegidos = miComprador.obtenerPrecioCortePorKilo(miHeladera, kilosChorizo, 3, 3, obtenerPrecioChorizo);
                 }
+
+                if (this.radioButtonTarjeta.Checked == true)
+                {
+                    precioTotalDeLaCompra = precioAsadoPorKilosElegidos + precioVacioPorKilosElegidos + precioMatambrePorKilosElegidos + precioChorizoPorKilosElegidos;
+                    precioTotalDeLaCompra = precioTotalDeLaCompra + precioTotalDeLaCompra * 0.05;
+                }
+                else
+                {
+                    precioTotalDeLaCompra = precioAsadoPorKilosElegidos + precioVacioPorKilosElegidos + precioMatambrePorKilosElegidos + precioChorizoPorKilosElegidos;
+
+                }
+
+               
+                // si los item fueron checkeados valido que su dinero disponible sea mayor al gasto
+                if (dineroDisponible >= precioTotalDeLaCompra)
+                {
+                    if (this.checkBoxAsado.Checked)
+                    {
+
+
+                        if (this.radioButtonTarjeta.Checked == true)
+                        {
+                            dineroDisponible = miComprador.obte(miHeladera, kilosAsado, 0, dineroDisponible, 0, obtenerPrecioAsado);
+                            dineroDisponible = dineroDisponible - dineroDisponible * 0.05;
+
+                        }
+                        else
+                        {
+                            dineroDisponible = miComprador.obte(miHeladera, kilosAsado, 0, dineroDisponible, 0, obtenerPrecioAsado);
+                        }
+                    }
+                    if (this.checkBoxVacio.Checked)
+                    {
+                        dineroDisponible = miComprador.obte(miHeladera, kilosVacio, 1, dineroDisponible, 1, obtenerPrecioVacio);
+                    }
+                    if (this.checkBoxMatambre.Checked)
+                    {
+                        dineroDisponible = miComprador.obte(miHeladera, kilosMatambre, 2, dineroDisponible, 2, obtenerPrecioMatambre);
+                    }
+                    if (this.checkBoxChorizo.Checked)
+                    {
+                        dineroDisponible = miComprador.obte(miHeladera, kilosChorizo, 3, dineroDisponible, 3, obtenerPrecioChorizo);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error, no tiene suficiente dinero para realizar la compra");
+                }
+
 
 
 
@@ -172,7 +213,7 @@ namespace FrmCarniceria
             }
 
             this.labelDatos.Text = miHeladera.mostrarDetalleDeProductos();
-            labelpPrecioDisponibleIngresado.Text = nuevoPrecio.ToString();
+            labelpPrecioDisponibleIngresado.Text = dineroDisponible.ToString();
 
         }
 
