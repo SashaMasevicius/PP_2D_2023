@@ -14,18 +14,20 @@
         {
 
         }
-        //Genero constructor para clientes, la cual el vendedor podra acceder, ver su nombre y realizarle ventas
-        public Comprador(string email, string contrasenia, string nombreComprador) : base(email, contrasenia)
-        {
 
-        }
 
         public float DineroMaximoDisponible
         {
             get => dineroMaximoDisponible;
             set => dineroMaximoDisponible = value;
         }
-        public string NombreComprador { get => nombreComprador; set => nombreComprador = value; }
+
+
+        public string NombreComprador 
+        {
+            get => nombreComprador;
+            set => nombreComprador = value;
+        }
 
 
 
@@ -64,45 +66,20 @@
             return -1;
         }
 
-        public static int ObtenerFormaDePago(bool tarjeta, bool efectivo)
-        {
-            if (tarjeta == true)
-            {
-                return 1;
-            }
-            if (efectivo == true)
-            {
-                return 2;
-            }
-            return -1;
-        }
+  
 
-        public double obte(Heladera miHeladera, int kilosVendidos, int indexCarne, double montoDisponible, int indiceLista, double precioCarne)
-        {
 
-            foreach (Producto item in miHeladera.MiListaDeProductosEnHeladera)
-            {
-
-                if (indexCarne == indiceLista && miHeladera.MiListaDeProductosEnHeladera.IndexOf(item) == indiceLista)
-                {
-                    if (kilosVendidos <= item.Peso)
-                    {
-                        item.Peso -= kilosVendidos;
-                        montoDisponible = montoDisponible - (precioCarne * kilosVendidos);
-                        return montoDisponible;
-                    }
-                    else
-                    {
-                        return -1;
-
-                    }
-                }
-
-            }
-            return -1;
-
-        }
-
+        
+        /// <summary>
+        /// 
+        /// obtiene el precio del precio por los kilos vendidos, tambien realiza una resta al item peso por los kilos vendidos del stock principal
+        /// </summary>
+        /// <param name="miHeladera"></param> obj mi heladera para recorrrer la lista
+        /// <param name="kilosVendidos"></param> kilos que ingresa el usuarioi
+        /// <param name="indexCarne"></param> indice del corte de carne
+        /// <param name="indiceLista"></param> indice en la lista 
+        /// <param name="precioCarne"></param> precio del corte
+        /// <returns></returns>
         public double obtenerPrecioCortePorKilo(Heladera miHeladera, int kilosVendidos, int indexCarne ,int indiceLista, double precioCarne)
         {
 
@@ -113,7 +90,7 @@
                 {
                     if (kilosVendidos <= item.Peso)
                     {
-
+                        item.Peso -= kilosVendidos;
                         return precioCarne * kilosVendidos;
                         
                     }

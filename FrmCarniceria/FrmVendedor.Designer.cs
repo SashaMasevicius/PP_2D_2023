@@ -39,7 +39,6 @@
             buttonClickIngresarMercaderia = new Button();
             groupBox2 = new GroupBox();
             button2 = new Button();
-            button3 = new Button();
             groupBox4 = new GroupBox();
             buttonVenderListaDeClientes = new Button();
             label3 = new Label();
@@ -47,11 +46,16 @@
             comboBoxCortesVenta = new ComboBox();
             comboBoxRestaurante = new ComboBox();
             labelDetalles = new Label();
+            dataGridView1 = new DataGridView();
+            Column_Comprador = new DataGridViewTextBoxColumn();
+            Column_CorteVendido = new DataGridViewTextBoxColumn();
+            Column_KilosVendidos = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilos).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosVenta).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // numericUpDownKilos
@@ -168,16 +172,6 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // button3
-            // 
-            button3.Location = new Point(282, 199);
-            button3.Name = "button3";
-            button3.Size = new Size(111, 48);
-            button3.TabIndex = 15;
-            button3.Text = "Ver lisado de productos";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
             // groupBox4
             // 
             groupBox4.Controls.Add(buttonVenderListaDeClientes);
@@ -253,14 +247,43 @@
             labelDetalles.TabIndex = 17;
             labelDetalles.Text = "stock";
             // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView1.BackgroundColor = SystemColors.Menu;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column_Comprador, Column_CorteVendido, Column_KilosVendidos });
+            dataGridView1.Location = new Point(688, 20);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(345, 391);
+            dataGridView1.TabIndex = 19;
+            // 
+            // Column_Comprador
+            // 
+            Column_Comprador.HeaderText = "Comprador";
+            Column_Comprador.Name = "Column_Comprador";
+            // 
+            // Column_CorteVendido
+            // 
+            Column_CorteVendido.HeaderText = "Corte";
+            Column_CorteVendido.Name = "Column_CorteVendido";
+            // 
+            // Column_KilosVendidos
+            // 
+            Column_KilosVendidos.HeaderText = "Kilos Vendidos";
+            Column_KilosVendidos.Name = "Column_KilosVendidos";
+            // 
             // FrmVendedor
             // 
             AutoScaleDimensions = new SizeF(6F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(686, 450);
+            ClientSize = new Size(1165, 450);
+            Controls.Add(dataGridView1);
             Controls.Add(labelDetalles);
             Controls.Add(groupBox4);
-            Controls.Add(button3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Font = new Font("Segoe UI Light", 9F, FontStyle.Italic, GraphicsUnit.Point);
@@ -275,6 +298,7 @@
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosVenta).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -306,5 +330,11 @@
         private GroupBox groupBox4;
         private ComboBox comboBoxRestaurante;
         private Label labelDetalles;
+        private Label labelDetallesDeVenta;
+        private TextBox textBoxDetalles;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Column_Comprador;
+        private DataGridViewTextBoxColumn Column_CorteVendido;
+        private DataGridViewTextBoxColumn Column_KilosVendidos;
     }
 }

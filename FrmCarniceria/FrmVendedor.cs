@@ -19,10 +19,10 @@ namespace FrmCarniceria
     {
         List<Producto> listaDeProductos;
         List<string> verDetallesDeVentas;
-        
+
         Vendedor vendedor;
         Heladera miHeladera;
-        string msj;
+
 
         public FrmVendedor()
         {
@@ -32,7 +32,7 @@ namespace FrmCarniceria
         {
             this.vendedor = miVendedor;
             MessageBox.Show($"Bienvenido {this.vendedor.Email}");
-            
+
 
 
 
@@ -53,19 +53,10 @@ namespace FrmCarniceria
             listaDeProductos.Add(prodCuatro);
 
             //instancio y creo lista de clientes habituales a las cuales el vendedor puede acceder y vender
-         
+
             miVendedor.AgregarClientesALista("Restaurante Madero");
             miVendedor.AgregarClientesALista("Restaurante Aleman");
             miVendedor.AgregarClientesALista("Restaurante Venezolano");
-           
-
-            //Comprador miCompradorFijoDos = new Comprador("restauranteAleman@gmail.com", "AAAA", "Restaurante Aleman");
-            //Comprador miCompradorFijoTres = new Comprador("restauranteVenezolano@gmail.com", "ABCD", "Restaurante Venezolano");
-
-            //miListaDeCompradoresFijos = new List<Comprador>();
-            //miListaDeCompradoresFijos.Add(miCompradorFijoUno);
-            //miListaDeCompradoresFijos.Add(miCompradorFijoDos);
-            //miListaDeCompradoresFijos.Add(miCompradorFijoTres);
 
 
             //instancio el objeto heladera
@@ -75,7 +66,9 @@ namespace FrmCarniceria
 
             // creo label con informacion
             this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
+            this.dataGridView1.Visible = false;
 
+            this.dataGridView1.ColumnCount = 3;
         }
         private void textBoxAgregarCorte_TextChanged(object sender, EventArgs e)
         {
@@ -83,7 +76,11 @@ namespace FrmCarniceria
         }
 
 
-        //boton agregar kg
+        /// <summary>
+        /// Agrega kilos al corte seleccionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -97,17 +94,15 @@ namespace FrmCarniceria
 
 
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-           foreach(string item in verDetallesDeVentas)
-            {
-                MessageBox.Show(item);
-            }
-
-        }
 
 
-        // bootton cambiar precio
+
+        /// <summary>
+        /// 
+        /// Este boton cambia/actualiza el precio del cortte seleccionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             string precioValidador = this.textBoxPrecio.Text;
@@ -133,20 +128,45 @@ namespace FrmCarniceria
             this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
         }
 
-
+        /// <summary>
+        /// Este boton es para realizar ventas a clientes fijos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonVenderListaDeClientes_Click(object sender, EventArgs e)
         {
             int indiceComprador = this.comboBoxRestaurante.SelectedIndex;
             int indiceCorteCarne = this.comboBoxCortesVenta.SelectedIndex;
             int kilosVendidos = (int)this.numericUpDownKilosVenta.Value;
+            string nombreComprador = this.vendedor.RetornarNombreDelComprador(this.vendedor, indiceComprador);
+            string nombreCorteCarne = vendedor.RetornarNombreDeCorteElegidoAlVender(indiceCorteCarne);
+            string nombreKilosVendidos = this.vendedor.RetornarMensajeCliente(miHeladera, indiceCorteCarne, kilosVendidos);
+
+
+            if (this.vendedor.DisminuirKilosDelStock(miHeladera, indiceCorteCarne, kilosVendidos) != -1)
+            {
+                this.dataGridView1.Visible = true;
+                //agregar renglon data 
+
+                int nuevoRenglon = dataGridView1.Rows.Add();
+                dataGridView1.Rows[nuevoRenglon].Cells[0].Value = nombreComprador;
+                dataGridView1.Rows[nuevoRenglon].Cells[1].Value = nombreCorteCarne;
+                dataGridView1.Rows[nuevoRenglon].Cells[2].Value = nombreKilosVendidos;
+
+                this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
+
+            }
+            else
+            {
+                MessageBox.Show("La cantidad de kilos excede la cantidad que hay stock, vuelva a intentar con stock dispoible o elija otro producto");
+            }
 
 
 
-            MessageBox.Show(this.vendedor.ObtenerMensajeDelNombreDelComprador(this.vendedor, miHeladera, indiceComprador) + this.vendedor.RetornarMensajeCliente(miHeladera, indiceCorteCarne, kilosVendidos));
 
 
 
-            this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
+
 
 
         }

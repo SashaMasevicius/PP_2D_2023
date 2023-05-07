@@ -76,20 +76,24 @@ namespace FrmCarniceria
 
         }
 
-        // Boton para ingresar medio de pago y mostrar mensaje, el monto queda guardado en la pantalla para que sea visible al usuario
+       
+
+        /// <summary>
+        /// Boton para ingresar medio de pago y mostrar mensaje, el monto queda guardado en la pantalla para que sea visible al usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAgregarMedioDePago_Click(object sender, EventArgs e)
         {
-            bool tarjeta = radioButtonTarjeta.Checked;
-            bool efectivo = radioButtonEfectivo.Checked;
-
-
-            if (Comprador.ObtenerFormaDePago(tarjeta, efectivo) == 1)
+         
+            if(this.radioButtonTarjeta.Checked == true)
             {
                 MessageBox.Show("El medio de pago elegido es: TARJETA");
                 this.labelMedioDePago.Text = "TARJETA";
                 validarMedioDePagoParaComprar = true;
+
             }
-            else if (Comprador.ObtenerFormaDePago(tarjeta, efectivo) == 2)
+            else
             {
                 MessageBox.Show("El medio de pago elegido es: EFECTIVO");
                 this.labelMedioDePago.Text = "EFECTIVO";
@@ -100,7 +104,13 @@ namespace FrmCarniceria
 
         }
 
-        //boton comprar
+        
+
+        /// <summary>
+        /// Boton para realizar la compra y mostrar el ticket
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -123,7 +133,7 @@ namespace FrmCarniceria
             double dineroDisponible;
             Double.TryParse(textoLabel, out dineroDisponible);
 
-            double nuevoPrecio = 0;
+            
 
             double precioAsadoPorKilosElegidos = 0;
             double precioVacioPorKilosElegidos = 0;
@@ -131,7 +141,7 @@ namespace FrmCarniceria
             double precioChorizoPorKilosElegidos = 0;
             double precioTotalDeLaCompra = 0;
 
-
+            string mensaje = "COMPRA REALIZADA: ";
 
             if (validarPrecioParaComprar == false && validarMedioDePagoParaComprar == false)
             {
@@ -144,67 +154,49 @@ namespace FrmCarniceria
                 if (this.checkBoxAsado.Checked)
                 {
                     precioAsadoPorKilosElegidos = miComprador.obtenerPrecioCortePorKilo(miHeladera, kilosAsado, 0, 0, obtenerPrecioAsado);
+                    mensaje = mensaje + $"Asado" + kilosAsado.ToString() + "Kg" + "=" + precioAsadoPorKilosElegidos;
                 }
                 if (this.checkBoxVacio.Checked)
                 {
                     precioVacioPorKilosElegidos = miComprador.obtenerPrecioCortePorKilo(miHeladera, kilosVacio, 1, 1, obtenerPrecioVacio);
+                    mensaje = mensaje + $"Vacio" + kilosVacio.ToString() + "Kg" + "=" + precioVacioPorKilosElegidos;
                 }
                 if (this.checkBoxMatambre.Checked)
                 {
                     precioMatambrePorKilosElegidos = miComprador.obtenerPrecioCortePorKilo(miHeladera, kilosMatambre, 2, 2, obtenerPrecioMatambre);
+                    mensaje = mensaje + $"Matambre" + kilosMatambre.ToString() + "Kg" + "=" + precioMatambrePorKilosElegidos;
                 }
                 if (this.checkBoxChorizo.Checked)
                 {
                     precioChorizoPorKilosElegidos = miComprador.obtenerPrecioCortePorKilo(miHeladera, kilosChorizo, 3, 3, obtenerPrecioChorizo);
+                    mensaje = mensaje + $"Chorizo" + kilosChorizo.ToString() + "Kg" + "=" + precioChorizoPorKilosElegidos;
                 }
 
-                if (this.radioButtonTarjeta.Checked == true)
-                {
-                    precioTotalDeLaCompra = precioAsadoPorKilosElegidos + precioVacioPorKilosElegidos + precioMatambrePorKilosElegidos + precioChorizoPorKilosElegidos;
-                    precioTotalDeLaCompra = precioTotalDeLaCompra + precioTotalDeLaCompra * 0.05;
-                }
-                else
-                {
-                    precioTotalDeLaCompra = precioAsadoPorKilosElegidos + precioVacioPorKilosElegidos + precioMatambrePorKilosElegidos + precioChorizoPorKilosElegidos;
-
-                }
-
-               
-                // si los item fueron checkeados valido que su dinero disponible sea mayor al gasto
                 if (dineroDisponible >= precioTotalDeLaCompra)
                 {
-                    if (this.checkBoxAsado.Checked)
+                    if (this.radioButtonTarjeta.Checked == true)
                     {
+                        precioTotalDeLaCompra = precioAsadoPorKilosElegidos + precioVacioPorKilosElegidos + precioMatambrePorKilosElegidos + precioChorizoPorKilosElegidos;
+                        precioTotalDeLaCompra = precioTotalDeLaCompra + precioTotalDeLaCompra * 0.05;
+                        dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
+                        MessageBox.Show($"COMPRA REALIZADA : el precio de su compra es {precioTotalDeLaCompra} su vuelto es {dineroDisponible} {mensaje}");
+                    }
+                    else
+                    {
+                        precioTotalDeLaCompra = precioAsadoPorKilosElegidos + precioVacioPorKilosElegidos + precioMatambrePorKilosElegidos + precioChorizoPorKilosElegidos;
+                        dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
+                        MessageBox.Show($"COMPRA REALIZADA : el precio de su compra es {precioTotalDeLaCompra} su vuelto es {dineroDisponible} {mensaje}");
 
-
-                        if (this.radioButtonTarjeta.Checked == true)
-                        {
-                            dineroDisponible = miComprador.obte(miHeladera, kilosAsado, 0, dineroDisponible, 0, obtenerPrecioAsado);
-                            dineroDisponible = dineroDisponible - dineroDisponible * 0.05;
-
-                        }
-                        else
-                        {
-                            dineroDisponible = miComprador.obte(miHeladera, kilosAsado, 0, dineroDisponible, 0, obtenerPrecioAsado);
-                        }
                     }
-                    if (this.checkBoxVacio.Checked)
-                    {
-                        dineroDisponible = miComprador.obte(miHeladera, kilosVacio, 1, dineroDisponible, 1, obtenerPrecioVacio);
-                    }
-                    if (this.checkBoxMatambre.Checked)
-                    {
-                        dineroDisponible = miComprador.obte(miHeladera, kilosMatambre, 2, dineroDisponible, 2, obtenerPrecioMatambre);
-                    }
-                    if (this.checkBoxChorizo.Checked)
-                    {
-                        dineroDisponible = miComprador.obte(miHeladera, kilosChorizo, 3, dineroDisponible, 3, obtenerPrecioChorizo);
-                    }
-                }
+                }          
                 else
                 {
                     MessageBox.Show("Error, no tiene suficiente dinero para realizar la compra");
                 }
+
+          
+
+               
 
 
 

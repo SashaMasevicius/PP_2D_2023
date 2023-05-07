@@ -29,12 +29,16 @@ namespace FrmCarniceria
             miLista.Add(tercerUsuario);
             miLista.Add(cuartoUsuario);
 
-            //  miLista.Add(compradorInvitado);
+           
 
         }
 
 
-        // El evento que se desencadena al hacer click en el boton iniciar sesion
+        /// <summary>
+        /// El evento que se desencadena al hacer click en el boton iniciar sesion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             //guardo los valores de los textbox
@@ -79,7 +83,11 @@ namespace FrmCarniceria
 
         }
 
-        //este boton harcodea un usuario valido del tipo comprador en el textbox
+        /// <summary>
+        /// este boton harcodea un usuario valido del tipo comprador en el textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click_1(object sender, EventArgs e)
         {
 
@@ -92,7 +100,11 @@ namespace FrmCarniceria
 
         }
 
-        //este boton harcodea un usuario valido del tipo vendedor en el textbox
+        /// <summary>
+        /// este boton harcodea un usuario valido del tipo vendedor en el textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void buttonCompletarVendedor_Click(object sender, EventArgs e)
         {

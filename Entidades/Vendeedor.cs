@@ -14,6 +14,19 @@ namespace Entidades
             this.ListaDeClientesFijos = new List<string>();
         }
 
+
+
+        public List<string> ListaDeClientesFijos
+        { 
+            get => listaDeClientesFijos; 
+            set => listaDeClientesFijos = value;
+        }
+
+
+        /// <summary>
+        /// agrega cliente a la lista de clientes
+        /// </summary>
+        /// <param name="miCliente"></param>
         public void AgregarClientesALista(string miCliente)
         {
             if (miCliente != null)
@@ -21,12 +34,16 @@ namespace Entidades
                 this.ListaDeClientesFijos.Add(miCliente);
             }
 
-
         }
 
-        public List<string> ListaDeClientesFijos { get => listaDeClientesFijos; set => listaDeClientesFijos = value; }
-
-        public int VenderProductoACliente(Heladera miHeladera, int indexCarne, int kilosVendidos)
+        /// <summary>
+        /// Disminuye el stock en kilos dependiendo la compra del cliente
+        /// </summary>
+        /// <param name="miHeladera"></param>
+        /// <param name="indexCarne"></param>
+        /// <param name="kilosVendidos"></param>
+        /// <returns></returns>
+        public int DisminuirKilosDelStock(Heladera miHeladera, int indexCarne, int kilosVendidos)
         {
            
 
@@ -89,56 +106,97 @@ namespace Entidades
             return -1;
         }
 
+        /// <summary>
+        /// segun el indice retorna los kilos vendidos
+        /// </summary>
+        /// <param name="miHeladera"></param>
+        /// <param name="indexCarne"></param> indice del corte de carne
+        /// <param name="kilosVendidos"></param> cantida de kiulos vendidos
+        /// <returns></returns> retorna mensaje con tipo de carne y kilos
         public string RetornarMensajeCliente(Heladera miHeladera, int indexCarne, int kilosVendidos)
         {
-            int indiceElegidoPorCliente = VenderProductoACliente(miHeladera, indexCarne, kilosVendidos);
+           // int indiceElegidoPorCliente = VenderProductoACliente(miHeladera, indexCarne, kilosVendidos);
             StringBuilder sb = new StringBuilder();
-            if(indiceElegidoPorCliente ==0)
+            if(indexCarne == 0)
             {
-                 sb.AppendLine($"Producto: Asado");
-                sb.AppendLine($"Kilos vendidos: {kilosVendidos}kg");
+                
+                sb.AppendLine($"{kilosVendidos}kg");
             }
-            else if(indiceElegidoPorCliente ==1)
+            else if(indexCarne == 1)
             {
-                sb.AppendLine($"Producto: Vacio");
-                sb.AppendLine($"Kilos vendidos: {kilosVendidos}kg");
+               
+                sb.AppendLine($"{kilosVendidos}kg");
             }
-            else if(indiceElegidoPorCliente ==2)
+            else if(indexCarne == 2)
             {
-                sb.AppendLine($"Producto: Matambre");
-                sb.AppendLine($"Kilos vendidos: {kilosVendidos}kg");
+  
+                sb.AppendLine($"{kilosVendidos}kg");
             }
-            else if(indiceElegidoPorCliente ==3)
+            else if(indexCarne == 3)
             {
-                sb.AppendLine($"Producto: Chorizo");
-                sb.AppendLine($"Kilos vendidos: {kilosVendidos}kg");
+               
+                sb.AppendLine($"{kilosVendidos}kg");
             }
-            else if(indiceElegidoPorCliente ==-1)
-            {
-                sb.AppendLine("La cantidad de kilos excede la cantidad que hay stock, vuelva a intentar con stock dispoible o elija otro producto");
-            }
+
             return sb.ToString();
         }
 
-        public string ObtenerMensajeDelNombreDelComprador(Vendedor miVendedor, Heladera miHeladera, int indiceCompradorFijo)
+        /// <summary>
+        /// devuelve el nombre del corte de carne segun el indice 
+        /// </summary>
+        /// <param name="indiceElegido"></param> indice para obtener nombre
+        /// <returns></returns>
+        public string RetornarNombreDeCorteElegidoAlVender(int indiceElegido)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            if (indiceElegido == 0)
+            {
+                sb.AppendLine($"Asado");
+                
+            }
+            else if (indiceElegido == 1)
+            {
+                sb.AppendLine($"Vacio");
+               
+            }
+            else if (indiceElegido == 2)
+            {
+                sb.AppendLine($"Matambre");
+              
+            }
+            else if (indiceElegido == 3)
+            {
+                sb.AppendLine($"Chorizo");
+            
+            }
+            return sb.ToString();
+        }
+        /// <summary>
+        /// retorna  del nombre del comprador
+        /// </summary>
+        /// <param name="miVendedor"></param> para recorrer lista de clientes en mi vendedor
+        /// <param name="indiceCompradorFijo"></param>
+        /// <returns></returns>
+        public string RetornarNombreDelComprador(Vendedor miVendedor,int indiceCompradorFijo)
         {
             StringBuilder sb = new StringBuilder();
             foreach (String item in miVendedor.ListaDeClientesFijos)
             {
                 if (indiceCompradorFijo == 0 && miVendedor.ListaDeClientesFijos.IndexOf(item) == 0)
                 {
-                    sb.AppendLine($"Destino: Restaurante Madero");
+                    sb.AppendLine($"Restaurante Madero");
                     break;
                 }
                 else if (indiceCompradorFijo == 1 && miVendedor.ListaDeClientesFijos.IndexOf(item) == 1)
                 {
-                    sb.AppendLine($"Destino: Restaurante Aleman");
+                    sb.AppendLine($"Restaurante Aleman");
                     break;
 
                 }
                 else if (indiceCompradorFijo == 2 && miVendedor.ListaDeClientesFijos.IndexOf(item) == 2)
                 {
-                    sb.AppendLine($"Destino: Restaurante Venezolano");
+                    sb.AppendLine($"Restaurante Venezolano");
                     break;
 
                 }
