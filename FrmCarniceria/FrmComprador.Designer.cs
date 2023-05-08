@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmComprador));
             labelBienvenido = new Label();
             textBoxDineroDisponible = new TextBox();
             groupBox1 = new GroupBox();
@@ -55,6 +56,7 @@
             checkBoxMatambre = new CheckBox();
             checkBoxChorizo = new CheckBox();
             buttonMenuPrincipal = new Button();
+            buttonAutoCompletDatos = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosAsado).BeginInit();
             groupBox2.SuspendLayout();
@@ -231,7 +233,7 @@
             groupBox3.Controls.Add(label3);
             groupBox3.Controls.Add(radioButtonTarjeta);
             groupBox3.Controls.Add(radioButtonEfectivo);
-            groupBox3.Location = new Point(425, 47);
+            groupBox3.Location = new Point(506, 47);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(198, 117);
             groupBox3.TabIndex = 30;
@@ -347,12 +349,23 @@
             buttonMenuPrincipal.UseVisualStyleBackColor = true;
             buttonMenuPrincipal.Click += buttonMenuPrincipal_Click;
             // 
+            // buttonAutoCompletDatos
+            // 
+            buttonAutoCompletDatos.Location = new Point(345, 117);
+            buttonAutoCompletDatos.Name = "buttonAutoCompletDatos";
+            buttonAutoCompletDatos.Size = new Size(137, 23);
+            buttonAutoCompletDatos.TabIndex = 38;
+            buttonAutoCompletDatos.Text = "AutoCompletarDatos";
+            buttonAutoCompletDatos.UseVisualStyleBackColor = true;
+            buttonAutoCompletDatos.Click += buttonAutoCompletDatos_Click;
+            // 
             // FrmComprador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSalmon;
             ClientSize = new Size(756, 450);
+            Controls.Add(buttonAutoCompletDatos);
             Controls.Add(buttonMenuPrincipal);
             Controls.Add(checkBoxChorizo);
             Controls.Add(checkBoxMatambre);
@@ -370,6 +383,7 @@
             Controls.Add(numericUpDownKilosAsado);
             Controls.Add(groupBox1);
             Controls.Add(labelBienvenido);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmComprador";
             Load += FrmComprador_Load;
             groupBox1.ResumeLayout(false);
@@ -422,5 +436,6 @@
         private CheckBox checkBoxMatambre;
         private CheckBox checkBoxChorizo;
         private Button buttonMenuPrincipal;
+        private Button buttonAutoCompletDatos;
     }
 }

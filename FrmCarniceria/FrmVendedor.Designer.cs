@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVendedor));
             numericUpDownKilos = new NumericUpDown();
             labelKilos = new Label();
             comboBoxNuevoCorte = new ComboBox();
@@ -51,6 +52,7 @@
             Column_CorteVendido = new DataGridViewTextBoxColumn();
             Column_KilosVendidos = new DataGridViewTextBoxColumn();
             buttonRetornarMenuPrincipal = new Button();
+            buttonAutocompletar = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilos).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -287,12 +289,23 @@
             buttonRetornarMenuPrincipal.UseVisualStyleBackColor = true;
             buttonRetornarMenuPrincipal.Click += buttonRetornarMenuPrincipal_Click;
             // 
+            // buttonAutocompletar
+            // 
+            buttonAutocompletar.Location = new Point(298, 202);
+            buttonAutocompletar.Name = "buttonAutocompletar";
+            buttonAutocompletar.Size = new Size(154, 23);
+            buttonAutocompletar.TabIndex = 21;
+            buttonAutocompletar.Text = "AutoCompletarCampos";
+            buttonAutocompletar.UseVisualStyleBackColor = true;
+            buttonAutocompletar.Click += buttonAutocompletar_Click;
+            // 
             // FrmVendedor
             // 
             AutoScaleDimensions = new SizeF(6F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1165, 450);
+            ClientSize = new Size(1123, 450);
+            Controls.Add(buttonAutocompletar);
             Controls.Add(buttonRetornarMenuPrincipal);
             Controls.Add(dataGridView1);
             Controls.Add(labelDetalles);
@@ -300,6 +313,7 @@
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Font = new Font("Segoe UI Light", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmVendedor";
             Load += FrmVendedor_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilos).EndInit();
@@ -349,5 +363,6 @@
         private DataGridViewTextBoxColumn Column_CorteVendido;
         private DataGridViewTextBoxColumn Column_KilosVendidos;
         private Button buttonRetornarMenuPrincipal;
+        private Button buttonAutocompletar;
     }
 }

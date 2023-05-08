@@ -117,7 +117,14 @@
 
             }
         }
-
+        /// <summary>
+        /// valida q la cantidad de kg selccionados sea menor al stock
+        /// </summary>
+        /// <param name="miHeladera"></param>
+        /// <param name="kilosVendidos"></param>
+        /// <param name="indexCarne"></param>
+        /// <param name="indiceLista"></param>
+        /// <returns></returns>
         public int ValidarKilosEnStock(Heladera miHeladera, int kilosVendidos, int indexCarne, int indiceLista)
         {
             foreach (Producto item in miHeladera.MiListaDeProductosEnHeladera)

@@ -332,8 +332,27 @@ namespace FrmCarniceria
             formularioIniciarSesion.Show();
             this.Hide();
         }
+        /// <summary>
+        /// autocompletar datos para prueba
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonAutoCompletDatos_Click(object sender, EventArgs e)
+        {
+            textBoxDineroDisponible.Text = "50000";
+            radioButtonTarjeta.Checked = true;
+            checkBoxAsado.Checked = true;
+            checkBoxMatambre.Checked = true;
+            numericUpDownKilosAsado.Value = 5;
+            numericUpDownKilosMatambre.Value = 4;
+
+        }
 
 
+
+
+
+        // quitar
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -363,7 +382,6 @@ namespace FrmCarniceria
         {
 
         }
-
 
     }
 }

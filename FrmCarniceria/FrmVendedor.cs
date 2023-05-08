@@ -171,17 +171,26 @@ namespace FrmCarniceria
             }
             else
             {
-                MessageBox.Show("La cantidad de kilos excede la cantidad que hay stock, vuelva a intentar con stock dispoible o elija otro producto");
+                MessageBox.Show("La cantidad de kilos excede la cantidad que hay stock, vuelva a intentar con stock disponible o elija otro producto");
             }
 
 
+        }
 
-
-
-
-
-
-
+        /// <summary>
+        /// autocompleta campos para prueba
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonAutocompletar_Click(object sender, EventArgs e)
+        {
+            comboBoxNuevoCorte.SelectedIndex = 1;
+            numericUpDownKilos.Value = 5;
+            comboBoxCortePrecio.SelectedIndex = 2;
+            textBoxPrecio.Text = "1200";
+            comboBoxRestaurante.SelectedIndex = 1;
+            comboBoxCortesVenta.SelectedIndex = 1;
+            numericUpDownKilosVenta.Value = 5;
         }
 
         private void buttonRetornarMenuPrincipal_Click(object sender, EventArgs e)
@@ -201,7 +210,6 @@ namespace FrmCarniceria
         {
 
         }
-
-
+ 
     }
 }

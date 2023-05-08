@@ -23,15 +23,15 @@ namespace FrmCarniceria
             Vendedor segundoUsuario = new Vendedor("tata@gmail.com", "abc");
             Comprador tercerUsuario = new Comprador("asd", "123");
             Comprador cuartoUsuario = new Comprador("asdsadsad@gmail.com", "1234");
-            
-            
+
+
 
             miLista.Add(primerUsuario);
             miLista.Add(segundoUsuario);
             miLista.Add(tercerUsuario);
             miLista.Add(cuartoUsuario);
 
-           
+
 
         }
 

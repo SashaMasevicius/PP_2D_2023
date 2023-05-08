@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIniciarSesion));
             buttonIniciarSesion = new Button();
             textBoxEmail = new TextBox();
             textBoxContrasena = new TextBox();
@@ -40,7 +41,7 @@
             buttonIniciarSesion.BackColor = Color.White;
             buttonIniciarSesion.Font = new Font("Segoe UI Historic", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             buttonIniciarSesion.ForeColor = SystemColors.ActiveCaptionText;
-            buttonIniciarSesion.Location = new Point(159, 203);
+            buttonIniciarSesion.Location = new Point(133, 176);
             buttonIniciarSesion.Name = "buttonIniciarSesion";
             buttonIniciarSesion.Size = new Size(100, 67);
             buttonIniciarSesion.TabIndex = 0;
@@ -52,7 +53,7 @@
             // 
             textBoxEmail.BackColor = Color.White;
             textBoxEmail.ForeColor = SystemColors.WindowText;
-            textBoxEmail.Location = new Point(49, 91);
+            textBoxEmail.Location = new Point(49, 64);
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.PlaceholderText = "Ingresar E-mail";
             textBoxEmail.Size = new Size(331, 23);
@@ -61,7 +62,7 @@
             // textBoxContrasena
             // 
             textBoxContrasena.BackColor = Color.White;
-            textBoxContrasena.Location = new Point(49, 155);
+            textBoxContrasena.Location = new Point(49, 113);
             textBoxContrasena.Name = "textBoxContrasena";
             textBoxContrasena.PasswordChar = '*';
             textBoxContrasena.PlaceholderText = "Ingresar contrasena";
@@ -70,25 +71,25 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.White;
+            button1.BackColor = Color.Silver;
             button1.Font = new Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(561, 56);
+            button1.Location = new Point(458, 38);
             button1.Name = "button1";
-            button1.Size = new Size(135, 91);
+            button1.Size = new Size(116, 49);
             button1.TabIndex = 5;
-            button1.Text = "Generar usuario invitado para ingreso como comprador\r\n";
+            button1.Text = "Autocompletar comprador";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
             // 
             // buttonCompletarVendedor
             // 
-            buttonCompletarVendedor.BackColor = SystemColors.ButtonHighlight;
-            buttonCompletarVendedor.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonCompletarVendedor.Location = new Point(561, 167);
+            buttonCompletarVendedor.BackColor = Color.Silver;
+            buttonCompletarVendedor.Font = new Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonCompletarVendedor.Location = new Point(458, 113);
             buttonCompletarVendedor.Name = "buttonCompletarVendedor";
-            buttonCompletarVendedor.Size = new Size(135, 103);
+            buttonCompletarVendedor.Size = new Size(116, 46);
             buttonCompletarVendedor.TabIndex = 6;
-            buttonCompletarVendedor.Text = "Generar usuario invitado para ingreso como vendedor\r\n";
+            buttonCompletarVendedor.Text = "Autocompletar vendedor";
             buttonCompletarVendedor.UseVisualStyleBackColor = false;
             buttonCompletarVendedor.Click += buttonCompletarVendedor_Click;
             // 
@@ -96,13 +97,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(800, 450);
+            BackColor = SystemColors.ActiveBorder;
+            ClientSize = new Size(601, 268);
             Controls.Add(buttonCompletarVendedor);
             Controls.Add(button1);
             Controls.Add(textBoxContrasena);
             Controls.Add(textBoxEmail);
             Controls.Add(buttonIniciarSesion);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmIniciarSesion";
             ResumeLayout(false);
             PerformLayout();
