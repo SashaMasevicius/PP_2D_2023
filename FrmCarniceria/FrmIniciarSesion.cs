@@ -1,4 +1,6 @@
 using Entidades;
+using Microsoft.VisualBasic.ApplicationServices;
+using System.Security.Policy;
 
 namespace FrmCarniceria
 {
@@ -41,6 +43,10 @@ namespace FrmCarniceria
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+            player.SoundLocation = "C:/Users/sasha/OneDrive/Escritorio/BotonSound.wav";
+            player.Play();
+
             //guardo los valores de los textbox
             string mail = this.textBoxEmail.Text;
             string contrasena = this.textBoxContrasena.Text;
@@ -79,6 +85,8 @@ namespace FrmCarniceria
             {
                 MessageBox.Show("Usuario y contrasena incorrecta");
             }
+
+
 
 
         }

@@ -16,6 +16,16 @@
         //Metodos
 
         /// <summary>
+        /// mensaje que muestra mensaje cuando inicia sesion
+        /// </summary>
+        /// <returns></returns>
+        public override string crearMensajeBienvenido()
+        {
+            return $"el usuario {this.Email} ha iniciado sesión como comprador";
+        }
+
+
+        /// <summary>
         /// Metodo que valida que el precio ingresado sea mayor o igual al minimo(1000) y que no sea un string 
         /// ni espacio vacio
         /// </summary>
@@ -101,10 +111,36 @@
                        
 
                     }
+
                    
                 }
 
             }
+        }
+
+        public int ValidarKilosEnStock(Heladera miHeladera, int kilosVendidos, int indexCarne, int indiceLista)
+        {
+            foreach (Producto item in miHeladera.MiListaDeProductosEnHeladera)
+            {
+
+                if (indexCarne == indiceLista && miHeladera.MiListaDeProductosEnHeladera.IndexOf(item) == indiceLista)
+                {
+                    if (kilosVendidos <= item.Peso)
+                    {
+                        return 1;
+
+
+                    }
+                    else
+                    {
+                        return -1;
+                    }
+
+
+                }
+
+            }
+            return 0;
         }
 
     } //fin

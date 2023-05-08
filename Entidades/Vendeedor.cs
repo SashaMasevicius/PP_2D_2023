@@ -22,6 +22,15 @@ namespace Entidades
             set => listaDeClientesFijos = value;
         }
 
+        /// <summary>
+        /// mensaje que muestra email cuando inicia sesion
+        /// </summary>
+        /// <returns></returns>
+        public override string crearMensajeBienvenido()
+        {
+            return $"el usuario {this.Email} ha iniciado sesión como vendedor";
+        }
+
 
         /// <summary>
         /// agrega cliente a la lista de clientes

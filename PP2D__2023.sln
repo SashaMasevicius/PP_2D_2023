@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrmCarniceria", "FrmCarniceria\FrmCarniceria.csproj", "{C5BC4B14-C344-4CD0-AE94-A72AD49E4F02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrmCarniceria", "FrmCarniceria\FrmCarniceria.csproj", "{C5BC4B14-C344-4CD0-AE94-A72AD49E4F02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{1505108B-B1EF-41ED-90DC-00BC160D4231}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Entidades.csproj", "{1505108B-B1EF-41ED-90DC-00BC160D4231}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

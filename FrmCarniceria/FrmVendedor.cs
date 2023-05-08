@@ -31,8 +31,8 @@ namespace FrmCarniceria
         public FrmVendedor(Vendedor miVendedor) : this()
         {
             this.vendedor = miVendedor;
-            MessageBox.Show($"Bienvenido {this.vendedor.Email}");
 
+            MessageBox.Show(miVendedor.crearMensajeBienvenido());
 
 
 
@@ -84,6 +84,9 @@ namespace FrmCarniceria
         private void button1_Click(object sender, EventArgs e)
         {
 
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+            player.SoundLocation = "C:/Users/sasha/OneDrive/Escritorio/BotonSound.wav";
+            player.Play();
 
             int indexCorte = this.comboBoxNuevoCorte.SelectedIndex;
             int cantidadKilosSeleccionado = (int)numericUpDownKilos.Value;
@@ -105,6 +108,10 @@ namespace FrmCarniceria
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+            player.SoundLocation = "C:/Users/sasha/OneDrive/Escritorio/BotonSound.wav";
+            player.Play();
+
             string precioValidador = this.textBoxPrecio.Text;
             double nuevoPrecioElegido;
             bool boolNuevoPrecioNoString = double.TryParse(precioValidador, out nuevoPrecioElegido);
@@ -135,6 +142,12 @@ namespace FrmCarniceria
         /// <param name="e"></param>
         private void buttonVenderListaDeClientes_Click(object sender, EventArgs e)
         {
+
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+            player.SoundLocation = "C:/Users/sasha/OneDrive/Escritorio/BotonSound.wav";
+            player.Play();
+
+
             int indiceComprador = this.comboBoxRestaurante.SelectedIndex;
             int indiceCorteCarne = this.comboBoxCortesVenta.SelectedIndex;
             int kilosVendidos = (int)this.numericUpDownKilosVenta.Value;
@@ -171,6 +184,14 @@ namespace FrmCarniceria
 
         }
 
+        private void buttonRetornarMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            FrmIniciarSesion formularioIniciarSesion;
+            formularioIniciarSesion = new FrmIniciarSesion();
+            formularioIniciarSesion.Show();
+            this.Hide();
+        }
+
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
@@ -180,5 +201,7 @@ namespace FrmCarniceria
         {
 
         }
+
+
     }
 }

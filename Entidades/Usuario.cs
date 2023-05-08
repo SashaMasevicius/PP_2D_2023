@@ -21,6 +21,13 @@
         {
             get => contrasenia;
         }
-
+        /// <summary>
+        /// creo mensaje para iniciar sesion
+        /// </summary>
+        /// <returns></returns>
+        public virtual string crearMensajeBienvenido()
+        {
+            return $"El usuario {Email} ha iniciado sesión.";
+        }
     }
 }

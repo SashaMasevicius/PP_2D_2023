@@ -50,6 +50,7 @@
             Column_Comprador = new DataGridViewTextBoxColumn();
             Column_CorteVendido = new DataGridViewTextBoxColumn();
             Column_KilosVendidos = new DataGridViewTextBoxColumn();
+            buttonRetornarMenuPrincipal = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilos).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -258,7 +259,7 @@
             dataGridView1.Location = new Point(688, 20);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(345, 391);
+            dataGridView1.Size = new Size(345, 294);
             dataGridView1.TabIndex = 19;
             // 
             // Column_Comprador
@@ -276,12 +277,23 @@
             Column_KilosVendidos.HeaderText = "Kilos Vendidos";
             Column_KilosVendidos.Name = "Column_KilosVendidos";
             // 
+            // buttonRetornarMenuPrincipal
+            // 
+            buttonRetornarMenuPrincipal.Location = new Point(926, 388);
+            buttonRetornarMenuPrincipal.Name = "buttonRetornarMenuPrincipal";
+            buttonRetornarMenuPrincipal.Size = new Size(107, 54);
+            buttonRetornarMenuPrincipal.TabIndex = 20;
+            buttonRetornarMenuPrincipal.Text = "Volver al menu principal";
+            buttonRetornarMenuPrincipal.UseVisualStyleBackColor = true;
+            buttonRetornarMenuPrincipal.Click += buttonRetornarMenuPrincipal_Click;
+            // 
             // FrmVendedor
             // 
             AutoScaleDimensions = new SizeF(6F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1165, 450);
+            Controls.Add(buttonRetornarMenuPrincipal);
             Controls.Add(dataGridView1);
             Controls.Add(labelDetalles);
             Controls.Add(groupBox4);
@@ -336,5 +348,6 @@
         private DataGridViewTextBoxColumn Column_Comprador;
         private DataGridViewTextBoxColumn Column_CorteVendido;
         private DataGridViewTextBoxColumn Column_KilosVendidos;
+        private Button buttonRetornarMenuPrincipal;
     }
 }

@@ -54,6 +54,7 @@
             checkBoxVacio = new CheckBox();
             checkBoxMatambre = new CheckBox();
             checkBoxChorizo = new CheckBox();
+            buttonMenuPrincipal = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosAsado).BeginInit();
             groupBox2.SuspendLayout();
@@ -190,7 +191,7 @@
             // 
             // buttonComprar
             // 
-            buttonComprar.Location = new Point(578, 405);
+            buttonComprar.Location = new Point(454, 405);
             buttonComprar.Name = "buttonComprar";
             buttonComprar.Size = new Size(75, 23);
             buttonComprar.TabIndex = 26;
@@ -336,12 +337,23 @@
             checkBoxChorizo.Text = "Chorizo";
             checkBoxChorizo.UseVisualStyleBackColor = true;
             // 
+            // buttonMenuPrincipal
+            // 
+            buttonMenuPrincipal.Location = new Point(650, 379);
+            buttonMenuPrincipal.Name = "buttonMenuPrincipal";
+            buttonMenuPrincipal.Size = new Size(94, 59);
+            buttonMenuPrincipal.TabIndex = 37;
+            buttonMenuPrincipal.Text = "Volver al menu principal";
+            buttonMenuPrincipal.UseVisualStyleBackColor = true;
+            buttonMenuPrincipal.Click += buttonMenuPrincipal_Click;
+            // 
             // FrmComprador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSalmon;
             ClientSize = new Size(756, 450);
+            Controls.Add(buttonMenuPrincipal);
             Controls.Add(checkBoxChorizo);
             Controls.Add(checkBoxMatambre);
             Controls.Add(checkBoxVacio);
@@ -409,5 +421,6 @@
         private CheckBox checkBoxVacio;
         private CheckBox checkBoxMatambre;
         private CheckBox checkBoxChorizo;
+        private Button buttonMenuPrincipal;
     }
 }
