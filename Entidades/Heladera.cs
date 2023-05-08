@@ -11,13 +11,13 @@ namespace Entidades
     {
         //atributos
         List<Producto> miListaDeProductosEnHeladera;
-        
+
 
         public Heladera(List<Producto> miListaDeProductosEnHeladera)
         {
 
             this.MiListaDeProductosEnHeladera = miListaDeProductosEnHeladera;
-            
+
 
         }
         //genero constructor de lista de productos
@@ -25,13 +25,17 @@ namespace Entidades
 
 
         public List<Producto> MiListaDeProductosEnHeladera
-        { 
-            get => miListaDeProductosEnHeladera; set => miListaDeProductosEnHeladera = value; 
+        {
+            get => miListaDeProductosEnHeladera;
+            set => miListaDeProductosEnHeladera = value;
         }
-     
 
 
-        //MUESTRA DETALLES DE PRODUCTOS
+
+        /// <summary>
+        /// MUESTRA DETALLES DE PRODUCTOS
+        /// </summary>
+        /// <returns></returns>
         public string mostrarDetalleDeProductos()
         {
             StringBuilder sb = new StringBuilder();
@@ -41,7 +45,13 @@ namespace Entidades
                 sb.AppendLine($"{item.TipoCarne}        {item.Peso}        {item.PrecioPorKg}");
             }
             return sb.ToString();
-        }
+        } 
+
+        /// <summary>
+        /// obtengo precio
+        /// </summary>
+        /// <param name="indice"></param>
+        /// <returns></returns>
         public double obtenerPrecio(int indice)
         {
             foreach (Producto item in this.MiListaDeProductosEnHeladera)
@@ -51,7 +61,12 @@ namespace Entidades
             }
             return -1;         
         }
-        //AGREGA KILOS AL ITEM ELEGIDO
+
+        /// <summary>
+        /// AGREGA KILOS AL ITEM ELEGIDO
+        /// </summary>
+        /// <param name="indexCarne"></param>
+        /// <param name="cantidadDeKilos"></param>
         public void AgregarKilosPorCorteSeleccionado(int  indexCarne, int cantidadDeKilos)
         {
 
@@ -84,7 +99,11 @@ namespace Entidades
 
         }
 
-       //CAMBIA PRECIO DE CORTES
+       /// <summary>
+       /// CAMBIA PRECIO DE CORTES
+       /// </summary>
+       /// <param name="indexCarne"></param>
+       /// <param name="precioPorKilo"></param>
         public void cambiarPrecioDelCorte(int indexCarne, double precioPorKilo)
         {
             foreach (Producto item in this.MiListaDeProductosEnHeladera)

@@ -29,6 +29,10 @@ namespace Entidades
             get => precioPorKg;
             set => precioPorKg = value; 
         }
-        public eCarne TipoCarne { get => tipoCarne; set => tipoCarne = value; }
+        public eCarne TipoCarne 
+        { 
+            get => tipoCarne; 
+            set => tipoCarne = value;
+        }
     }
 }

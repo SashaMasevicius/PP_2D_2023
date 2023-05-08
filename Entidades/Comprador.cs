@@ -2,31 +2,13 @@
 {
     public class Comprador : Usuario
     {
-        //Atributos
-
-        float dineroMaximoDisponible;
-        string nombreComprador;
-
+       
 
         //Constructor
 
         public Comprador(string email, string contrasenia) : base(email, contrasenia)
         {
 
-        }
-
-
-        public float DineroMaximoDisponible
-        {
-            get => dineroMaximoDisponible;
-            set => dineroMaximoDisponible = value;
-        }
-
-
-        public string NombreComprador 
-        {
-            get => nombreComprador;
-            set => nombreComprador = value;
         }
 
 
@@ -90,7 +72,7 @@
                 {
                     if (kilosVendidos <= item.Peso)
                     {
-                        item.Peso -= kilosVendidos;
+                       
                         return precioCarne * kilosVendidos;
                         
                     }
@@ -106,9 +88,24 @@
 
         }
 
+        public void RestarKilosAlStock(Heladera miHeladera, int kilosVendidos, int indexCarne, int indiceLista, double precioCarne)
+        {
+            foreach (Producto item in miHeladera.MiListaDeProductosEnHeladera)
+            {
 
+                if (indexCarne == indiceLista && miHeladera.MiListaDeProductosEnHeladera.IndexOf(item) == indiceLista)
+                {
+                    if (kilosVendidos <= item.Peso)
+                    {
+                        item.Peso -= kilosVendidos;
+                       
 
+                    }
+                   
+                }
 
+            }
+        }
 
     } //fin
 

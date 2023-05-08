@@ -44,3 +44,4 @@ C:\Users\sasha\OneDrive\Escritorio\PP2D_2023-main\FrmCarniceria\obj\Debug\net6.0
 C:\Users\sasha\OneDrive\Escritorio\PP2D_2023-main\FrmCarniceria\obj\Debug\net6.0-windows\FrmCarniceria.pdb
 C:\Users\sasha\OneDrive\Escritorio\PP2D_2023-main\FrmCarniceria\obj\Debug\net6.0-windows\FrmCarniceria.genruntimeconfig.cache
 C:\Users\sasha\OneDrive\Escritorio\PP2D_2023-main\FrmCarniceria\obj\Debug\net6.0-windows\ref\FrmCarniceria.dll
+C:\Users\sasha\OneDrive\Escritorio\PP2D_2023-main\FrmCarniceria\obj\Debug\net6.0-windows\FrmCarniceria.Ticket.resources

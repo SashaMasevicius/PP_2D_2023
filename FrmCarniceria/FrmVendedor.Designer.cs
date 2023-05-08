@@ -251,7 +251,7 @@
             // 
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridView1.BackgroundColor = SystemColors.Menu;
+            dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column_Comprador, Column_CorteVendido, Column_KilosVendidos });
@@ -280,6 +280,7 @@
             // 
             AutoScaleDimensions = new SizeF(6F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1165, 450);
             Controls.Add(dataGridView1);
             Controls.Add(labelDetalles);
@@ -288,7 +289,6 @@
             Controls.Add(groupBox1);
             Font = new Font("Segoe UI Light", 9F, FontStyle.Italic, GraphicsUnit.Point);
             Name = "FrmVendedor";
-            Text = "asd";
             Load += FrmVendedor_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilos).EndInit();
             groupBox1.ResumeLayout(false);

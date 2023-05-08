@@ -214,7 +214,7 @@
             // radioButtonTarjeta
             // 
             radioButtonTarjeta.AutoSize = true;
-            radioButtonTarjeta.BackColor = SystemColors.Control;
+            radioButtonTarjeta.BackColor = Color.LightSalmon;
             radioButtonTarjeta.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             radioButtonTarjeta.Location = new Point(6, 22);
             radioButtonTarjeta.Name = "radioButtonTarjeta";
@@ -340,6 +340,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LightSalmon;
             ClientSize = new Size(756, 450);
             Controls.Add(checkBoxChorizo);
             Controls.Add(checkBoxMatambre);
@@ -358,7 +359,6 @@
             Controls.Add(groupBox1);
             Controls.Add(labelBienvenido);
             Name = "FrmComprador";
-            Text = "FrmComprador";
             Load += FrmComprador_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
