@@ -10,7 +10,7 @@ namespace FrmCarniceria
         bool validarMedioDePagoParaComprar;
 
 
-        
+
 
         public FrmComprador()
         {
@@ -18,17 +18,11 @@ namespace FrmCarniceria
 
         }
 
-        public FrmComprador(Comprador comprador,Heladera miHeladera) : this()
+        public FrmComprador(Comprador comprador, Heladera miHeladera) : this()
         {
             this.miComprador = comprador;
             MessageBox.Show(miComprador.crearMensajeBienvenido());
-
-
             this.miHeladera = miHeladera;
-
-            
-
-
             this.labelBienvenido.Text = labelBienvenido.Text + " " + this.miComprador.Email;
             this.labelDatos.Text = miHeladera.mostrarDetalleDeProductos();
         }
@@ -66,51 +60,94 @@ namespace FrmCarniceria
 
 
         /// <summary>
-        /// Boton para ingresar medio de pago y mostrar mensaje, el monto queda guardado en la pantalla para que sea visible al usuario
+        // validar medio de pago
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonAgregarMedioDePago_Click(object sender, EventArgs e)
+        private void ValidarMedioDePago()
         {
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-            player.SoundLocation = "C:/Users/sasha/OneDrive/Escritorio/BotonSound.wav";
-            player.Play();
 
             if (this.radioButtonTarjeta.Checked == true)
             {
-                MessageBox.Show("El medio de pago elegido es: TARJETA");
-                this.labelMedioDePago.Text = "TARJETA";
                 validarMedioDePagoParaComprar = true;
 
             }
             else
             {
-                MessageBox.Show("El medio de pago elegido es: EFECTIVO");
-                this.labelMedioDePago.Text = "EFECTIVO";
                 validarMedioDePagoParaComprar = true;
             }
-
-
 
         }
 
 
+        double precioTotalDeLaCompra = 0;
+        int retornoStockAsado = 1;
+        int retornoStockVacio = 1;
+        int retornoStockMatambre = 1;
+        int retornoStockChorizo = 1;
+        string mensaje = "Detalles de su compra: \n";
 
-        /// <summary>
-        /// Boton para realizar la compra y mostrar el ticket
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
+
+        private string ObtenerPrecioTotalDeLaCompraDevolverMensaje()
         {
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-            player.SoundLocation = "C:/Users/sasha/OneDrive/Escritorio/BotonSound.wav";
-            player.Play();
+
+            double precioAsadoPorKilosElegidos = 0;
+            double precioVacioPorKilosElegidos = 0;
+            double precioMatambrePorKilosElegidos = 0;
+            double precioChorizoPorKilosElegidos = 0;
+
 
             int kilosAsado = (int)this.numericUpDownKilosAsado.Value;
             int kilosVacio = (int)this.numericUpDownKilosVacio.Value;
             int kilosMatambre = (int)this.numericUpDownKilosMatambre.Value;
             int kilosChorizo = (int)this.numericUpDownKilosChorizo.Value;
+
+            double obtenerPrecioAsado = miHeladera.obtenerPrecio(0);
+            double obtenerPrecioVacio = miHeladera.obtenerPrecio(1);
+            double obtenerPrecioMatambre = miHeladera.obtenerPrecio(2);
+            double obtenerPrecioChorizo = miHeladera.obtenerPrecio(3);
+
+
+
+            string mensaje = "Detalles de su compra: \n";
+
+            if (this.checkBoxAsado.Checked)
+            {
+                precioAsadoPorKilosElegidos = miComprador.obtenerPrecioCortePorKilo(miHeladera, kilosAsado, 0, 0, obtenerPrecioAsado);
+                mensaje = mensaje + $"Asado" + kilosAsado.ToString() + " Kg" + " = " + precioAsadoPorKilosElegidos + "$\n";
+                retornoStockAsado = miComprador.ValidarKilosEnStock(miHeladera, kilosAsado, 0, 0);
+            }
+            if (this.checkBoxVacio.Checked)
+            {
+                precioVacioPorKilosElegidos = miComprador.obtenerPrecioCortePorKilo(miHeladera, kilosVacio, 1, 1, obtenerPrecioVacio);
+                mensaje = mensaje + $"Vacio" + kilosVacio.ToString() + " Kg" + " = " + precioVacioPorKilosElegidos + "$\n";
+                retornoStockVacio = miComprador.ValidarKilosEnStock(miHeladera, kilosVacio, 1, 1);
+            }
+            if (this.checkBoxMatambre.Checked)
+            {
+                precioMatambrePorKilosElegidos = miComprador.obtenerPrecioCortePorKilo(miHeladera, kilosMatambre, 2, 2, obtenerPrecioMatambre);
+                mensaje = mensaje + $"Matambre" + kilosMatambre.ToString() + " Kg" + " = " + precioMatambrePorKilosElegidos + "$\n";
+                retornoStockMatambre = miComprador.ValidarKilosEnStock(miHeladera, kilosMatambre, 2, 2);
+            }
+            if (this.checkBoxChorizo.Checked)
+            {
+                precioChorizoPorKilosElegidos = miComprador.obtenerPrecioCortePorKilo(miHeladera, kilosChorizo, 3, 3, obtenerPrecioChorizo);
+                mensaje = mensaje + $"Chorizo" + kilosChorizo.ToString() + " Kg" + " = " + precioChorizoPorKilosElegidos + "$ \n";
+                retornoStockChorizo = miComprador.ValidarKilosEnStock(miHeladera, kilosChorizo, 3, 3);
+
+            }
+            precioTotalDeLaCompra = precioAsadoPorKilosElegidos + precioVacioPorKilosElegidos + precioMatambrePorKilosElegidos + precioChorizoPorKilosElegidos;
+            return mensaje;
+        }
+
+
+        public void RestarKilosAlStockSegunCorte()
+        {
+            int kilosAsado = (int)this.numericUpDownKilosAsado.Value;
+            int kilosVacio = (int)this.numericUpDownKilosVacio.Value;
+            int kilosMatambre = (int)this.numericUpDownKilosMatambre.Value;
+            int kilosChorizo = (int)this.numericUpDownKilosChorizo.Value;
+
 
 
             double obtenerPrecioAsado = miHeladera.obtenerPrecio(0);
@@ -118,177 +155,114 @@ namespace FrmCarniceria
             double obtenerPrecioMatambre = miHeladera.obtenerPrecio(2);
             double obtenerPrecioChorizo = miHeladera.obtenerPrecio(3);
 
+            if (this.checkBoxAsado.Checked)
+            {
+                miComprador.RestarKilosAlStock(miHeladera, kilosAsado, 0, 0, obtenerPrecioAsado);
+
+            }
+            if (this.checkBoxVacio.Checked)
+            {
+                miComprador.RestarKilosAlStock(miHeladera, kilosVacio, 1, 1, obtenerPrecioVacio);
+
+            }
+            if (this.checkBoxMatambre.Checked)
+            {
+                miComprador.RestarKilosAlStock(miHeladera, kilosMatambre, 2, 2, obtenerPrecioMatambre);
+
+            }
+            if (this.checkBoxChorizo.Checked)
+            {
+                miComprador.RestarKilosAlStock(miHeladera, kilosChorizo, 3, 3, obtenerPrecioChorizo);
+
+
+            }
+        }
+
+        public void aceptarCompraIngresandoANuevoFormularioRestarKilos(double dineroDisponible)
+        {
+
+
+
+            Ticket frmTicket = new Ticket(mensaje, precioTotalDeLaCompra, dineroDisponible);
+            DialogResult result = frmTicket.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                //dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
+                // si todo esta ok . resto los kilos al stock
+
+                RestarKilosAlStockSegunCorte();
+
+                // actualizo datos de label
+                this.labelDatos.Text = miHeladera.mostrarDetalleDeProductos();
+                labelpPrecioDisponibleIngresado.Text = "";
+
+            }
+
+        }
+
+
+        /// <summary>
+        /// Boton para realizar la compra y mostrar el ticket
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// 
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+            player.SoundLocation = "C:/Users/sasha/OneDrive/Escritorio/BotonSound.wav";
+            player.Play();
+
             // Obtener el texto del Label
             string textoLabel = labelpPrecioDisponibleIngresado.Text;
-
-            // Convertir el texto en un número decimal
             double dineroDisponible;
             Double.TryParse(textoLabel, out dineroDisponible);
 
 
-
-            double precioAsadoPorKilosElegidos = 0;
-            double precioVacioPorKilosElegidos = 0;
-            double precioMatambrePorKilosElegidos = 0;
-            double precioChorizoPorKilosElegidos = 0;
-            double precioTotalDeLaCompra = 0;
-
-            int retornoStockAsado = 1;
-            int retornoStockVacio = 1;
-            int retornoStockMatambre = 1;
-            int retornoStockChorizo = 1;
-
-            string mensaje = "Detalles de su compra: \n";
-
+            // si no  elige precio y medio de pago
             if (validarPrecioParaComprar == false && validarMedioDePagoParaComprar == false)
             {
                 MessageBox.Show("ERROR: Debe ingresar monto y medio de pago para poder realizar la compra");
             }
-            else
+            else //si   elige precio y medio de pago
             {
-                // busco el precio de cada corte elegido por el usuario y lo multiplico por los kilos, el valor final de cada producto lo sumo y
-                // lo guardo en su atributo
-                if (this.checkBoxAsado.Checked)
-                {
-                    precioAsadoPorKilosElegidos = miComprador.obtenerPrecioCortePorKilo(miHeladera, kilosAsado, 0, 0, obtenerPrecioAsado);
-                    mensaje = mensaje + $"Asado" + kilosAsado.ToString() + " Kg" + " = " + precioAsadoPorKilosElegidos + "$\n";
-                    retornoStockAsado = miComprador.ValidarKilosEnStock(miHeladera, kilosAsado, 0, 0);
-                }
-                if (this.checkBoxVacio.Checked)
-                {
-                    precioVacioPorKilosElegidos = miComprador.obtenerPrecioCortePorKilo(miHeladera, kilosVacio, 1, 1, obtenerPrecioVacio);
-                    mensaje = mensaje + $"Vacio" + kilosVacio.ToString() + " Kg" + " = " + precioVacioPorKilosElegidos + "$\n";
-                    retornoStockVacio = miComprador.ValidarKilosEnStock(miHeladera, kilosVacio, 1, 1);
-                }
-                if (this.checkBoxMatambre.Checked)
-                {
-                    precioMatambrePorKilosElegidos = miComprador.obtenerPrecioCortePorKilo(miHeladera, kilosMatambre, 2, 2, obtenerPrecioMatambre);
-                    mensaje = mensaje + $"Matambre" + kilosMatambre.ToString() + " Kg" + " = " + precioMatambrePorKilosElegidos + "$\n";
-                    retornoStockMatambre = miComprador.ValidarKilosEnStock(miHeladera, kilosMatambre, 2, 2);
-                }
-                if (this.checkBoxChorizo.Checked)
-                {
-                    precioChorizoPorKilosElegidos = miComprador.obtenerPrecioCortePorKilo(miHeladera, kilosChorizo, 3, 3, obtenerPrecioChorizo);
-                    mensaje = mensaje + $"Chorizo" + kilosChorizo.ToString() + " Kg" + " = " + precioChorizoPorKilosElegidos + "$ \n";
-                    retornoStockMatambre = miComprador.ValidarKilosEnStock(miHeladera, kilosChorizo, 3, 3);
+                //guardoMensaje y guarrdo precioDeLaCompra
+                mensaje = ObtenerPrecioTotalDeLaCompraDevolverMensaje();
 
-                }
-                precioTotalDeLaCompra = precioAsadoPorKilosElegidos + precioVacioPorKilosElegidos + precioMatambrePorKilosElegidos + precioChorizoPorKilosElegidos;
-
+                // si todos los retornos dan 1
                 if (retornoStockAsado == 1 && retornoStockVacio == 1 && retornoStockMatambre == 1 && retornoStockChorizo == 1)
                 {
-
-
-                    if (dineroDisponible >= precioTotalDeLaCompra)
+           
+                    //si es tarjeta
+                    if (this.radioButtonTarjeta.Checked == true)
                     {
-                        //si es tarjeta
-                        if (this.radioButtonTarjeta.Checked == true)
-                        {
-
-                            precioTotalDeLaCompra = precioTotalDeLaCompra + precioTotalDeLaCompra * 0.05;
-                            dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
-                            if (dineroDisponible >= precioTotalDeLaCompra)
-                            {
-
-                                //abro formulario ticket de venta
-                                Ticket frmTicket = new Ticket(mensaje, precioTotalDeLaCompra, dineroDisponible);
-                                DialogResult result = frmTicket.ShowDialog();
-
-
-                                if (result == DialogResult.OK)
-                                {
-                                    //dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
-                                    // si todo esta ok . resto los kilos al stock
-                                    if (this.checkBoxAsado.Checked)
-                                    {
-                                        miComprador.RestarKilosAlStock(miHeladera, kilosAsado, 0, 0, obtenerPrecioAsado);
-
-                                    }
-                                    if (this.checkBoxVacio.Checked)
-                                    {
-                                        miComprador.RestarKilosAlStock(miHeladera, kilosVacio, 1, 1, obtenerPrecioVacio);
-
-                                    }
-                                    if (this.checkBoxMatambre.Checked)
-                                    {
-                                        miComprador.RestarKilosAlStock(miHeladera, kilosMatambre, 2, 2, obtenerPrecioMatambre);
-
-                                    }
-                                    if (this.checkBoxChorizo.Checked)
-                                    {
-                                        miComprador.RestarKilosAlStock(miHeladera, kilosChorizo, 3, 3, obtenerPrecioChorizo);
-
-
-                                    }
-
-                                    // actualizo datos de label
-                                    this.labelDatos.Text = miHeladera.mostrarDetalleDeProductos();
-                                    labelpPrecioDisponibleIngresado.Text = "";
-                                    labelMedioDePago.Text = "";
-                                }
-
-
-
-                            }
-                            else
-                            {
-                                MessageBox.Show("Error, no tiene suficiente dinero para realizar la compra");
-                            }
-
-
-
-
-                        }
-
-
-
-
-                        if (this.radioButtonEfectivo.Checked == true)
+                        precioTotalDeLaCompra = precioTotalDeLaCompra + precioTotalDeLaCompra * 0.05;
+                        
+                        if (dineroDisponible >= precioTotalDeLaCompra)
                         {
                             dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
-
-                            Ticket frmTicket = new Ticket(mensaje, precioTotalDeLaCompra, dineroDisponible);
-                            DialogResult result = frmTicket.ShowDialog();
-
-
-                            if (result == DialogResult.OK)
-                            {
-
-                                // si todo esta ok . resto los kilos al stock
-                                if (this.checkBoxAsado.Checked)
-                                {
-                                    miComprador.RestarKilosAlStock(miHeladera, kilosAsado, 0, 0, obtenerPrecioAsado);
-
-                                }
-                                if (this.checkBoxVacio.Checked)
-                                {
-                                    miComprador.RestarKilosAlStock(miHeladera, kilosVacio, 1, 1, obtenerPrecioVacio);
-
-                                }
-                                if (this.checkBoxMatambre.Checked)
-                                {
-                                    miComprador.RestarKilosAlStock(miHeladera, kilosMatambre, 2, 2, obtenerPrecioMatambre);
-
-                                }
-                                if (this.checkBoxChorizo.Checked)
-                                {
-                                    miComprador.RestarKilosAlStock(miHeladera, kilosChorizo, 3, 3, obtenerPrecioChorizo);
-
-                                }
-
-                                // actualizo datos de label
-                                this.labelDatos.Text = miHeladera.mostrarDetalleDeProductos();
-                                labelpPrecioDisponibleIngresado.Text = "";
-                                labelMedioDePago.Text = "";
-
-                            }
-
-
+                            aceptarCompraIngresandoANuevoFormularioRestarKilos(dineroDisponible);
+                            
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error, no tiene suficiente dinero para realizar la compra");
+                        else
+                        {
+                            MessageBox.Show("Error, no tiene suficiente dinero para realizar la compra");
+                        }
+                    } // si es efectivo
+                    if (this.radioButtonEfectivo.Checked == true)
+                    {                     
+                        if (dineroDisponible >= precioTotalDeLaCompra)
+                        {
+                            dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
+                            aceptarCompraIngresandoANuevoFormularioRestarKilos(dineroDisponible);
+                            
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error, no tiene suficiente dinero para realizar la compra");
+                        }
                     }
                 }
                 else
@@ -301,6 +275,9 @@ namespace FrmCarniceria
 
 
         }
+
+
+
 
         /// <summary>
         /// 

@@ -45,12 +45,9 @@
             radioButtonEfectivo = new RadioButton();
             radioButtonTarjeta = new RadioButton();
             groupBox3 = new GroupBox();
-            buttonAgregarMedioDePago = new Button();
             label3 = new Label();
             groupBoxDineroIngresado = new GroupBox();
             labelpPrecioDisponibleIngresado = new Label();
-            groupBoxMedioDePago = new GroupBox();
-            labelMedioDePago = new Label();
             checkBoxAsado = new CheckBox();
             checkBoxVacio = new CheckBox();
             checkBoxMatambre = new CheckBox();
@@ -65,7 +62,6 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosChorizo).BeginInit();
             groupBox3.SuspendLayout();
             groupBoxDineroIngresado.SuspendLayout();
-            groupBoxMedioDePago.SuspendLayout();
             SuspendLayout();
             // 
             // labelBienvenido
@@ -134,7 +130,7 @@
             // 
             labelDatos.AutoSize = true;
             labelDatos.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            labelDatos.Location = new Point(52, 42);
+            labelDatos.Location = new Point(33, 42);
             labelDatos.Name = "labelDatos";
             labelDatos.Size = new Size(48, 20);
             labelDatos.TabIndex = 19;
@@ -229,7 +225,6 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(buttonAgregarMedioDePago);
             groupBox3.Controls.Add(label3);
             groupBox3.Controls.Add(radioButtonTarjeta);
             groupBox3.Controls.Add(radioButtonEfectivo);
@@ -239,16 +234,6 @@
             groupBox3.TabIndex = 30;
             groupBox3.TabStop = false;
             groupBox3.Text = "MEDIOS DE PAGO";
-            // 
-            // buttonAgregarMedioDePago
-            // 
-            buttonAgregarMedioDePago.Location = new Point(18, 78);
-            buttonAgregarMedioDePago.Name = "buttonAgregarMedioDePago";
-            buttonAgregarMedioDePago.Size = new Size(169, 23);
-            buttonAgregarMedioDePago.TabIndex = 30;
-            buttonAgregarMedioDePago.Text = "Agregar medio de pago";
-            buttonAgregarMedioDePago.UseVisualStyleBackColor = true;
-            buttonAgregarMedioDePago.Click += buttonAgregarMedioDePago_Click;
             // 
             // label3
             // 
@@ -262,7 +247,7 @@
             // groupBoxDineroIngresado
             // 
             groupBoxDineroIngresado.Controls.Add(labelpPrecioDisponibleIngresado);
-            groupBoxDineroIngresado.Location = new Point(394, 181);
+            groupBoxDineroIngresado.Location = new Point(454, 181);
             groupBoxDineroIngresado.Name = "groupBoxDineroIngresado";
             groupBoxDineroIngresado.Size = new Size(164, 56);
             groupBoxDineroIngresado.TabIndex = 31;
@@ -278,26 +263,6 @@
             labelpPrecioDisponibleIngresado.Size = new Size(157, 28);
             labelpPrecioDisponibleIngresado.TabIndex = 32;
             labelpPrecioDisponibleIngresado.Text = "No ha ingresado";
-            // 
-            // groupBoxMedioDePago
-            // 
-            groupBoxMedioDePago.Controls.Add(labelMedioDePago);
-            groupBoxMedioDePago.Location = new Point(564, 181);
-            groupBoxMedioDePago.Name = "groupBoxMedioDePago";
-            groupBoxMedioDePago.Size = new Size(166, 56);
-            groupBoxMedioDePago.TabIndex = 32;
-            groupBoxMedioDePago.TabStop = false;
-            groupBoxMedioDePago.Text = "MEDIO DE PAGO";
-            // 
-            // labelMedioDePago
-            // 
-            labelMedioDePago.AutoSize = true;
-            labelMedioDePago.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            labelMedioDePago.Location = new Point(0, 19);
-            labelMedioDePago.Name = "labelMedioDePago";
-            labelMedioDePago.Size = new Size(167, 25);
-            labelMedioDePago.TabIndex = 32;
-            labelMedioDePago.Text = "No ha seleccionado";
             // 
             // checkBoxAsado
             // 
@@ -364,14 +329,13 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSalmon;
-            ClientSize = new Size(756, 450);
+            ClientSize = new Size(976, 493);
             Controls.Add(buttonAutoCompletDatos);
             Controls.Add(buttonMenuPrincipal);
             Controls.Add(checkBoxChorizo);
             Controls.Add(checkBoxMatambre);
             Controls.Add(checkBoxVacio);
             Controls.Add(checkBoxAsado);
-            Controls.Add(groupBoxMedioDePago);
             Controls.Add(groupBoxDineroIngresado);
             Controls.Add(groupBox3);
             Controls.Add(buttonComprar);
@@ -398,8 +362,6 @@
             groupBox3.PerformLayout();
             groupBoxDineroIngresado.ResumeLayout(false);
             groupBoxDineroIngresado.PerformLayout();
-            groupBoxMedioDePago.ResumeLayout(false);
-            groupBoxMedioDePago.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -427,7 +389,6 @@
         private Label label3;
         private GroupBox groupBoxDineroIngresado;
         private Label labelpPrecioDisponibleIngresado;
-        private Button buttonAgregarMedioDePago;
         private GroupBox groupBoxMedioDePago;
         private Label labelMedioDePago;
         private Button buttonComprar;
