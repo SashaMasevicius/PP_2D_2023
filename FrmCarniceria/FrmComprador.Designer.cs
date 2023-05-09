@@ -118,7 +118,7 @@
             // 
             // numericUpDownKilosAsado
             // 
-            numericUpDownKilosAsado.Location = new Point(544, 282);
+            numericUpDownKilosAsado.Location = new Point(622, 279);
             numericUpDownKilosAsado.Maximum = new decimal(new int[] { 150, 0, 0, 0 });
             numericUpDownKilosAsado.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownKilosAsado.Name = "numericUpDownKilosAsado";
@@ -142,14 +142,14 @@
             groupBox2.Controls.Add(labelDatos);
             groupBox2.Location = new Point(54, 243);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(249, 185);
+            groupBox2.Size = new Size(284, 217);
             groupBox2.TabIndex = 20;
             groupBox2.TabStop = false;
             groupBox2.Text = "Stock de la carniceria";
             // 
             // numericUpDownKilosVacio
             // 
-            numericUpDownKilosVacio.Location = new Point(544, 311);
+            numericUpDownKilosVacio.Location = new Point(622, 307);
             numericUpDownKilosVacio.Maximum = new decimal(new int[] { 150, 0, 0, 0 });
             numericUpDownKilosVacio.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownKilosVacio.Name = "numericUpDownKilosVacio";
@@ -159,7 +159,7 @@
             // 
             // numericUpDownKilosMatambre
             // 
-            numericUpDownKilosMatambre.Location = new Point(544, 340);
+            numericUpDownKilosMatambre.Location = new Point(622, 336);
             numericUpDownKilosMatambre.Maximum = new decimal(new int[] { 150, 0, 0, 0 });
             numericUpDownKilosMatambre.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownKilosMatambre.Name = "numericUpDownKilosMatambre";
@@ -169,7 +169,7 @@
             // 
             // numericUpDownKilosChorizo
             // 
-            numericUpDownKilosChorizo.Location = new Point(544, 369);
+            numericUpDownKilosChorizo.Location = new Point(622, 369);
             numericUpDownKilosChorizo.Maximum = new decimal(new int[] { 150, 0, 0, 0 });
             numericUpDownKilosChorizo.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownKilosChorizo.Name = "numericUpDownKilosChorizo";
@@ -181,7 +181,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(464, 254);
+            label2.Location = new Point(506, 243);
             label2.Name = "label2";
             label2.Size = new Size(168, 20);
             label2.TabIndex = 25;
@@ -189,7 +189,7 @@
             // 
             // buttonComprar
             // 
-            buttonComprar.Location = new Point(454, 405);
+            buttonComprar.Location = new Point(533, 425);
             buttonComprar.Name = "buttonComprar";
             buttonComprar.Size = new Size(75, 23);
             buttonComprar.TabIndex = 26;
@@ -247,7 +247,7 @@
             // groupBoxDineroIngresado
             // 
             groupBoxDineroIngresado.Controls.Add(labelpPrecioDisponibleIngresado);
-            groupBoxDineroIngresado.Location = new Point(454, 181);
+            groupBoxDineroIngresado.Location = new Point(506, 181);
             groupBoxDineroIngresado.Name = "groupBoxDineroIngresado";
             groupBoxDineroIngresado.Size = new Size(164, 56);
             groupBoxDineroIngresado.TabIndex = 31;
@@ -267,7 +267,7 @@
             // checkBoxAsado
             // 
             checkBoxAsado.AutoSize = true;
-            checkBoxAsado.Location = new Point(415, 283);
+            checkBoxAsado.Location = new Point(522, 283);
             checkBoxAsado.Name = "checkBoxAsado";
             checkBoxAsado.Size = new Size(59, 19);
             checkBoxAsado.TabIndex = 33;
@@ -277,7 +277,7 @@
             // checkBoxVacio
             // 
             checkBoxVacio.AutoSize = true;
-            checkBoxVacio.Location = new Point(415, 311);
+            checkBoxVacio.Location = new Point(527, 311);
             checkBoxVacio.Name = "checkBoxVacio";
             checkBoxVacio.Size = new Size(54, 19);
             checkBoxVacio.TabIndex = 34;
@@ -287,7 +287,7 @@
             // checkBoxMatambre
             // 
             checkBoxMatambre.AutoSize = true;
-            checkBoxMatambre.Location = new Point(415, 341);
+            checkBoxMatambre.Location = new Point(527, 340);
             checkBoxMatambre.Name = "checkBoxMatambre";
             checkBoxMatambre.Size = new Size(81, 19);
             checkBoxMatambre.TabIndex = 35;
@@ -297,7 +297,7 @@
             // checkBoxChorizo
             // 
             checkBoxChorizo.AutoSize = true;
-            checkBoxChorizo.Location = new Point(415, 369);
+            checkBoxChorizo.Location = new Point(527, 373);
             checkBoxChorizo.Name = "checkBoxChorizo";
             checkBoxChorizo.Size = new Size(67, 19);
             checkBoxChorizo.TabIndex = 36;
@@ -306,7 +306,7 @@
             // 
             // buttonMenuPrincipal
             // 
-            buttonMenuPrincipal.Location = new Point(650, 379);
+            buttonMenuPrincipal.Location = new Point(363, 425);
             buttonMenuPrincipal.Name = "buttonMenuPrincipal";
             buttonMenuPrincipal.Size = new Size(94, 59);
             buttonMenuPrincipal.TabIndex = 37;
@@ -316,9 +316,9 @@
             // 
             // buttonAutoCompletDatos
             // 
-            buttonAutoCompletDatos.Location = new Point(345, 117);
+            buttonAutoCompletDatos.Location = new Point(348, 190);
             buttonAutoCompletDatos.Name = "buttonAutoCompletDatos";
-            buttonAutoCompletDatos.Size = new Size(137, 23);
+            buttonAutoCompletDatos.Size = new Size(137, 47);
             buttonAutoCompletDatos.TabIndex = 38;
             buttonAutoCompletDatos.Text = "AutoCompletarDatos";
             buttonAutoCompletDatos.UseVisualStyleBackColor = true;
@@ -329,7 +329,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSalmon;
-            ClientSize = new Size(976, 493);
+            ClientSize = new Size(753, 493);
             Controls.Add(buttonAutoCompletDatos);
             Controls.Add(buttonMenuPrincipal);
             Controls.Add(checkBoxChorizo);

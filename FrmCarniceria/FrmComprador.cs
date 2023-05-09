@@ -59,8 +59,7 @@ namespace FrmCarniceria
 
 
 
-        /// <summary>
-        // validar medio de pago
+     
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -79,6 +78,7 @@ namespace FrmCarniceria
 
         }
 
+        // variables para metodos siguientes
 
         double precioTotalDeLaCompra = 0;
         int retornoStockAsado = 1;
@@ -87,7 +87,11 @@ namespace FrmCarniceria
         int retornoStockChorizo = 1;
         string mensaje = "Detalles de su compra: \n";
 
-
+        /// <summary>
+        /// 
+        /// Obtiene el precio por kilo sumado, y el precio final de cada corte por kg. devuelve mensaje para utilizar en el ticket
+        /// </summary>
+        /// <returns></returns>
         private string ObtenerPrecioTotalDeLaCompraDevolverMensaje()
         {
 
@@ -140,7 +144,10 @@ namespace FrmCarniceria
             return mensaje;
         }
 
-
+        /// <summary>
+        /// 
+        /// disminuye kg de cortes elegidos
+        /// </summary>
         public void RestarKilosAlStockSegunCorte()
         {
             int kilosAsado = (int)this.numericUpDownKilosAsado.Value;
@@ -177,11 +184,12 @@ namespace FrmCarniceria
 
             }
         }
-
+        /// <summary>
+        /// Acepta compra realizada y disminuye stock
+        /// </summary>
+        /// <param name="dineroDisponible"></param>
         public void aceptarCompraIngresandoANuevoFormularioRestarKilos(double dineroDisponible)
         {
-
-
 
             Ticket frmTicket = new Ticket(mensaje, precioTotalDeLaCompra, dineroDisponible);
             DialogResult result = frmTicket.ShowDialog();
@@ -234,17 +242,17 @@ namespace FrmCarniceria
                 // si todos los retornos dan 1
                 if (retornoStockAsado == 1 && retornoStockVacio == 1 && retornoStockMatambre == 1 && retornoStockChorizo == 1)
                 {
-           
+
                     //si es tarjeta
                     if (this.radioButtonTarjeta.Checked == true)
                     {
                         precioTotalDeLaCompra = precioTotalDeLaCompra + precioTotalDeLaCompra * 0.05;
-                        
+
                         if (dineroDisponible >= precioTotalDeLaCompra)
                         {
                             dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
                             aceptarCompraIngresandoANuevoFormularioRestarKilos(dineroDisponible);
-                            
+
                         }
                         else
                         {
@@ -252,12 +260,12 @@ namespace FrmCarniceria
                         }
                     } // si es efectivo
                     if (this.radioButtonEfectivo.Checked == true)
-                    {                     
+                    {
                         if (dineroDisponible >= precioTotalDeLaCompra)
                         {
                             dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
                             aceptarCompraIngresandoANuevoFormularioRestarKilos(dineroDisponible);
-                            
+
                         }
                         else
                         {
@@ -310,9 +318,9 @@ namespace FrmCarniceria
 
 
 
+        #region HerramientasNoUtilizadas
 
 
-        // quitar
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -342,6 +350,7 @@ namespace FrmCarniceria
         {
 
         }
+        #endregion
 
     }
 }

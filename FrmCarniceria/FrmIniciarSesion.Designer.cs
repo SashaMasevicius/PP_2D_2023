@@ -41,9 +41,9 @@
             buttonIniciarSesion.BackColor = Color.White;
             buttonIniciarSesion.Font = new Font("Segoe UI Historic", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             buttonIniciarSesion.ForeColor = SystemColors.ActiveCaptionText;
-            buttonIniciarSesion.Location = new Point(155, 162);
+            buttonIniciarSesion.Location = new Point(126, 159);
             buttonIniciarSesion.Name = "buttonIniciarSesion";
-            buttonIniciarSesion.Size = new Size(100, 67);
+            buttonIniciarSesion.Size = new Size(100, 46);
             buttonIniciarSesion.TabIndex = 0;
             buttonIniciarSesion.Text = "Iniciar Sesion";
             buttonIniciarSesion.UseVisualStyleBackColor = false;
@@ -56,7 +56,7 @@
             textBoxEmail.Location = new Point(49, 64);
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.PlaceholderText = "Ingresar E-mail";
-            textBoxEmail.Size = new Size(331, 23);
+            textBoxEmail.Size = new Size(287, 23);
             textBoxEmail.TabIndex = 1;
             // 
             // textBoxContrasena
@@ -66,14 +66,14 @@
             textBoxContrasena.Name = "textBoxContrasena";
             textBoxContrasena.PasswordChar = '*';
             textBoxContrasena.PlaceholderText = "Ingresar contrasena";
-            textBoxContrasena.Size = new Size(331, 23);
+            textBoxContrasena.Size = new Size(287, 23);
             textBoxContrasena.TabIndex = 2;
             // 
             // button1
             // 
             button1.BackColor = Color.Silver;
             button1.Font = new Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(458, 38);
+            button1.Location = new Point(406, 50);
             button1.Name = "button1";
             button1.Size = new Size(116, 49);
             button1.TabIndex = 5;
@@ -85,7 +85,7 @@
             // 
             buttonCompletarVendedor.BackColor = Color.Silver;
             buttonCompletarVendedor.Font = new Font("Segoe UI Symbol", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonCompletarVendedor.Location = new Point(458, 113);
+            buttonCompletarVendedor.Location = new Point(406, 113);
             buttonCompletarVendedor.Name = "buttonCompletarVendedor";
             buttonCompletarVendedor.Size = new Size(116, 46);
             buttonCompletarVendedor.TabIndex = 6;
@@ -98,7 +98,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
-            ClientSize = new Size(601, 268);
+            ClientSize = new Size(538, 224);
             Controls.Add(buttonCompletarVendedor);
             Controls.Add(button1);
             Controls.Add(textBoxContrasena);

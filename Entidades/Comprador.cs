@@ -97,7 +97,14 @@
             return -1;
 
         }
-
+        /// <summary>
+        /// resta kilos al stock
+        /// </summary>
+        /// <param name="miHeladera"></param>
+        /// <param name="kilosVendidos"></param>
+        /// <param name="indexCarne"></param>
+        /// <param name="indiceLista"></param>
+        /// <param name="precioCarne"></param>
         public void RestarKilosAlStock(Heladera miHeladera, int kilosVendidos, int indexCarne, int indiceLista, double precioCarne)
         {
             foreach (Producto item in miHeladera.MiListaDeProductosEnHeladera)

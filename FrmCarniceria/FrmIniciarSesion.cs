@@ -10,8 +10,8 @@ namespace FrmCarniceria
         List<Usuario> miLista;
         Heladera miHeladera;
 
-   
-            public FrmIniciarSesion()
+        //const
+        public FrmIniciarSesion()
         {
             InitializeComponent();
 
@@ -19,7 +19,7 @@ namespace FrmCarniceria
             this.miLista = new List<Usuario>();
 
 
-            
+
             //harcodeo productos para agregar a la heladera
 
             Producto prodUno = new Producto(eCarne.Asado, 1000, 2000);
@@ -82,7 +82,7 @@ namespace FrmCarniceria
                     if (item is Comprador)
                     {
                         FrmComprador formularioComprador;
-                        formularioComprador = new FrmComprador(((Comprador)item),miHeladera);
+                        formularioComprador = new FrmComprador(((Comprador)item), miHeladera);
                         formularioComprador.Show();
                         //this.Hide();
                         comprobar = true;
@@ -94,7 +94,7 @@ namespace FrmCarniceria
                         FrmVendedor formularioVendedor;
                         formularioVendedor = new FrmVendedor(((Vendedor)item), miHeladera);
                         formularioVendedor.Show();
-                       // this.Hide();
+                        // this.Hide();
                         comprobar = true;
                         break;
                     }

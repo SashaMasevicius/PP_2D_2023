@@ -17,18 +17,15 @@ namespace FrmCarniceria
 {
     public partial class FrmVendedor : Form
     {
-        
-        
-
         Vendedor vendedor;
-        Heladera miHeladera ;
+        Heladera miHeladera;
 
 
         public FrmVendedor()
         {
             InitializeComponent();
         }
-        public FrmVendedor(Vendedor miVendedor,Heladera miHeladera) : this()
+        public FrmVendedor(Vendedor miVendedor, Heladera miHeladera) : this()
         {
             this.vendedor = miVendedor;
 
@@ -54,10 +51,7 @@ namespace FrmCarniceria
 
             this.dataGridView2.ColumnCount = 4;
         }
-        private void textBoxAgregarCorte_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
 
         /// <summary>
@@ -190,6 +184,9 @@ namespace FrmCarniceria
             this.Hide();
         }
 
+
+
+        #region ocultar
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
@@ -199,6 +196,14 @@ namespace FrmCarniceria
         {
 
         }
+
+
+       
+        private void textBoxAgregarCorte_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
 
     }
 }

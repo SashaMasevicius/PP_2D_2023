@@ -21,6 +21,7 @@
         {
             get => contrasenia;
         }
+
         /// <summary>
         /// creo mensaje para iniciar sesion
         /// </summary>
