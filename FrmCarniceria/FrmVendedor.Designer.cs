@@ -47,18 +47,19 @@
             comboBoxCortesVenta = new ComboBox();
             comboBoxRestaurante = new ComboBox();
             labelDetalles = new Label();
-            dataGridView1 = new DataGridView();
-            Column_Comprador = new DataGridViewTextBoxColumn();
-            Column_CorteVendido = new DataGridViewTextBoxColumn();
-            Column_KilosVendidos = new DataGridViewTextBoxColumn();
             buttonRetornarMenuPrincipal = new Button();
             buttonAutocompletar = new Button();
+            dataGridView2 = new DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilos).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosVenta).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // numericUpDownKilos
@@ -250,35 +251,6 @@
             labelDetalles.TabIndex = 17;
             labelDetalles.Text = "stock";
             // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column_Comprador, Column_CorteVendido, Column_KilosVendidos });
-            dataGridView1.Location = new Point(688, 20);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(345, 294);
-            dataGridView1.TabIndex = 19;
-            // 
-            // Column_Comprador
-            // 
-            Column_Comprador.HeaderText = "Comprador";
-            Column_Comprador.Name = "Column_Comprador";
-            // 
-            // Column_CorteVendido
-            // 
-            Column_CorteVendido.HeaderText = "Corte";
-            Column_CorteVendido.Name = "Column_CorteVendido";
-            // 
-            // Column_KilosVendidos
-            // 
-            Column_KilosVendidos.HeaderText = "Kilos Vendidos";
-            Column_KilosVendidos.Name = "Column_KilosVendidos";
-            // 
             // buttonRetornarMenuPrincipal
             // 
             buttonRetornarMenuPrincipal.Location = new Point(926, 388);
@@ -299,15 +271,49 @@
             buttonAutocompletar.UseVisualStyleBackColor = true;
             buttonAutocompletar.Click += buttonAutocompletar_Click;
             // 
+            // dataGridView2
+            // 
+            dataGridView2.AllowUserToDeleteRows = false;
+            dataGridView2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView2.BackgroundColor = SystemColors.ActiveCaption;
+            dataGridView2.BorderStyle = BorderStyle.None;
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4 });
+            dataGridView2.Location = new Point(623, 20);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowTemplate.Height = 25;
+            dataGridView2.Size = new Size(410, 357);
+            dataGridView2.TabIndex = 22;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.HeaderText = "Comprador";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.HeaderText = "Corte";
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.HeaderText = "Kilos Vendidos";
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewTextBoxColumn4.HeaderText = "Monto";
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
             // FrmVendedor
             // 
             AutoScaleDimensions = new SizeF(6F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1123, 450);
+            Controls.Add(dataGridView2);
             Controls.Add(buttonAutocompletar);
             Controls.Add(buttonRetornarMenuPrincipal);
-            Controls.Add(dataGridView1);
             Controls.Add(labelDetalles);
             Controls.Add(groupBox4);
             Controls.Add(groupBox2);
@@ -324,7 +330,7 @@
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosVenta).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -358,11 +364,12 @@
         private Label labelDetalles;
         private Label labelDetallesDeVenta;
         private TextBox textBoxDetalles;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Column_Comprador;
-        private DataGridViewTextBoxColumn Column_CorteVendido;
-        private DataGridViewTextBoxColumn Column_KilosVendidos;
         private Button buttonRetornarMenuPrincipal;
         private Button buttonAutocompletar;
+        private DataGridView dataGridView2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

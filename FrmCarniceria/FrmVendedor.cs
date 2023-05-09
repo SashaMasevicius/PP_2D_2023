@@ -17,40 +17,27 @@ namespace FrmCarniceria
 {
     public partial class FrmVendedor : Form
     {
-        List<Producto> listaDeProductos;
-        List<string> verDetallesDeVentas;
+        
+        
 
         Vendedor vendedor;
-        Heladera miHeladera;
+        Heladera miHeladera ;
 
 
         public FrmVendedor()
         {
             InitializeComponent();
         }
-        public FrmVendedor(Vendedor miVendedor) : this()
+        public FrmVendedor(Vendedor miVendedor,Heladera miHeladera) : this()
         {
             this.vendedor = miVendedor;
 
             MessageBox.Show(miVendedor.crearMensajeBienvenido());
 
 
-
-            //harcodeo productos para agregar a la heladera
-
-            Producto prodUno = new Producto(eCarne.Asado, 100, 2000);
-            Producto prodDos = new Producto(eCarne.Vacio, 150, 2200);
-            Producto prodTres = new Producto(eCarne.Matambre, 120, 2500);
-            Producto prodCuatro = new Producto(eCarne.Chorizo, 40, 1500);
+            this.miHeladera = miHeladera;
 
 
-            //creo una lista del tipo producto
-
-            listaDeProductos = new List<Producto>();
-            listaDeProductos.Add(prodUno);
-            listaDeProductos.Add(prodDos);
-            listaDeProductos.Add(prodTres);
-            listaDeProductos.Add(prodCuatro);
 
             //instancio y creo lista de clientes habituales a las cuales el vendedor puede acceder y vender
 
@@ -59,16 +46,13 @@ namespace FrmCarniceria
             miVendedor.AgregarClientesALista("Restaurante Venezolano");
 
 
-            //instancio el objeto heladera
-
-            miHeladera = new Heladera(listaDeProductos);
 
 
             // creo label con informacion
             this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
-            this.dataGridView1.Visible = false;
+            this.dataGridView2.Visible = false;
 
-            this.dataGridView1.ColumnCount = 3;
+            this.dataGridView2.ColumnCount = 4;
         }
         private void textBoxAgregarCorte_TextChanged(object sender, EventArgs e)
         {
@@ -154,17 +138,22 @@ namespace FrmCarniceria
             string nombreComprador = this.vendedor.RetornarNombreDelComprador(this.vendedor, indiceComprador);
             string nombreCorteCarne = vendedor.RetornarNombreDeCorteElegidoAlVender(indiceCorteCarne);
             string nombreKilosVendidos = this.vendedor.RetornarMensajeCliente(miHeladera, indiceCorteCarne, kilosVendidos);
+            double precioVendido = miHeladera.obtenerPrecio(indiceCorteCarne) * kilosVendidos;
+
 
 
             if (this.vendedor.DisminuirKilosDelStock(miHeladera, indiceCorteCarne, kilosVendidos) != -1)
             {
-                this.dataGridView1.Visible = true;
+                this.dataGridView2.Visible = true;
                 //agregar renglon data 
 
-                int nuevoRenglon = dataGridView1.Rows.Add();
-                dataGridView1.Rows[nuevoRenglon].Cells[0].Value = nombreComprador;
-                dataGridView1.Rows[nuevoRenglon].Cells[1].Value = nombreCorteCarne;
-                dataGridView1.Rows[nuevoRenglon].Cells[2].Value = nombreKilosVendidos;
+                int nuevoRenglon = dataGridView2.Rows.Add();
+
+
+                dataGridView2.Rows[nuevoRenglon].Cells[0].Value = nombreComprador;
+                dataGridView2.Rows[nuevoRenglon].Cells[1].Value = nombreCorteCarne;
+                dataGridView2.Rows[nuevoRenglon].Cells[2].Value = nombreKilosVendidos;
+                dataGridView2.Rows[nuevoRenglon].Cells[3].Value = precioVendido;
 
                 this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
 
@@ -195,9 +184,9 @@ namespace FrmCarniceria
 
         private void buttonRetornarMenuPrincipal_Click(object sender, EventArgs e)
         {
-            FrmIniciarSesion formularioIniciarSesion;
-            formularioIniciarSesion = new FrmIniciarSesion();
-            formularioIniciarSesion.Show();
+            //FrmIniciarSesion formularioIniciarSesion;
+            //formularioIniciarSesion = new FrmIniciarSesion();
+            //formularioIniciarSesion.Show();
             this.Hide();
         }
 
@@ -210,6 +199,6 @@ namespace FrmCarniceria
         {
 
         }
- 
+
     }
 }

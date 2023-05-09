@@ -10,41 +10,24 @@ namespace FrmCarniceria
         bool validarMedioDePagoParaComprar;
 
 
+        
+
         public FrmComprador()
         {
             InitializeComponent();
 
         }
 
-        public FrmComprador(Comprador comprador) : this()
+        public FrmComprador(Comprador comprador,Heladera miHeladera) : this()
         {
             this.miComprador = comprador;
             MessageBox.Show(miComprador.crearMensajeBienvenido());
 
 
-            List<Producto> listaDeProductos;
+            this.miHeladera = miHeladera;
 
-            //harcodeo productos para agregar a la heladera
+            
 
-            Producto prodUno = new Producto(eCarne.Asado, 100, 2000);
-            Producto prodDos = new Producto(eCarne.Vacio, 150, 2200);
-            Producto prodTres = new Producto(eCarne.Matambre, 120, 2500);
-            Producto prodCuatro = new Producto(eCarne.Chorizo, 40, 1500);
-
-
-            //creo una lista del tipo producto
-
-            listaDeProductos = new List<Producto>();
-            listaDeProductos.Add(prodUno);
-            listaDeProductos.Add(prodDos);
-            listaDeProductos.Add(prodTres);
-            listaDeProductos.Add(prodCuatro);
-
-
-
-            //instancio el objeto heladera
-
-            miHeladera = new Heladera(listaDeProductos);
 
             this.labelBienvenido.Text = labelBienvenido.Text + " " + this.miComprador.Email;
             this.labelDatos.Text = miHeladera.mostrarDetalleDeProductos();
@@ -327,9 +310,9 @@ namespace FrmCarniceria
         /// <param name="e"></param>
         private void buttonMenuPrincipal_Click(object sender, EventArgs e)
         {
-            FrmIniciarSesion formularioIniciarSesion;
-            formularioIniciarSesion = new FrmIniciarSesion();
-            formularioIniciarSesion.Show();
+            //FrmIniciarSesion formularioIniciarSesion;
+            //formularioIniciarSesion = new FrmIniciarSesion();
+            //formularioIniciarSesion.
             this.Hide();
         }
         /// <summary>

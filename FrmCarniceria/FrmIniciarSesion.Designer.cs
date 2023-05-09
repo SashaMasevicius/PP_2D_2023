@@ -41,7 +41,7 @@
             buttonIniciarSesion.BackColor = Color.White;
             buttonIniciarSesion.Font = new Font("Segoe UI Historic", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             buttonIniciarSesion.ForeColor = SystemColors.ActiveCaptionText;
-            buttonIniciarSesion.Location = new Point(133, 176);
+            buttonIniciarSesion.Location = new Point(155, 162);
             buttonIniciarSesion.Name = "buttonIniciarSesion";
             buttonIniciarSesion.Size = new Size(100, 67);
             buttonIniciarSesion.TabIndex = 0;
@@ -97,7 +97,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveBorder;
+            BackColor = Color.Gainsboro;
             ClientSize = new Size(601, 268);
             Controls.Add(buttonCompletarVendedor);
             Controls.Add(button1);

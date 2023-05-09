@@ -8,15 +8,35 @@ namespace FrmCarniceria
     {
         //lista de usuarios aprobados para iniciar sesion
         List<Usuario> miLista;
+        Heladera miHeladera;
 
-
-
-        public FrmIniciarSesion()
+   
+            public FrmIniciarSesion()
         {
             InitializeComponent();
 
             //instancio la lista de usuarios
             this.miLista = new List<Usuario>();
+
+
+            
+            //harcodeo productos para agregar a la heladera
+
+            Producto prodUno = new Producto(eCarne.Asado, 1000, 2000);
+            Producto prodDos = new Producto(eCarne.Vacio, 1500, 2200);
+            Producto prodTres = new Producto(eCarne.Matambre, 1200, 2500);
+            Producto prodCuatro = new Producto(eCarne.Chorizo, 800, 1500);
+
+
+            //creo una lista del tipo producto
+            List<Producto> listaDeProducto;
+            listaDeProducto = new List<Producto>();
+            listaDeProducto.Add(prodUno);
+            listaDeProducto.Add(prodDos);
+            listaDeProducto.Add(prodTres);
+            listaDeProducto.Add(prodCuatro);
+
+            miHeladera = new Heladera(listaDeProducto);
 
             //instancio y agrego los usuarios a la lista.
             Vendedor primerUsuario = new Vendedor("toto", "toto");
@@ -62,9 +82,9 @@ namespace FrmCarniceria
                     if (item is Comprador)
                     {
                         FrmComprador formularioComprador;
-                        formularioComprador = new FrmComprador(((Comprador)item));
+                        formularioComprador = new FrmComprador(((Comprador)item),miHeladera);
                         formularioComprador.Show();
-                        this.Hide();
+                        //this.Hide();
                         comprobar = true;
                         break;
 
@@ -72,9 +92,9 @@ namespace FrmCarniceria
                     else
                     {
                         FrmVendedor formularioVendedor;
-                        formularioVendedor = new FrmVendedor(((Vendedor)item));
+                        formularioVendedor = new FrmVendedor(((Vendedor)item), miHeladera);
                         formularioVendedor.Show();
-                        this.Hide();
+                       // this.Hide();
                         comprobar = true;
                         break;
                     }
