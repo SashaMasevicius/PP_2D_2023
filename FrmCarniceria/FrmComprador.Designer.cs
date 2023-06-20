@@ -54,6 +54,7 @@
             checkBoxChorizo = new CheckBox();
             buttonMenuPrincipal = new Button();
             buttonAutoCompletDatos = new Button();
+            buttonAgregarCarrito = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosAsado).BeginInit();
             groupBox2.SuspendLayout();
@@ -130,7 +131,7 @@
             // 
             labelDatos.AutoSize = true;
             labelDatos.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            labelDatos.Location = new Point(33, 42);
+            labelDatos.Location = new Point(76, 62);
             labelDatos.Name = "labelDatos";
             labelDatos.Size = new Size(48, 20);
             labelDatos.TabIndex = 19;
@@ -267,7 +268,7 @@
             // checkBoxAsado
             // 
             checkBoxAsado.AutoSize = true;
-            checkBoxAsado.Location = new Point(522, 283);
+            checkBoxAsado.Location = new Point(527, 283);
             checkBoxAsado.Name = "checkBoxAsado";
             checkBoxAsado.Size = new Size(59, 19);
             checkBoxAsado.TabIndex = 33;
@@ -324,12 +325,23 @@
             buttonAutoCompletDatos.UseVisualStyleBackColor = true;
             buttonAutoCompletDatos.Click += buttonAutoCompletDatos_Click;
             // 
+            // buttonAgregarCarrito
+            // 
+            buttonAgregarCarrito.Location = new Point(677, 424);
+            buttonAgregarCarrito.Name = "buttonAgregarCarrito";
+            buttonAgregarCarrito.Size = new Size(75, 23);
+            buttonAgregarCarrito.TabIndex = 39;
+            buttonAgregarCarrito.Text = "Agregar al carrito";
+            buttonAgregarCarrito.UseVisualStyleBackColor = true;
+            buttonAgregarCarrito.Click += buttonAgregarCarrito_Click;
+            // 
             // FrmComprador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSalmon;
-            ClientSize = new Size(753, 493);
+            ClientSize = new Size(723, 493);
+            Controls.Add(buttonAgregarCarrito);
             Controls.Add(buttonAutoCompletDatos);
             Controls.Add(buttonMenuPrincipal);
             Controls.Add(checkBoxChorizo);
@@ -398,5 +410,6 @@
         private CheckBox checkBoxChorizo;
         private Button buttonMenuPrincipal;
         private Button buttonAutoCompletDatos;
+        private Button buttonAgregarCarrito;
     }
 }

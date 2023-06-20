@@ -155,39 +155,39 @@ namespace Entidades
         /// </summary>
         /// <param name="indiceElegido"></param> indice para obtener nombre
         /// <returns></returns>
-        public string RetornarNombreDeCorteElegidoAlVender(int indiceElegido)
-        {
-            StringBuilder sb = new StringBuilder();
+        //public string RetornarNombreDeCorteElegidoAlVender(int indiceElegido)
+        //{
+        //    StringBuilder sb = new StringBuilder();
 
-            if (indiceElegido == 0)
-            {
-                sb.AppendLine($"Asado");
+        //    if (indiceElegido == 0)
+        //    {
+        //        sb.AppendLine($"Asado");
                 
-            }
-            else if (indiceElegido == 1)
-            {
-                sb.AppendLine($"Vacio");
+        //    }
+        //    else if (indiceElegido == 1)
+        //    {
+        //        sb.AppendLine($"Vacio");
                
-            }
-            else if (indiceElegido == 2)
-            {
-                sb.AppendLine($"Matambre");
+        //    }
+        //    else if (indiceElegido == 2)
+        //    {
+        //        sb.AppendLine($"Matambre");
               
-            }
-            else if (indiceElegido == 3)
-            {
-                sb.AppendLine($"Chorizo");
+        //    }
+        //    else if (indiceElegido == 3)
+        //    {
+        //        sb.AppendLine($"Chorizo");
             
-            }
-            return sb.ToString();
-        }
+        //    }
+        //    return sb.ToString();
+        //}
         /// <summary>
         /// retorna  del nombre del comprador
         /// </summary>
         /// <param name="miVendedor"></param> para recorrer lista de clientes en mi vendedor
         /// <param name="indiceCompradorFijo"></param>
         /// <returns></returns>
-        public string RetornarNombreDelComprador(Vendedor miVendedor,int indiceCompradorFijo)
+       /* public string RetornarNombreDelComprador(Vendedor miVendedor,int indiceCompradorFijo)
         {
             StringBuilder sb = new StringBuilder();
             foreach (String item in miVendedor.ListaDeClientesFijos)
@@ -214,7 +214,7 @@ namespace Entidades
             return sb.ToString();
             
         }
-
+       */
         
 
      

@@ -59,7 +59,7 @@ namespace FrmCarniceria
 
 
 
-     
+
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -352,5 +352,9 @@ namespace FrmCarniceria
         }
         #endregion
 
+        private void buttonAgregarCarrito_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

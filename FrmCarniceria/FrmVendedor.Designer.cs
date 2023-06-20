@@ -50,10 +50,18 @@
             buttonRetornarMenuPrincipal = new Button();
             buttonAutocompletar = new Button();
             dataGridView2 = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            ID = new DataGridViewTextBoxColumn();
+            COMPRADOR = new DataGridViewTextBoxColumn();
+            CORTE = new DataGridViewTextBoxColumn();
+            KILOS = new DataGridViewTextBoxColumn();
+            PRECIO = new DataGridViewTextBoxColumn();
+            button_Leer = new Button();
+            button_Modificar = new Button();
+            buttonBorrar = new Button();
+            CORTECARNE = new DataGridViewTextBoxColumn();
+            KG = new DataGridViewTextBoxColumn();
+            Prec = new DataGridViewTextBoxColumn();
+            listBox_Stock = new ListBox();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilos).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -245,7 +253,7 @@
             // 
             labelDetalles.AutoSize = true;
             labelDetalles.Font = new Font("Segoe UI Light", 11F, FontStyle.Italic, GraphicsUnit.Point);
-            labelDetalles.Location = new Point(446, 284);
+            labelDetalles.Location = new Point(307, 93);
             labelDetalles.Name = "labelDetalles";
             labelDetalles.Size = new Size(40, 20);
             labelDetalles.TabIndex = 17;
@@ -253,7 +261,7 @@
             // 
             // buttonRetornarMenuPrincipal
             // 
-            buttonRetornarMenuPrincipal.Location = new Point(926, 388);
+            buttonRetornarMenuPrincipal.Location = new Point(474, 399);
             buttonRetornarMenuPrincipal.Name = "buttonRetornarMenuPrincipal";
             buttonRetornarMenuPrincipal.Size = new Size(107, 54);
             buttonRetornarMenuPrincipal.TabIndex = 20;
@@ -278,32 +286,99 @@
             dataGridView2.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView2.BorderStyle = BorderStyle.None;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4 });
-            dataGridView2.Location = new Point(623, 20);
+            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { ID, COMPRADOR, CORTE, KILOS, PRECIO });
+            dataGridView2.Location = new Point(639, 20);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(410, 357);
+            dataGridView2.Size = new Size(410, 262);
             dataGridView2.TabIndex = 22;
             // 
-            // dataGridViewTextBoxColumn1
+            // ID
             // 
-            dataGridViewTextBoxColumn1.HeaderText = "Comprador";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            ID.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn2
+            // COMPRADOR
             // 
-            dataGridViewTextBoxColumn2.HeaderText = "Corte";
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            COMPRADOR.HeaderText = "COMPRADOR";
+            COMPRADOR.Name = "COMPRADOR";
+            COMPRADOR.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn3
+            // CORTE
             // 
-            dataGridViewTextBoxColumn3.HeaderText = "Kilos Vendidos";
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            CORTE.HeaderText = "CORTE";
+            CORTE.Name = "CORTE";
+            CORTE.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn4
+            // KILOS
             // 
-            dataGridViewTextBoxColumn4.HeaderText = "Monto";
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            KILOS.HeaderText = "KILOS";
+            KILOS.Name = "KILOS";
+            KILOS.ReadOnly = true;
+            // 
+            // PRECIO
+            // 
+            PRECIO.HeaderText = "PRECIO";
+            PRECIO.Name = "PRECIO";
+            PRECIO.ReadOnly = true;
+            // 
+            // button_Leer
+            // 
+            button_Leer.Location = new Point(797, 302);
+            button_Leer.Name = "button_Leer";
+            button_Leer.Size = new Size(123, 54);
+            button_Leer.TabIndex = 24;
+            button_Leer.Text = "Ver Listado";
+            button_Leer.UseVisualStyleBackColor = true;
+            button_Leer.Click += button_Leer_Click;
+            // 
+            // button_Modificar
+            // 
+            button_Modificar.Location = new Point(728, 364);
+            button_Modificar.Name = "button_Modificar";
+            button_Modificar.Size = new Size(124, 47);
+            button_Modificar.TabIndex = 26;
+            button_Modificar.Text = "Modificar";
+            button_Modificar.UseVisualStyleBackColor = true;
+            button_Modificar.Click += button_Modificar_Click;
+            // 
+            // buttonBorrar
+            // 
+            buttonBorrar.Location = new Point(867, 362);
+            buttonBorrar.Name = "buttonBorrar";
+            buttonBorrar.Size = new Size(116, 48);
+            buttonBorrar.TabIndex = 28;
+            buttonBorrar.Text = "Borrar";
+            buttonBorrar.UseVisualStyleBackColor = true;
+            buttonBorrar.Click += buttonBorrar_Click;
+            // 
+            // CORTECARNE
+            // 
+            CORTECARNE.HeaderText = "CORTE";
+            CORTECARNE.Name = "CORTECARNE";
+            CORTECARNE.ReadOnly = true;
+            // 
+            // KG
+            // 
+            KG.HeaderText = "KG";
+            KG.Name = "KG";
+            KG.ReadOnly = true;
+            // 
+            // Prec
+            // 
+            Prec.HeaderText = "PRECIO";
+            Prec.Name = "Prec";
+            Prec.ReadOnly = true;
+            // 
+            // listBox_Stock
+            // 
+            listBox_Stock.FormattingEnabled = true;
+            listBox_Stock.ItemHeight = 15;
+            listBox_Stock.Location = new Point(340, 244);
+            listBox_Stock.Name = "listBox_Stock";
+            listBox_Stock.Size = new Size(257, 139);
+            listBox_Stock.TabIndex = 29;
             // 
             // FrmVendedor
             // 
@@ -311,6 +386,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1078, 450);
+            Controls.Add(listBox_Stock);
+            Controls.Add(buttonBorrar);
+            Controls.Add(button_Modificar);
+            Controls.Add(button_Leer);
             Controls.Add(dataGridView2);
             Controls.Add(buttonAutocompletar);
             Controls.Add(buttonRetornarMenuPrincipal);
@@ -367,9 +446,26 @@
         private Button buttonRetornarMenuPrincipal;
         private Button buttonAutocompletar;
         private DataGridView dataGridView2;
+        private Button button_Leer;
+        private Button button_Modificar;
+        private DataGridView dataGridViewStock;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn COMPRADOR;
+        private DataGridViewTextBoxColumn CORTE;
+        private DataGridViewTextBoxColumn KILOS;
+        private DataGridViewTextBoxColumn PRECIO;
+        private Button buttonBorrar;
+        private DataGridViewTextBoxColumn CORTECARNE;
+        private DataGridViewTextBoxColumn KG;
+        private DataGridViewTextBoxColumn Prec;
+        private DataGridView dataGridViewStock_;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn Kilos_;
+        private DataGridViewTextBoxColumn PRECIO_;
+        private DataGridView dataGridStock;
+        private DataGridViewTextBoxColumn CorteCarne2;
+        private DataGridViewTextBoxColumn Kilos2;
+        private DataGridViewTextBoxColumn PRECIO2;
+        private ListBox listBox_Stock;
     }
 }

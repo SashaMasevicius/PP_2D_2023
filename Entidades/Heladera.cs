@@ -39,13 +39,35 @@ namespace Entidades
         public string mostrarDetalleDeProductos()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Corte    Kilos    Precio");
+
+            int maxCorteLength = Math.Max("Corte".Length, MiListaDeProductosEnHeladera.Max(item => item.TipoCarne.ToString().Length));
+            int maxPesoLength = "Peso".Length;
+            int maxPrecioLength = "PrecioXkg".Length;
+
+            string format = "{0,-" + (maxCorteLength + 20) + "} {1,-" + (maxPesoLength + 10) + "} {2,-" + (maxPrecioLength + 10) + "}";
+            sb.AppendLine(string.Format(format, "Corte".PadRight(maxCorteLength), "Peso", "PrecioXkg"));
+
+            foreach (Producto item in MiListaDeProductosEnHeladera)
+            {
+                string corte = item.TipoCarne.ToString().PadRight(maxCorteLength +20);
+                string peso = item.Peso.ToString().PadRight(maxPesoLength + 10);
+                string precio = item.PrecioPorKg.ToString().PadRight(maxPrecioLength + 10);
+
+                sb.AppendLine(string.Format(format, corte, peso, precio));
+            }
+
+            return sb.ToString();
+        }
+        public string ObtenerTipoCarne()
+        {
+            StringBuilder sb = new StringBuilder();
             foreach (Producto item in this.MiListaDeProductosEnHeladera)
             {
-                sb.AppendLine($"{item.TipoCarne}        {item.Peso}        {item.PrecioPorKg}");
+                sb.AppendLine($"{item.TipoCarne}");
             }
             return sb.ToString();
-        } 
+        }
+
 
         /// <summary>
         /// obtengo precio
@@ -60,6 +82,16 @@ namespace Entidades
                    return item.PrecioPorKg;
             }
             return -1;         
+        }
+
+        public double obtenerKilos(int indice)
+        {
+            foreach (Producto item in this.MiListaDeProductosEnHeladera)
+            {
+                if (this.MiListaDeProductosEnHeladera.IndexOf(item) == indice)
+                    return item.Peso;
+            }
+            return -1;
         }
 
         /// <summary>

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sasha\\OneDrive\\Escritorio\\PP2D_2023-main\\Entidades\\Entidades.csproj": {}
+    "C:\\Users\\sasha\\OneDrive\\Escritorio\\SPP2D_2023\\PP_2D_2023\\Entidades\\Entidades.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sasha\\OneDrive\\Escritorio\\PP2D_2023-main\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\sasha\\OneDrive\\Escritorio\\SPP2D_2023\\PP_2D_2023\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sasha\\OneDrive\\Escritorio\\PP2D_2023-main\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\sasha\\OneDrive\\Escritorio\\SPP2D_2023\\PP_2D_2023\\Entidades\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "C:\\Users\\sasha\\OneDrive\\Escritorio\\PP2D_2023-main\\Entidades\\Entidades.csproj",
+        "projectPath": "C:\\Users\\sasha\\OneDrive\\Escritorio\\SPP2D_2023\\PP_2D_2023\\Entidades\\Entidades.csproj",
         "packagesPath": "C:\\Users\\sasha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sasha\\OneDrive\\Escritorio\\PP2D_2023-main\\Entidades\\obj\\",
+        "outputPath": "C:\\Users\\sasha\\OneDrive\\Escritorio\\SPP2D_2023\\PP_2D_2023\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sasha\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
