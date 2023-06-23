@@ -35,7 +35,7 @@
             // 
             // buttonAceptarCompra
             // 
-            buttonAceptarCompra.Location = new Point(48, 218);
+            buttonAceptarCompra.Location = new Point(42, 201);
             buttonAceptarCompra.Name = "buttonAceptarCompra";
             buttonAceptarCompra.Size = new Size(92, 43);
             buttonAceptarCompra.TabIndex = 0;
@@ -45,7 +45,7 @@
             // 
             // buttonCancelarCompra
             // 
-            buttonCancelarCompra.Location = new Point(205, 218);
+            buttonCancelarCompra.Location = new Point(156, 201);
             buttonCancelarCompra.Name = "buttonCancelarCompra";
             buttonCancelarCompra.Size = new Size(100, 43);
             buttonCancelarCompra.TabIndex = 1;
@@ -56,21 +56,23 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(150, 63);
+            label1.Font = new Font("Courier New", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(71, 43);
             label1.Name = "label1";
-            label1.Size = new Size(0, 15);
+            label1.Size = new Size(0, 16);
             label1.TabIndex = 2;
             // 
             // Ticket
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(407, 295);
+            ClientSize = new Size(325, 246);
             Controls.Add(label1);
             Controls.Add(buttonCancelarCompra);
             Controls.Add(buttonAceptarCompra);
             Name = "Ticket";
             Text = "Ticket";
+            Load += Ticket_Load;
             ResumeLayout(false);
             PerformLayout();
         }

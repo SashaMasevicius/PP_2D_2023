@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmComprador));
-            labelBienvenido = new Label();
             textBoxDineroDisponible = new TextBox();
             groupBox1 = new GroupBox();
             label1 = new Label();
             buttonAceptarDineroDisponible = new Button();
             numericUpDownKilosAsado = new NumericUpDown();
-            labelDatos = new Label();
             groupBox2 = new GroupBox();
+            listBox1Stock = new ListBox();
             numericUpDownKilosVacio = new NumericUpDown();
             numericUpDownKilosMatambre = new NumericUpDown();
             numericUpDownKilosChorizo = new NumericUpDown();
@@ -54,7 +53,8 @@
             checkBoxChorizo = new CheckBox();
             buttonMenuPrincipal = new Button();
             buttonAutoCompletDatos = new Button();
-            buttonAgregarCarrito = new Button();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosAsado).BeginInit();
             groupBox2.SuspendLayout();
@@ -63,18 +63,9 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosChorizo).BeginInit();
             groupBox3.SuspendLayout();
             groupBoxDineroIngresado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
-            // 
-            // labelBienvenido
-            // 
-            labelBienvenido.AutoSize = true;
-            labelBienvenido.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            labelBienvenido.Location = new Point(145, 9);
-            labelBienvenido.Name = "labelBienvenido";
-            labelBienvenido.Size = new Size(149, 37);
-            labelBienvenido.TabIndex = 1;
-            labelBienvenido.Text = "Bienvenido";
-            labelBienvenido.Click += labelBienvenido_Click;
             // 
             // textBoxDineroDisponible
             // 
@@ -87,10 +78,11 @@
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.Transparent;
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(buttonAceptarDineroDisponible);
             groupBox1.Controls.Add(textBoxDineroDisponible);
-            groupBox1.Location = new Point(54, 76);
+            groupBox1.Location = new Point(50, 69);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(259, 146);
             groupBox1.TabIndex = 3;
@@ -127,26 +119,24 @@
             numericUpDownKilosAsado.TabIndex = 17;
             numericUpDownKilosAsado.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // labelDatos
-            // 
-            labelDatos.AutoSize = true;
-            labelDatos.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            labelDatos.Location = new Point(76, 62);
-            labelDatos.Name = "labelDatos";
-            labelDatos.Size = new Size(48, 20);
-            labelDatos.TabIndex = 19;
-            labelDatos.Text = "Datos";
-            labelDatos.Click += labelDatos_Click;
-            // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(labelDatos);
-            groupBox2.Location = new Point(54, 243);
+            groupBox2.Controls.Add(listBox1Stock);
+            groupBox2.Location = new Point(50, 234);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(284, 217);
+            groupBox2.Size = new Size(259, 148);
             groupBox2.TabIndex = 20;
             groupBox2.TabStop = false;
             groupBox2.Text = "Stock de la carniceria";
+            // 
+            // listBox1Stock
+            // 
+            listBox1Stock.FormattingEnabled = true;
+            listBox1Stock.ItemHeight = 15;
+            listBox1Stock.Location = new Point(6, 22);
+            listBox1Stock.Name = "listBox1Stock";
+            listBox1Stock.Size = new Size(226, 79);
+            listBox1Stock.TabIndex = 20;
             // 
             // numericUpDownKilosVacio
             // 
@@ -190,9 +180,9 @@
             // 
             // buttonComprar
             // 
-            buttonComprar.Location = new Point(533, 425);
+            buttonComprar.Location = new Point(553, 407);
             buttonComprar.Name = "buttonComprar";
-            buttonComprar.Size = new Size(75, 23);
+            buttonComprar.Size = new Size(81, 32);
             buttonComprar.TabIndex = 26;
             buttonComprar.Text = "Comprar";
             buttonComprar.UseVisualStyleBackColor = true;
@@ -229,12 +219,13 @@
             groupBox3.Controls.Add(label3);
             groupBox3.Controls.Add(radioButtonTarjeta);
             groupBox3.Controls.Add(radioButtonEfectivo);
-            groupBox3.Location = new Point(506, 47);
+            groupBox3.Location = new Point(506, 69);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(198, 117);
+            groupBox3.Size = new Size(251, 117);
             groupBox3.TabIndex = 30;
             groupBox3.TabStop = false;
             groupBox3.Text = "MEDIOS DE PAGO";
+            groupBox3.Enter += groupBox3_Enter;
             // 
             // label3
             // 
@@ -248,9 +239,9 @@
             // groupBoxDineroIngresado
             // 
             groupBoxDineroIngresado.Controls.Add(labelpPrecioDisponibleIngresado);
-            groupBoxDineroIngresado.Location = new Point(506, 181);
+            groupBoxDineroIngresado.Location = new Point(506, 192);
             groupBoxDineroIngresado.Name = "groupBoxDineroIngresado";
-            groupBoxDineroIngresado.Size = new Size(164, 56);
+            groupBoxDineroIngresado.Size = new Size(198, 56);
             groupBoxDineroIngresado.TabIndex = 31;
             groupBoxDineroIngresado.TabStop = false;
             groupBoxDineroIngresado.Text = "DINERO INGRESADO";
@@ -268,7 +259,7 @@
             // checkBoxAsado
             // 
             checkBoxAsado.AutoSize = true;
-            checkBoxAsado.Location = new Point(527, 283);
+            checkBoxAsado.Location = new Point(526, 279);
             checkBoxAsado.Name = "checkBoxAsado";
             checkBoxAsado.Size = new Size(59, 19);
             checkBoxAsado.TabIndex = 33;
@@ -307,9 +298,9 @@
             // 
             // buttonMenuPrincipal
             // 
-            buttonMenuPrincipal.Location = new Point(363, 425);
+            buttonMenuPrincipal.Location = new Point(688, 407);
             buttonMenuPrincipal.Name = "buttonMenuPrincipal";
-            buttonMenuPrincipal.Size = new Size(94, 59);
+            buttonMenuPrincipal.Size = new Size(106, 86);
             buttonMenuPrincipal.TabIndex = 37;
             buttonMenuPrincipal.Text = "Volver al menu principal";
             buttonMenuPrincipal.UseVisualStyleBackColor = true;
@@ -317,31 +308,42 @@
             // 
             // buttonAutoCompletDatos
             // 
-            buttonAutoCompletDatos.Location = new Point(348, 190);
+            buttonAutoCompletDatos.Location = new Point(103, 12);
             buttonAutoCompletDatos.Name = "buttonAutoCompletDatos";
-            buttonAutoCompletDatos.Size = new Size(137, 47);
+            buttonAutoCompletDatos.Size = new Size(137, 44);
             buttonAutoCompletDatos.TabIndex = 38;
             buttonAutoCompletDatos.Text = "AutoCompletarDatos";
             buttonAutoCompletDatos.UseVisualStyleBackColor = true;
             buttonAutoCompletDatos.Click += buttonAutoCompletDatos_Click;
             // 
-            // buttonAgregarCarrito
+            // pictureBox1
             // 
-            buttonAgregarCarrito.Location = new Point(677, 424);
-            buttonAgregarCarrito.Name = "buttonAgregarCarrito";
-            buttonAgregarCarrito.Size = new Size(75, 23);
-            buttonAgregarCarrito.TabIndex = 39;
-            buttonAgregarCarrito.Text = "Agregar al carrito";
-            buttonAgregarCarrito.UseVisualStyleBackColor = true;
-            buttonAgregarCarrito.Click += buttonAgregarCarrito_Click;
+            pictureBox1.Image = Properties.Resources.CuentaDni;
+            pictureBox1.Location = new Point(-4, 388);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(194, 105);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 39;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.PedidosYa;
+            pictureBox2.Location = new Point(215, 385);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(208, 108);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 40;
+            pictureBox2.TabStop = false;
             // 
             // FrmComprador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSalmon;
-            ClientSize = new Size(723, 493);
-            Controls.Add(buttonAgregarCarrito);
+            ClientSize = new Size(794, 493);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
             Controls.Add(buttonAutoCompletDatos);
             Controls.Add(buttonMenuPrincipal);
             Controls.Add(checkBoxChorizo);
@@ -358,7 +360,6 @@
             Controls.Add(numericUpDownKilosVacio);
             Controls.Add(numericUpDownKilosAsado);
             Controls.Add(groupBox1);
-            Controls.Add(labelBienvenido);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmComprador";
             Load += FrmComprador_Load;
@@ -366,7 +367,6 @@
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosAsado).EndInit();
             groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosVacio).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosMatambre).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosChorizo).EndInit();
@@ -374,19 +374,19 @@
             groupBox3.PerformLayout();
             groupBoxDineroIngresado.ResumeLayout(false);
             groupBoxDineroIngresado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private Label label3Asado;
-        private Label labelBienvenido;
         private TextBox textBoxDineroDisponible;
         private GroupBox groupBox1;
         private Button buttonAceptarDineroDisponible;
         private Label label1;
         private NumericUpDown numericUpDownKilosAsado;
-        private Label labelDatos;
         private GroupBox groupBox2;
         private NumericUpDown numericUpDownKilosVacio;
         private NumericUpDown numericUpDownKilosMatambre;
@@ -410,6 +410,8 @@
         private CheckBox checkBoxChorizo;
         private Button buttonMenuPrincipal;
         private Button buttonAutoCompletDatos;
-        private Button buttonAgregarCarrito;
+        private ListBox listBox1Stock;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }

@@ -47,7 +47,7 @@ namespace FrmCarniceria
 
 
             // creo label con informacion
-          //  this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
+            //  this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
             this.dataGridView2.Visible = false;
 
             this.dataGridView2.ColumnCount = 5;
@@ -128,7 +128,7 @@ namespace FrmCarniceria
             {
                 MessageBox.Show("No ingresaste ningun numero");
             }
-           
+
         }
 
         /// <summary>

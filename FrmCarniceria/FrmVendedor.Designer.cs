@@ -46,7 +46,6 @@
             numericUpDownKilosVenta = new NumericUpDown();
             comboBoxCortesVenta = new ComboBox();
             comboBoxRestaurante = new ComboBox();
-            labelDetalles = new Label();
             buttonRetornarMenuPrincipal = new Button();
             buttonAutocompletar = new Button();
             dataGridView2 = new DataGridView();
@@ -168,15 +167,15 @@
             groupBox2.Controls.Add(comboBoxCortePrecio);
             groupBox2.Controls.Add(textBoxPrecio);
             groupBox2.Controls.Add(label2);
-            groupBox2.Location = new Point(376, 20);
+            groupBox2.Location = new Point(20, 198);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(221, 163);
+            groupBox2.Size = new Size(256, 193);
             groupBox2.TabIndex = 9;
             groupBox2.TabStop = false;
             // 
             // button2
             // 
-            button2.Location = new Point(130, 128);
+            button2.Location = new Point(168, 135);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 10;
@@ -191,7 +190,7 @@
             groupBox4.Controls.Add(numericUpDownKilosVenta);
             groupBox4.Controls.Add(comboBoxCortesVenta);
             groupBox4.Controls.Add(comboBoxRestaurante);
-            groupBox4.Location = new Point(31, 232);
+            groupBox4.Location = new Point(352, 20);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(245, 197);
             groupBox4.TabIndex = 16;
@@ -249,16 +248,6 @@
             comboBoxRestaurante.TabIndex = 0;
             comboBoxRestaurante.Text = "Seleccionar restaurante";
             // 
-            // labelDetalles
-            // 
-            labelDetalles.AutoSize = true;
-            labelDetalles.Font = new Font("Segoe UI Light", 11F, FontStyle.Italic, GraphicsUnit.Point);
-            labelDetalles.Location = new Point(307, 93);
-            labelDetalles.Name = "labelDetalles";
-            labelDetalles.Size = new Size(40, 20);
-            labelDetalles.TabIndex = 17;
-            labelDetalles.Text = "stock";
-            // 
             // buttonRetornarMenuPrincipal
             // 
             buttonRetornarMenuPrincipal.Location = new Point(474, 399);
@@ -271,7 +260,7 @@
             // 
             // buttonAutocompletar
             // 
-            buttonAutocompletar.Location = new Point(298, 202);
+            buttonAutocompletar.Location = new Point(294, 215);
             buttonAutocompletar.Name = "buttonAutocompletar";
             buttonAutocompletar.Size = new Size(154, 23);
             buttonAutocompletar.TabIndex = 21;
@@ -393,7 +382,6 @@
             Controls.Add(dataGridView2);
             Controls.Add(buttonAutocompletar);
             Controls.Add(buttonRetornarMenuPrincipal);
-            Controls.Add(labelDetalles);
             Controls.Add(groupBox4);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -411,7 +399,6 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosVenta).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -440,7 +427,6 @@
         private ComboBox comboBoxCortePrecio;
         private GroupBox groupBox4;
         private ComboBox comboBoxRestaurante;
-        private Label labelDetalles;
         private Label labelDetallesDeVenta;
         private TextBox textBoxDetalles;
         private Button buttonRetornarMenuPrincipal;

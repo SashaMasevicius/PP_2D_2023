@@ -13,11 +13,11 @@ namespace FrmCarniceria
         //const
         public FrmIniciarSesion()
         {
+
+
             InitializeComponent();
 
-            //instancio la lista de usuarios
-            this.miLista = new List<Usuario>();
-
+    
 
 
             //harcodeo productos para agregar a la heladera
@@ -39,17 +39,9 @@ namespace FrmCarniceria
             miHeladera = new Heladera(listaDeProducto);
 
             //instancio y agrego los usuarios a la lista.
-            Vendedor primerUsuario = new Vendedor("toto", "toto");
-            Vendedor segundoUsuario = new Vendedor("tata@gmail.com", "abc");
-            Comprador tercerUsuario = new Comprador("asd", "123");
-            Comprador cuartoUsuario = new Comprador("asdsadsad@gmail.com", "1234");
+            miLista = CrudUsuarios.Leer();
 
-
-
-            miLista.Add(primerUsuario);
-            miLista.Add(segundoUsuario);
-            miLista.Add(tercerUsuario);
-            miLista.Add(cuartoUsuario);
+            // CrudUsuarios.Guardar();
 
 
 
@@ -67,15 +59,16 @@ namespace FrmCarniceria
             player.SoundLocation = "C:/Users/sasha/OneDrive/Escritorio/BotonSound.wav";
             player.Play();
 
-            //guardo los valores de los textbox
+
+            // guardo los valores de los textbox
             string mail = this.textBoxEmail.Text;
             string contrasena = this.textBoxContrasena.Text;
 
             bool comprobar = false;
 
-            //recorro la lista para validar si el usuario en el textbox esta en la lista. 
-            //En caso de que este, abro un form que depende del tipo de usuario *vendendor o comprador
-            foreach (Usuario item in this.miLista)
+
+            //recorro
+            foreach (Usuario item in miLista)
             {
                 if (item.Email == mail && item.Contrasenia == contrasena)
                 {
@@ -86,16 +79,19 @@ namespace FrmCarniceria
                         formularioComprador.Show();
                         //this.Hide();
                         comprobar = true;
+                        this.textBoxEmail.Text = "";
+                        this.textBoxContrasena.Text = "";
                         break;
-
                     }
-                    else
+                    else if (item is Vendedor)
                     {
                         FrmVendedor formularioVendedor;
                         formularioVendedor = new FrmVendedor(((Vendedor)item), miHeladera);
                         formularioVendedor.Show();
                         // this.Hide();
                         comprobar = true;
+                        this.textBoxEmail.Text = "";
+                        this.textBoxContrasena.Text = "";
                         break;
                     }
                 }
@@ -103,9 +99,10 @@ namespace FrmCarniceria
 
             if (comprobar is false)
             {
-                MessageBox.Show("Usuario y contrasena incorrecta");
+                MessageBox.Show("Usuario y contraseña incorrecta");
+                this.textBoxEmail.Text = "";
+                this.textBoxContrasena.Text = "";
             }
-
 
 
 
@@ -143,6 +140,15 @@ namespace FrmCarniceria
             this.textBoxEmail.Text = vendedorInvitado.Email;
             this.textBoxContrasena.Text = vendedorInvitado.Contrasenia;
 
+        }
+
+        private void buttonCrearCuenta_Click(object sender, EventArgs e)
+        {
+            FrmCrearUsuario frmCrearUsuario = new FrmCrearUsuario();
+            frmCrearUsuario.ShowDialog();
+
+            // actuualizo la lista de usuarios después de cerrar la ventana emergente
+            miLista = CrudUsuarios.Leer();
         }
     }
 }

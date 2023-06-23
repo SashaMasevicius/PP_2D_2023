@@ -6,10 +6,17 @@ namespace Entidades
     {
          List<string> listaDeClientesFijos;
 
-        
+
 
         //creo vendedor de tipo usuario
+
         public Vendedor(string email, string contrasenia) : base(email, contrasenia)
+        {
+            this.ListaDeClientesFijos = new List<string>();
+        }
+
+
+        public Vendedor(string email, string contrasenia, int tipoDeUsuario) : base(email, contrasenia,tipoDeUsuario)
         {
             this.ListaDeClientesFijos = new List<string>();
         }

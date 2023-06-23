@@ -75,3 +75,5 @@ C:\Users\sasha\OneDrive\Escritorio\SPP2D_2023\PP_2D_2023\FrmCarniceria\bin\Debug
 C:\Users\sasha\OneDrive\Escritorio\SPP2D_2023\PP_2D_2023\FrmCarniceria\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
 C:\Users\sasha\OneDrive\Escritorio\SPP2D_2023\PP_2D_2023\FrmCarniceria\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\sasha\OneDrive\Escritorio\SPP2D_2023\PP_2D_2023\FrmCarniceria\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\sasha\OneDrive\Escritorio\SPP2D_2023\PP_2D_2023\FrmCarniceria\obj\Debug\net6.0-windows\FrmCarniceria.FrmCrearUsuario.resources
+C:\Users\sasha\OneDrive\Escritorio\SPP2D_2023\PP_2D_2023\FrmCarniceria\obj\Debug\net6.0-windows\FrmCarniceria.Properties.Resources.resources

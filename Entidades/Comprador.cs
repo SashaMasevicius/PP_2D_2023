@@ -2,11 +2,16 @@
 {
     public class Comprador : Usuario
     {
-       
+
 
         //Constructor
 
+
         public Comprador(string email, string contrasenia) : base(email, contrasenia)
+        {
+
+        }
+        public Comprador(string email, string contrasenia, int tipoDeUsuario) : base(email, contrasenia, tipoDeUsuario)
         {
 
         }

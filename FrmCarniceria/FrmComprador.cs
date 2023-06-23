@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using System.Windows.Forms;
 
 namespace FrmCarniceria
 {
@@ -8,7 +9,9 @@ namespace FrmCarniceria
         Heladera miHeladera;
         bool validarPrecioParaComprar;
         bool validarMedioDePagoParaComprar;
+        List<VentasHistorial> listaVentas;
 
+        public event Action saldoInsuficiente;
 
 
 
@@ -23,8 +26,22 @@ namespace FrmCarniceria
             this.miComprador = comprador;
             MessageBox.Show(miComprador.crearMensajeBienvenido());
             this.miHeladera = miHeladera;
-            this.labelBienvenido.Text = labelBienvenido.Text + " " + this.miComprador.Email;
-            this.labelDatos.Text = miHeladera.mostrarDetalleDeProductos();
+
+            MostrarStock();
+            saldoInsuficiente += ActualizarHerramientas;
+            saldoInsuficiente += ventanaEmergente;
+            this.Load += CargarHilo;
+        }
+
+
+        private void MostrarStock()
+        {
+            // Llamar al método mostrarDetalleDeProductos y obtener el resultado
+            string detallesProductos = miHeladera.mostrarDetalleDeProductos();
+
+            // Asignar el resultado al DataSource del ListBox
+            listBox1Stock.DataSource = detallesProductos.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+
         }
 
         /// <summary>
@@ -59,24 +76,6 @@ namespace FrmCarniceria
 
 
 
-
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ValidarMedioDePago()
-        {
-
-            if (this.radioButtonTarjeta.Checked == true)
-            {
-                validarMedioDePagoParaComprar = true;
-
-            }
-            else
-            {
-                validarMedioDePagoParaComprar = true;
-            }
-
-        }
 
         // variables para metodos siguientes
 
@@ -201,9 +200,9 @@ namespace FrmCarniceria
 
                 RestarKilosAlStockSegunCorte();
 
-                // actualizo datos de label
-                this.labelDatos.Text = miHeladera.mostrarDetalleDeProductos();
-                labelpPrecioDisponibleIngresado.Text = "";
+                // actualizo datos de stock
+                MostrarStock();
+                ActualizarHerramientas();
 
             }
 
@@ -252,11 +251,12 @@ namespace FrmCarniceria
                         {
                             dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
                             aceptarCompraIngresandoANuevoFormularioRestarKilos(dineroDisponible);
-
+                            VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
                         }
                         else
                         {
-                            MessageBox.Show("Error, no tiene suficiente dinero para realizar la compra");
+                            VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
+
                         }
                     } // si es efectivo
                     if (this.radioButtonEfectivo.Checked == true)
@@ -265,11 +265,12 @@ namespace FrmCarniceria
                         {
                             dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
                             aceptarCompraIngresandoANuevoFormularioRestarKilos(dineroDisponible);
+                            VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
 
                         }
                         else
                         {
-                            MessageBox.Show("Error, no tiene suficiente dinero para realizar la compra");
+                            VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
                         }
                     }
                 }
@@ -316,6 +317,119 @@ namespace FrmCarniceria
 
         }
 
+        /// <summary>
+        /// verifica dinero y lanza mensaje error,exito
+        /// </summary>
+        /// <param name="dineroDisponible"></param>
+        /// <param name="TieneDinero"></param>
+        /// <param name="NoTieneDinero"></param>
+        public void VerificarDineroDelCliente(double dineroDisponible, Action<string> TieneDinero, Action<string> NoTieneDinero)
+        {
+            if (dineroDisponible <= precioTotalDeLaCompra)
+            {
+                NoTieneDinero.Invoke("Error, no tiene suficiente dinero para realizar la compra");
+                saldoInsuficiente?.Invoke();
+
+            }
+            else
+            {
+                TieneDinero.Invoke("Compra Exitosa");
+            }
+
+        }
+        /// <summary>
+        /// Mostrar mensaje para metodo verificar dinero
+        /// </summary>
+        /// <param name="mensaje"></param>
+        public void MostrarMensajeDinero(string mensaje)
+        {
+            MessageBox.Show(mensaje);
+        }
+
+        public void ActualizarHerramientas()
+        {
+            textBoxDineroDisponible.Text = "0";
+            radioButtonTarjeta.Checked = false;
+            checkBoxAsado.Checked = false;
+            checkBoxMatambre.Checked = false;
+            numericUpDownKilosAsado.Value = 1;
+            numericUpDownKilosVacio.Value = 1;
+            numericUpDownKilosMatambre.Value = 1;
+            numericUpDownKilosChorizo.Value = 1;
+            labelpPrecioDisponibleIngresado.Text = "";
+        }
+
+        public void ventanaEmergente()
+        {
+            DialogResult result = MessageBox.Show("No tienes suficiente dinero para continuar la compra.\n\n¿Deseas volver al menu anterior y volver a realizar la compra?", "Mensaje de Alerta", MessageBoxButtons.YesNoCancel);
+
+            if (result == DialogResult.Yes)
+            {
+                // Acciones cuando se selecciona "Sí" (cargar saldo)
+            }
+            else if (result == DialogResult.No)
+            {
+                MessageBox.Show("Compra cancelada contacte con el vendedor para otras formas de pago\n CONTACTO : 9999-2121");
+                this.Close();
+            }
+
+        }
+        /// <summary>
+        /// 
+        /// meotdo para mostrar imagenes de publicidad en un hilo secundario
+        /// </summary>
+        private void MostrarHiloSecundarioPublicidad()
+        {
+            while (true)
+            {
+                while (true)
+                {
+                    // si el control fue eliminado salgo del bucle
+                    if (pictureBox1.IsDisposed || pictureBox2.IsDisposed)
+                    {
+                      
+                        break;
+                    }
+
+                    // primer imagen // si no fue eliminado
+                    if (!pictureBox1.IsDisposed)
+                    {
+                        pictureBox1.Invoke((MethodInvoker)(() => pictureBox1.Visible = true));
+                    }
+
+                    Thread.Sleep(1500);
+
+                    // oculto primer imagen
+                    if (!pictureBox1.IsDisposed)
+                    {
+                        pictureBox1.Invoke((MethodInvoker)(() => pictureBox1.Visible = false));
+                    }
+
+                    Thread.Sleep(1500);
+
+                    // Msegunda imagen
+                    if (!pictureBox2.IsDisposed)
+                    {
+                        pictureBox2.Invoke((MethodInvoker)(() => pictureBox2.Visible = true));
+                    }
+
+                    // Esperar 10 segundos
+                    Thread.Sleep(1500);
+
+                    // oculto segunda imagen
+                    if (!pictureBox2.IsDisposed)
+                    {
+                        pictureBox2.Invoke((MethodInvoker)(() => pictureBox2.Visible = false));
+                    }
+                }
+            }
+        }
+
+        private void CargarHilo(object sender, EventArgs e)
+        {
+            Thread publicidadThread = new Thread(MostrarHiloSecundarioPublicidad);
+            publicidadThread.Start();
+        }
 
 
         #region HerramientasNoUtilizadas
@@ -353,6 +467,11 @@ namespace FrmCarniceria
         #endregion
 
         private void buttonAgregarCarrito_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
         {
 
         }
