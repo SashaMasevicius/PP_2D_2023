@@ -258,7 +258,39 @@ namespace FrmCarniceria
 
         private void button_Modificar_Click(object sender, EventArgs e)
         {
+            //private void button_Modificar_Click(object sender, EventArgs e)
+            //{
+            //    // Obtener el ID de la venta seleccionada en el DataGridView
+            //    int idVentaSeleccionada = ObtenerIdVentaSeleccionada();
 
+            //    // Verificar si se seleccionó una venta válida
+            //    if (idVentaSeleccionada != -1)
+            //    {
+            //        // Obtener la venta a modificar
+            //        VentasHistorial ventaSeleccionada = listaVentas.FirstOrDefault(venta => venta.Id == idVentaSeleccionada);
+
+            //        // Verificar si se encontró la venta
+            //        if (ventaSeleccionada != null)
+            //        {
+            //            // Crear el formulario de modificación
+            //            FrmModificarVenta formularioModificarVenta = new FrmModificarVenta(ventaSeleccionada);
+
+            //            // Suscribir al evento de actualización del DataGridView
+            //            formularioModificarVenta.VentaModificada += ActualizarDataGridView;
+
+            //            // Mostrar el formulario de modificación
+            //            formularioModificarVenta.ShowDialog();
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("La venta seleccionada no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Por favor, selecciona una venta para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    }
+            //}
         }
 
         private void buttonBorrar_Click(object sender, EventArgs e)

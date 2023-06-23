@@ -124,7 +124,7 @@
             groupBox2.Controls.Add(listBox1Stock);
             groupBox2.Location = new Point(50, 234);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(259, 148);
+            groupBox2.Size = new Size(259, 125);
             groupBox2.TabIndex = 20;
             groupBox2.TabStop = false;
             groupBox2.Text = "Stock de la carniceria";

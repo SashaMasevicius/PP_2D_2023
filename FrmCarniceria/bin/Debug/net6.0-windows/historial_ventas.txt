@@ -1,0 +1,58 @@
+
+23/06/2023 17:18:56  
+ Detalles de compra: 
+Asado5 Kg = 10000$
+Matambre4 Kg = 10000$
+ Total:20000
+ -----------------------
+
+23/06/2023 17:19:22  
+ Detalles de compra: 
+Asado5 Kg = 10000$
+Matambre4 Kg = 10000$
+ Total:21000
+ -----------------------
+
+23/06/2023 17:23:37  
+ Detalles de compra: 
+Asado5 Kg = 10000$
+Matambre4 Kg = 10000$
+ Total:21000
+ -----------------------
+
+23/06/2023 17:25:01  
+ Detalles de compra: 
+Asado8 Kg = 16000$
+ Total:16800
+ -----------------------
+
+23/06/2023 17:25:34  
+ Detalles de compra: 
+Asado5 Kg = 10000$
+Matambre4 Kg = 10000$
+ Total:20000
+ -----------------------
+
+23/06/2023 17:26:27  
+ Detalles de compra: 
+Asado5 Kg = 10000$
+Matambre4 Kg = 10000$
+ Total:21000
+ -----------------------
+
+23/06/2023 17:27:20  
+ Detalles de compra: 
+Asado5 Kg = 10000$
+Vacio1 Kg = 2200$
+Matambre4 Kg = 10000$
+Chorizo1 Kg = 1500$ 
+ Total:24885
+ -----------------------
+
+23/06/2023 17:37:19  
+ Detalles de compra: 
+Asado5 Kg = 10000$
+Matambre4 Kg = 10000$
+ Total:21000
+ -----------------------
+

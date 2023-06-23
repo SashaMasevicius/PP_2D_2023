@@ -84,7 +84,7 @@ namespace FrmCarniceria
         int retornoStockVacio = 1;
         int retornoStockMatambre = 1;
         int retornoStockChorizo = 1;
-        string mensaje = "Detalles de su compra: \n";
+        string mensaje = "Detalles de compra: \n";
 
         /// <summary>
         /// 
@@ -112,7 +112,7 @@ namespace FrmCarniceria
 
 
 
-            string mensaje = "Detalles de su compra: \n";
+            string mensaje = "Detalles de compra: \n";
 
             if (this.checkBoxAsado.Checked)
             {
@@ -318,7 +318,7 @@ namespace FrmCarniceria
         }
 
         /// <summary>
-        /// verifica dinero y lanza mensaje error,exito
+        /// verifica dinero y lanza mensaje error
         /// </summary>
         /// <param name="dineroDisponible"></param>
         /// <param name="TieneDinero"></param>
@@ -333,7 +333,7 @@ namespace FrmCarniceria
             }
             else
             {
-                TieneDinero.Invoke("Compra Exitosa");
+                TieneDinero.Invoke("Compra exitosa");
             }
 
         }
@@ -361,11 +361,11 @@ namespace FrmCarniceria
 
         public void ventanaEmergente()
         {
-            DialogResult result = MessageBox.Show("No tienes suficiente dinero para continuar la compra.\n\n¿Deseas volver al menu anterior y volver a realizar la compra?", "Mensaje de Alerta", MessageBoxButtons.YesNoCancel);
+            DialogResult result = MessageBox.Show("No tienes suficiente dinero para continuar la compra.\n\n¿Deseas realizar otra compra?", "Mensaje de Alerta", MessageBoxButtons.YesNoCancel);
 
             if (result == DialogResult.Yes)
             {
-                // Acciones cuando se selecciona "Sí" (cargar saldo)
+                
             }
             else if (result == DialogResult.No)
             {
@@ -384,16 +384,20 @@ namespace FrmCarniceria
             {
                 while (true)
                 {
+                    if (this.IsDisposed)
+                        break;
                     // si el control fue eliminado salgo del bucle
                     if (pictureBox1.IsDisposed || pictureBox2.IsDisposed)
                     {
-                      
+
                         break;
                     }
 
                     // primer imagen // si no fue eliminado
                     if (!pictureBox1.IsDisposed)
                     {
+                        if (this.IsDisposed)
+                            break;
                         pictureBox1.Invoke((MethodInvoker)(() => pictureBox1.Visible = true));
                     }
 
@@ -402,6 +406,8 @@ namespace FrmCarniceria
                     // oculto primer imagen
                     if (!pictureBox1.IsDisposed)
                     {
+                        if (this.IsDisposed)
+                            break;
                         pictureBox1.Invoke((MethodInvoker)(() => pictureBox1.Visible = false));
                     }
 
@@ -410,15 +416,19 @@ namespace FrmCarniceria
                     // Msegunda imagen
                     if (!pictureBox2.IsDisposed)
                     {
+                        if (this.IsDisposed)
+                            break;
                         pictureBox2.Invoke((MethodInvoker)(() => pictureBox2.Visible = true));
                     }
 
                     // Esperar 10 segundos
-                    Thread.Sleep(1500);
+                    Thread.Sleep(1000);
 
                     // oculto segunda imagen
                     if (!pictureBox2.IsDisposed)
                     {
+                        if (this.IsDisposed)
+                            break;
                         pictureBox2.Invoke((MethodInvoker)(() => pictureBox2.Visible = false));
                     }
                 }

@@ -29,29 +29,18 @@
         private void InitializeComponent()
         {
             buttonAceptarCompra = new Button();
-            buttonCancelarCompra = new Button();
             label1 = new Label();
             SuspendLayout();
             // 
             // buttonAceptarCompra
             // 
-            buttonAceptarCompra.Location = new Point(42, 201);
+            buttonAceptarCompra.Location = new Point(96, 191);
             buttonAceptarCompra.Name = "buttonAceptarCompra";
             buttonAceptarCompra.Size = new Size(92, 43);
             buttonAceptarCompra.TabIndex = 0;
             buttonAceptarCompra.Text = "ACEPTAR";
             buttonAceptarCompra.UseVisualStyleBackColor = true;
             buttonAceptarCompra.Click += buttonAceptarCompra_Click;
-            // 
-            // buttonCancelarCompra
-            // 
-            buttonCancelarCompra.Location = new Point(156, 201);
-            buttonCancelarCompra.Name = "buttonCancelarCompra";
-            buttonCancelarCompra.Size = new Size(100, 43);
-            buttonCancelarCompra.TabIndex = 1;
-            buttonCancelarCompra.Text = "CANCELAR";
-            buttonCancelarCompra.UseVisualStyleBackColor = true;
-            buttonCancelarCompra.Click += buttonCancelarCompra_Click;
             // 
             // label1
             // 
@@ -68,7 +57,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(325, 246);
             Controls.Add(label1);
-            Controls.Add(buttonCancelarCompra);
             Controls.Add(buttonAceptarCompra);
             Name = "Ticket";
             Text = "Ticket";
