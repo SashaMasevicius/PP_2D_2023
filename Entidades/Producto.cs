@@ -8,13 +8,30 @@ namespace Entidades
 {
     public class Producto
     {
+        public int id;
         eCarne tipoCarne;
         int peso;
         double precioPorKg;
 
+
+        public Producto( int peso, double precioPorKg)
+        {
+            
+            this.peso = peso;
+            this.precioPorKg = precioPorKg;
+
+        }
         public Producto(eCarne tipoCarne, int peso, double precioPorKg)
         {
             this.TipoCarne = tipoCarne;
+            this.peso = peso;
+            this.precioPorKg = precioPorKg;
+        }
+
+        public Producto(int id, eCarne tipoCarne, int peso, double precioPorKg)
+        {
+            this.id = id;
+            this.tipoCarne = tipoCarne;
             this.peso = peso;
             this.precioPorKg = precioPorKg;
         }
@@ -34,5 +51,6 @@ namespace Entidades
             get => tipoCarne; 
             set => tipoCarne = value;
         }
+        public int Id { get => id; set => id = value; }
     }
 }

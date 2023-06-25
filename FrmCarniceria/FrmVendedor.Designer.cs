@@ -29,16 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVendedor));
-            numericUpDownKilos = new NumericUpDown();
-            labelKilos = new Label();
-            comboBoxNuevoCorte = new ComboBox();
             comboBoxCortePrecio = new ComboBox();
             textBoxPrecio = new TextBox();
-            label1 = new Label();
             label2 = new Label();
-            groupBox1 = new GroupBox();
-            buttonClickIngresarMercaderia = new Button();
-            groupBox2 = new GroupBox();
             button2 = new Button();
             groupBox4 = new GroupBox();
             buttonVenderListaDeClientes = new Button();
@@ -55,56 +48,30 @@
             KILOS = new DataGridViewTextBoxColumn();
             PRECIO = new DataGridViewTextBoxColumn();
             button_Leer = new Button();
-            button_Modificar = new Button();
             buttonBorrar = new Button();
             CORTECARNE = new DataGridViewTextBoxColumn();
             KG = new DataGridViewTextBoxColumn();
             Prec = new DataGridViewTextBoxColumn();
             listBox_Stock = new ListBox();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownKilos).BeginInit();
-            groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
+            numericUpDownKilos = new NumericUpDown();
+            labelKilos = new Label();
+            comboBoxNuevoCorte = new ComboBox();
+            label1 = new Label();
+            buttonClickIngresarMercaderia = new Button();
+            button1 = new Button();
+            buttonActualizarStock = new Button();
             groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosVenta).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownKilos).BeginInit();
             SuspendLayout();
-            // 
-            // numericUpDownKilos
-            // 
-            numericUpDownKilos.Location = new Point(83, 101);
-            numericUpDownKilos.Maximum = new decimal(new int[] { 150, 0, 0, 0 });
-            numericUpDownKilos.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numericUpDownKilos.Name = "numericUpDownKilos";
-            numericUpDownKilos.Size = new Size(48, 23);
-            numericUpDownKilos.TabIndex = 1;
-            numericUpDownKilos.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
-            // labelKilos
-            // 
-            labelKilos.AutoSize = true;
-            labelKilos.Location = new Point(47, 100);
-            labelKilos.Name = "labelKilos";
-            labelKilos.Size = new Size(30, 15);
-            labelKilos.TabIndex = 2;
-            labelKilos.Text = "Kilos";
-            // 
-            // comboBoxNuevoCorte
-            // 
-            comboBoxNuevoCorte.Font = new Font("Segoe UI Light", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            comboBoxNuevoCorte.FormattingEnabled = true;
-            comboBoxNuevoCorte.Items.AddRange(new object[] { "Asado", "Vacio", "Matambre", "Chorizo" });
-            comboBoxNuevoCorte.Location = new Point(47, 62);
-            comboBoxNuevoCorte.Name = "comboBoxNuevoCorte";
-            comboBoxNuevoCorte.Size = new Size(174, 23);
-            comboBoxNuevoCorte.TabIndex = 3;
-            comboBoxNuevoCorte.Text = "Selecciona corte";
             // 
             // comboBoxCortePrecio
             // 
             comboBoxCortePrecio.Font = new Font("Segoe UI Light", 9F, FontStyle.Italic, GraphicsUnit.Point);
             comboBoxCortePrecio.FormattingEnabled = true;
             comboBoxCortePrecio.Items.AddRange(new object[] { "Asado", "Vacio", "Matambre", "Chorizo" });
-            comboBoxCortePrecio.Location = new Point(23, 55);
+            comboBoxCortePrecio.Location = new Point(70, 245);
             comboBoxCortePrecio.Name = "comboBoxCortePrecio";
             comboBoxCortePrecio.Size = new Size(156, 23);
             comboBoxCortePrecio.TabIndex = 4;
@@ -112,70 +79,25 @@
             // 
             // textBoxPrecio
             // 
-            textBoxPrecio.Location = new Point(23, 93);
+            textBoxPrecio.Location = new Point(70, 285);
             textBoxPrecio.Name = "textBoxPrecio";
             textBoxPrecio.PlaceholderText = "Seleccionar nuevo precio";
             textBoxPrecio.Size = new Size(156, 23);
             textBoxPrecio.TabIndex = 5;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(59, 26);
-            label1.Name = "label1";
-            label1.Size = new Size(133, 20);
-            label1.TabIndex = 6;
-            label1.Text = "Ingresar mercaderia";
-            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(20, 19);
+            label2.Location = new Point(66, 206);
             label2.Name = "label2";
             label2.Size = new Size(159, 20);
             label2.TabIndex = 7;
             label2.Text = "Ingresar nuevos precios";
             // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(buttonClickIngresarMercaderia);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(comboBoxNuevoCorte);
-            groupBox1.Controls.Add(labelKilos);
-            groupBox1.Controls.Add(numericUpDownKilos);
-            groupBox1.Location = new Point(20, 13);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(256, 179);
-            groupBox1.TabIndex = 8;
-            groupBox1.TabStop = false;
-            // 
-            // buttonClickIngresarMercaderia
-            // 
-            buttonClickIngresarMercaderia.Location = new Point(168, 135);
-            buttonClickIngresarMercaderia.Name = "buttonClickIngresarMercaderia";
-            buttonClickIngresarMercaderia.Size = new Size(75, 23);
-            buttonClickIngresarMercaderia.TabIndex = 7;
-            buttonClickIngresarMercaderia.Text = "Aceptar";
-            buttonClickIngresarMercaderia.UseVisualStyleBackColor = true;
-            buttonClickIngresarMercaderia.Click += button1_Click;
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(button2);
-            groupBox2.Controls.Add(comboBoxCortePrecio);
-            groupBox2.Controls.Add(textBoxPrecio);
-            groupBox2.Controls.Add(label2);
-            groupBox2.Location = new Point(20, 198);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(256, 193);
-            groupBox2.TabIndex = 9;
-            groupBox2.TabStop = false;
-            // 
             // button2
             // 
-            button2.Location = new Point(168, 135);
+            button2.Location = new Point(151, 318);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 10;
@@ -250,7 +172,7 @@
             // 
             // buttonRetornarMenuPrincipal
             // 
-            buttonRetornarMenuPrincipal.Location = new Point(474, 399);
+            buttonRetornarMenuPrincipal.Location = new Point(978, 428);
             buttonRetornarMenuPrincipal.Name = "buttonRetornarMenuPrincipal";
             buttonRetornarMenuPrincipal.Size = new Size(107, 54);
             buttonRetornarMenuPrincipal.TabIndex = 20;
@@ -260,7 +182,7 @@
             // 
             // buttonAutocompletar
             // 
-            buttonAutocompletar.Location = new Point(294, 215);
+            buttonAutocompletar.Location = new Point(291, 223);
             buttonAutocompletar.Name = "buttonAutocompletar";
             buttonAutocompletar.Size = new Size(154, 23);
             buttonAutocompletar.TabIndex = 21;
@@ -314,7 +236,7 @@
             // 
             // button_Leer
             // 
-            button_Leer.Location = new Point(797, 302);
+            button_Leer.Location = new Point(705, 304);
             button_Leer.Name = "button_Leer";
             button_Leer.Size = new Size(123, 54);
             button_Leer.TabIndex = 24;
@@ -322,19 +244,9 @@
             button_Leer.UseVisualStyleBackColor = true;
             button_Leer.Click += button_Leer_Click;
             // 
-            // button_Modificar
-            // 
-            button_Modificar.Location = new Point(728, 364);
-            button_Modificar.Name = "button_Modificar";
-            button_Modificar.Size = new Size(124, 47);
-            button_Modificar.TabIndex = 26;
-            button_Modificar.Text = "Modificar";
-            button_Modificar.UseVisualStyleBackColor = true;
-            button_Modificar.Click += button_Modificar_Click;
-            // 
             // buttonBorrar
             // 
-            buttonBorrar.Location = new Point(867, 362);
+            buttonBorrar.Location = new Point(869, 310);
             buttonBorrar.Name = "buttonBorrar";
             buttonBorrar.Size = new Size(116, 48);
             buttonBorrar.TabIndex = 28;
@@ -362,63 +274,133 @@
             // 
             // listBox_Stock
             // 
+            listBox_Stock.BackColor = SystemColors.ActiveCaption;
+            listBox_Stock.Enabled = false;
+            listBox_Stock.ForeColor = SystemColors.WindowText;
             listBox_Stock.FormattingEnabled = true;
             listBox_Stock.ItemHeight = 15;
-            listBox_Stock.Location = new Point(340, 244);
+            listBox_Stock.Location = new Point(340, 268);
             listBox_Stock.Name = "listBox_Stock";
-            listBox_Stock.Size = new Size(257, 139);
+            listBox_Stock.Size = new Size(257, 109);
             listBox_Stock.TabIndex = 29;
+            listBox_Stock.TabStop = false;
+            // 
+            // numericUpDownKilos
+            // 
+            numericUpDownKilos.Location = new Point(178, 117);
+            numericUpDownKilos.Maximum = new decimal(new int[] { 150, 0, 0, 0 });
+            numericUpDownKilos.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDownKilos.Name = "numericUpDownKilos";
+            numericUpDownKilos.Size = new Size(48, 23);
+            numericUpDownKilos.TabIndex = 1;
+            numericUpDownKilos.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // labelKilos
+            // 
+            labelKilos.AutoSize = true;
+            labelKilos.Location = new Point(131, 125);
+            labelKilos.Name = "labelKilos";
+            labelKilos.Size = new Size(30, 15);
+            labelKilos.TabIndex = 2;
+            labelKilos.Text = "Kilos";
+            // 
+            // comboBoxNuevoCorte
+            // 
+            comboBoxNuevoCorte.Font = new Font("Segoe UI Light", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            comboBoxNuevoCorte.FormattingEnabled = true;
+            comboBoxNuevoCorte.Items.AddRange(new object[] { "Asado", "Vacio", "Matambre", "Chorizo" });
+            comboBoxNuevoCorte.Location = new Point(52, 72);
+            comboBoxNuevoCorte.Name = "comboBoxNuevoCorte";
+            comboBoxNuevoCorte.Size = new Size(174, 23);
+            comboBoxNuevoCorte.TabIndex = 3;
+            comboBoxNuevoCorte.Text = "Selecciona corte";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(70, 31);
+            label1.Name = "label1";
+            label1.Size = new Size(133, 20);
+            label1.TabIndex = 6;
+            label1.Text = "Ingresar mercaderia";
+            // 
+            // buttonClickIngresarMercaderia
+            // 
+            buttonClickIngresarMercaderia.Location = new Point(150, 159);
+            buttonClickIngresarMercaderia.Name = "buttonClickIngresarMercaderia";
+            buttonClickIngresarMercaderia.Size = new Size(75, 23);
+            buttonClickIngresarMercaderia.TabIndex = 7;
+            buttonClickIngresarMercaderia.Text = "Aceptar";
+            buttonClickIngresarMercaderia.UseVisualStyleBackColor = true;
+            buttonClickIngresarMercaderia.Click += button1_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(131, 379);
+            button1.Name = "button1";
+            button1.Size = new Size(113, 59);
+            button1.TabIndex = 30;
+            button1.Text = "Modificar un corte";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
+            // 
+            // buttonActualizarStock
+            // 
+            buttonActualizarStock.Location = new Point(410, 383);
+            buttonActualizarStock.Name = "buttonActualizarStock";
+            buttonActualizarStock.Size = new Size(104, 55);
+            buttonActualizarStock.TabIndex = 31;
+            buttonActualizarStock.Text = "Actualizar Stock";
+            buttonActualizarStock.UseVisualStyleBackColor = true;
+            buttonActualizarStock.Click += buttonActualizarStock_Click;
             // 
             // FrmVendedor
             // 
             AutoScaleDimensions = new SizeF(6F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1078, 450);
+            ClientSize = new Size(1078, 476);
+            Controls.Add(buttonActualizarStock);
+            Controls.Add(button1);
+            Controls.Add(button2);
+            Controls.Add(label1);
+            Controls.Add(textBoxPrecio);
+            Controls.Add(comboBoxCortePrecio);
+            Controls.Add(buttonClickIngresarMercaderia);
             Controls.Add(listBox_Stock);
+            Controls.Add(label2);
             Controls.Add(buttonBorrar);
-            Controls.Add(button_Modificar);
+            Controls.Add(labelKilos);
+            Controls.Add(comboBoxNuevoCorte);
+            Controls.Add(numericUpDownKilos);
             Controls.Add(button_Leer);
             Controls.Add(dataGridView2);
             Controls.Add(buttonAutocompletar);
             Controls.Add(buttonRetornarMenuPrincipal);
             Controls.Add(groupBox4);
-            Controls.Add(groupBox2);
-            Controls.Add(groupBox1);
             Font = new Font("Segoe UI Light", 9F, FontStyle.Italic, GraphicsUnit.Point);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmVendedor";
             Load += FrmVendedor_Load;
-            ((System.ComponentModel.ISupportInitialize)numericUpDownKilos).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosVenta).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownKilos).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
         private NumericUpDown numericUpDownKilosVenta;
-        private Label labelKilos;
         private ComboBox comboBoxCortesVenta;
         private ComboBox comboBox2;
         private TextBox textBox1;
-        private Label label1;
         private Label label2;
-        private GroupBox groupBox1;
         private Button buttonVenderListaDeClientes;
-        private GroupBox groupBox2;
         private Button button2;
-        private ComboBox comboBoxNuevoCorte;
-        private Button buttonClickIngresarMercaderia;
-        private NumericUpDown numericUpDownKilos;
         private Label label3;
-        private Label label4;
-        private Label label5;
         private Label label6;
         private GroupBox groupBox3;
         private Label label7;
@@ -433,7 +415,6 @@
         private Button buttonAutocompletar;
         private DataGridView dataGridView2;
         private Button button_Leer;
-        private Button button_Modificar;
         private DataGridView dataGridViewStock;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn COMPRADOR;
@@ -453,5 +434,12 @@
         private DataGridViewTextBoxColumn Kilos2;
         private DataGridViewTextBoxColumn PRECIO2;
         private ListBox listBox_Stock;
+        private NumericUpDown numericUpDownKilos;
+        private Label labelKilos;
+        private ComboBox comboBoxNuevoCorte;
+        private Label label1;
+        private Button buttonClickIngresarMercaderia;
+        private Button button1;
+        private Button buttonActualizarStock;
     }
 }

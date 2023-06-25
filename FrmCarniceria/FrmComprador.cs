@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace FrmCarniceria
 {
-    public partial class FrmComprador : Form
+    public partial class FrmComprador : Form, iStockMensaje
     {
         Comprador miComprador;
         Heladera miHeladera;
@@ -27,6 +27,7 @@ namespace FrmCarniceria
             MessageBox.Show(miComprador.crearMensajeBienvenido());
             this.miHeladera = miHeladera;
 
+
             MostrarStock();
             saldoInsuficiente += ActualizarHerramientas;
             saldoInsuficiente += ventanaEmergente;
@@ -34,7 +35,7 @@ namespace FrmCarniceria
         }
 
 
-        private void MostrarStock()
+        public void MostrarStock()
         {
             // Llamar al método mostrarDetalleDeProductos y obtener el resultado
             string detallesProductos = miHeladera.mostrarDetalleDeProductos();
@@ -365,7 +366,7 @@ namespace FrmCarniceria
 
             if (result == DialogResult.Yes)
             {
-                
+
             }
             else if (result == DialogResult.No)
             {

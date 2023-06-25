@@ -52,10 +52,9 @@ namespace Entidades
                 string corte = item.TipoCarne.ToString().PadRight(maxCorteLength +20);
                 string peso = item.Peso.ToString().PadRight(maxPesoLength + 10);
                 string precio = item.PrecioPorKg.ToString().PadRight(maxPrecioLength + 10);
-
                 sb.AppendLine(string.Format(format, corte, peso, precio));
             }
-
+            
             return sb.ToString();
         }
         public string ObtenerTipoCarne()

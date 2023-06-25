@@ -1,6 +1,4 @@
 using Entidades;
-using Microsoft.VisualBasic.ApplicationServices;
-using System.Security.Policy;
 
 namespace FrmCarniceria
 {
@@ -9,7 +7,7 @@ namespace FrmCarniceria
         //lista de usuarios aprobados para iniciar sesion
         List<Usuario> miLista;
         Heladera miHeladera;
-
+        List<Producto> listaProductos;
         //const
         public FrmIniciarSesion()
         {
@@ -17,10 +15,8 @@ namespace FrmCarniceria
 
             InitializeComponent();
 
-    
 
 
-            //harcodeo productos para agregar a la heladera
 
             Producto prodUno = new Producto(eCarne.Asado, 1000, 2000);
             Producto prodDos = new Producto(eCarne.Vacio, 1500, 2200);
@@ -28,19 +24,28 @@ namespace FrmCarniceria
             Producto prodCuatro = new Producto(eCarne.Chorizo, 800, 1500);
 
 
-            //creo una lista del tipo producto
-            List<Producto> listaDeProducto;
-            listaDeProducto = new List<Producto>();
-            listaDeProducto.Add(prodUno);
-            listaDeProducto.Add(prodDos);
-            listaDeProducto.Add(prodTres);
-            listaDeProducto.Add(prodCuatro);
 
-            miHeladera = new Heladera(listaDeProducto);
+            ////creo una lista del tipo producto
+            //List<Producto> listaDeProducto;
+            //listaDeProducto = new List<Producto>();
+            //listaDeProducto.Add(prodUno);
+            //listaDeProducto.Add(prodDos);
+            //listaDeProducto.Add(prodTres);
+            //listaDeProducto.Add(prodCuatro);
+            //CrudStock.Guardar(prodUno);
+            //CrudStock.Guardar(prodDos);
+            //CrudStock.Guardar(prodTres);
+            //CrudStock.Guardar(prodCuatro);
+
+
+            //miHeladera = new Heladera(listaDeProducto);
 
             //instancio y agrego los usuarios a la lista.
+            listaProductos = CrudStock.Leer();
+
             miLista = CrudUsuarios.Leer();
 
+            miHeladera = new Heladera(listaProductos);
             // CrudUsuarios.Guardar();
 
 

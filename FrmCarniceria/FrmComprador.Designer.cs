@@ -131,12 +131,16 @@
             // 
             // listBox1Stock
             // 
+            listBox1Stock.BackColor = Color.Salmon;
+            listBox1Stock.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            listBox1Stock.ForeColor = SystemColors.ControlText;
             listBox1Stock.FormattingEnabled = true;
-            listBox1Stock.ItemHeight = 15;
-            listBox1Stock.Location = new Point(6, 22);
+            listBox1Stock.ItemHeight = 17;
+            listBox1Stock.Location = new Point(6, 30);
             listBox1Stock.Name = "listBox1Stock";
-            listBox1Stock.Size = new Size(226, 79);
+            listBox1Stock.Size = new Size(247, 89);
             listBox1Stock.TabIndex = 20;
+            listBox1Stock.TabStop = false;
             // 
             // numericUpDownKilosVacio
             // 
@@ -362,6 +366,7 @@
             Controls.Add(groupBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmComprador";
+            TopMost = true;
             Load += FrmComprador_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

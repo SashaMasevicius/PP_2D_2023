@@ -157,71 +157,7 @@ namespace Entidades
             return sb.ToString();
         }
 
-        /// <summary>
-        /// devuelve el nombre del corte de carne segun el indice 
-        /// </summary>
-        /// <param name="indiceElegido"></param> indice para obtener nombre
-        /// <returns></returns>
-        //public string RetornarNombreDeCorteElegidoAlVender(int indiceElegido)
-        //{
-        //    StringBuilder sb = new StringBuilder();
-
-        //    if (indiceElegido == 0)
-        //    {
-        //        sb.AppendLine($"Asado");
-                
-        //    }
-        //    else if (indiceElegido == 1)
-        //    {
-        //        sb.AppendLine($"Vacio");
-               
-        //    }
-        //    else if (indiceElegido == 2)
-        //    {
-        //        sb.AppendLine($"Matambre");
-              
-        //    }
-        //    else if (indiceElegido == 3)
-        //    {
-        //        sb.AppendLine($"Chorizo");
-            
-        //    }
-        //    return sb.ToString();
-        //}
-        /// <summary>
-        /// retorna  del nombre del comprador
-        /// </summary>
-        /// <param name="miVendedor"></param> para recorrer lista de clientes en mi vendedor
-        /// <param name="indiceCompradorFijo"></param>
-        /// <returns></returns>
-       /* public string RetornarNombreDelComprador(Vendedor miVendedor,int indiceCompradorFijo)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (String item in miVendedor.ListaDeClientesFijos)
-            {
-                if (indiceCompradorFijo == 0 && miVendedor.ListaDeClientesFijos.IndexOf(item) == 0)
-                {
-                    sb.AppendLine($"Restaurante Madero");
-                    break;
-                }
-                else if (indiceCompradorFijo == 1 && miVendedor.ListaDeClientesFijos.IndexOf(item) == 1)
-                {
-                    sb.AppendLine($"Restaurante Aleman");
-                    break;
-
-                }
-                else if (indiceCompradorFijo == 2 && miVendedor.ListaDeClientesFijos.IndexOf(item) == 2)
-                {
-                    sb.AppendLine($"Restaurante Venezolano");
-                    break;
-
-                }
-               
-            }
-            return sb.ToString();
-            
-        }
-       */
+        
         
 
      

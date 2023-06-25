@@ -16,11 +16,12 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace FrmCarniceria
 {
-    public partial class FrmVendedor : Form
+    public partial class FrmVendedor : Form, iStockMensaje
     {
         Vendedor vendedor;
         Heladera miHeladera;
         List<VentasHistorial> listaVentas;
+        List<Producto> miListaProductos;
 
         public FrmVendedor()
         {
@@ -59,7 +60,7 @@ namespace FrmCarniceria
         }
 
 
-        private void MostrarStock()
+        public void MostrarStock()
         {
             // Llamar al método mostrarDetalleDeProductos y obtener el resultado
             string detallesProductos = miHeladera.mostrarDetalleDeProductos();
@@ -67,7 +68,10 @@ namespace FrmCarniceria
             // Asignar el resultado al DataSource del ListBox
             listBox_Stock.DataSource = detallesProductos.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 
+
+
         }
+
 
 
         /// <summary>
@@ -86,6 +90,8 @@ namespace FrmCarniceria
             int cantidadKilosSeleccionado = (int)numericUpDownKilos.Value;
             miHeladera.AgregarKilosPorCorteSeleccionado(indexCorte, cantidadKilosSeleccionado);
             MostrarStock();
+
+
 
         }
 
@@ -256,42 +262,10 @@ namespace FrmCarniceria
 
         }
 
-        private void button_Modificar_Click(object sender, EventArgs e)
-        {
-            //private void button_Modificar_Click(object sender, EventArgs e)
-            //{
-            //    // Obtener el ID de la venta seleccionada en el DataGridView
-            //    int idVentaSeleccionada = ObtenerIdVentaSeleccionada();
+        //private void button_Modificar_Click(object sender, EventArgs e)
+        //{
 
-            //    // Verificar si se seleccionó una venta válida
-            //    if (idVentaSeleccionada != -1)
-            //    {
-            //        // Obtener la venta a modificar
-            //        VentasHistorial ventaSeleccionada = listaVentas.FirstOrDefault(venta => venta.Id == idVentaSeleccionada);
-
-            //        // Verificar si se encontró la venta
-            //        if (ventaSeleccionada != null)
-            //        {
-            //            // Crear el formulario de modificación
-            //            FrmModificarVenta formularioModificarVenta = new FrmModificarVenta(ventaSeleccionada);
-
-            //            // Suscribir al evento de actualización del DataGridView
-            //            formularioModificarVenta.VentaModificada += ActualizarDataGridView;
-
-            //            // Mostrar el formulario de modificación
-            //            formularioModificarVenta.ShowDialog();
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("La venta seleccionada no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        }
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Por favor, selecciona una venta para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    }
-            //}
-        }
+        //}
 
         private void buttonBorrar_Click(object sender, EventArgs e)
         {
@@ -337,6 +311,37 @@ namespace FrmCarniceria
             {
                 MessageBox.Show("Por favor, ingresa un ID válido para eliminar la venta.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            FrmModificarCorte formulario = new FrmModificarCorte();
+            formulario.ShowDialog();
+        }
+
+        private void buttonActualizarStock_Click(object sender, EventArgs e)
+        {
+                 
+
+
+            //    miListaProductos = CrudStock.Leer();
+            //Heladera miHeladera = new Heladera(listaProductos);
+
+
+            //foreach (Producto item in miListaProductos)
+
+            //    {
+            //        listBox_Stock.Items.Add(item.ToString());
+                    
+
+            //    }
+
+            
         }
     }
 }
