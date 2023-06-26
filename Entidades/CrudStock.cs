@@ -33,7 +33,6 @@ namespace Entidades
                 command.CommandText = "SELECT * FROM TableStockNueva";
                 SqlDataReader dataReader = command.ExecuteReader();
 
-
                 while (dataReader.Read())
                 {
                     eCarne carne = (eCarne)Enum.Parse(typeof(eCarne), dataReader["corte"].ToString());
@@ -41,8 +40,6 @@ namespace Entidades
                     double precio = Convert.ToDouble(dataReader["precio"]);
 
                     miProducto.Add(new Producto(carne, kilos, precio));
-
-
                 }
 
                 return miProducto;

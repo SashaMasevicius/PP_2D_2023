@@ -34,8 +34,6 @@
             label1 = new Label();
             buttonAceptarDineroDisponible = new Button();
             numericUpDownKilosAsado = new NumericUpDown();
-            groupBox2 = new GroupBox();
-            listBox1Stock = new ListBox();
             numericUpDownKilosVacio = new NumericUpDown();
             numericUpDownKilosMatambre = new NumericUpDown();
             numericUpDownKilosChorizo = new NumericUpDown();
@@ -55,9 +53,12 @@
             buttonAutoCompletDatos = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            dataGridView1 = new DataGridView();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            Peso = new DataGridViewTextBoxColumn();
+            PrecioColumn = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosAsado).BeginInit();
-            groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosVacio).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosMatambre).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosChorizo).BeginInit();
@@ -65,6 +66,7 @@
             groupBoxDineroIngresado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // textBoxDineroDisponible
@@ -82,7 +84,7 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(buttonAceptarDineroDisponible);
             groupBox1.Controls.Add(textBoxDineroDisponible);
-            groupBox1.Location = new Point(50, 69);
+            groupBox1.Location = new Point(71, 69);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(259, 146);
             groupBox1.TabIndex = 3;
@@ -118,29 +120,6 @@
             numericUpDownKilosAsado.Size = new Size(48, 23);
             numericUpDownKilosAsado.TabIndex = 17;
             numericUpDownKilosAsado.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(listBox1Stock);
-            groupBox2.Location = new Point(50, 234);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(259, 125);
-            groupBox2.TabIndex = 20;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Stock de la carniceria";
-            // 
-            // listBox1Stock
-            // 
-            listBox1Stock.BackColor = Color.Salmon;
-            listBox1Stock.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            listBox1Stock.ForeColor = SystemColors.ControlText;
-            listBox1Stock.FormattingEnabled = true;
-            listBox1Stock.ItemHeight = 17;
-            listBox1Stock.Location = new Point(6, 30);
-            listBox1Stock.Name = "listBox1Stock";
-            listBox1Stock.Size = new Size(247, 89);
-            listBox1Stock.TabIndex = 20;
-            listBox1Stock.TabStop = false;
             // 
             // numericUpDownKilosVacio
             // 
@@ -312,7 +291,7 @@
             // 
             // buttonAutoCompletDatos
             // 
-            buttonAutoCompletDatos.Location = new Point(103, 12);
+            buttonAutoCompletDatos.Location = new Point(354, 153);
             buttonAutoCompletDatos.Name = "buttonAutoCompletDatos";
             buttonAutoCompletDatos.Size = new Size(137, 44);
             buttonAutoCompletDatos.TabIndex = 38;
@@ -340,12 +319,44 @@
             pictureBox2.TabIndex = 40;
             pictureBox2.TabStop = false;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.BackgroundColor = SystemColors.ButtonHighlight;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn2, Peso, PrecioColumn });
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.GridColor = SystemColors.ButtonFace;
+            dataGridView1.Location = new Point(41, 243);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(346, 125);
+            dataGridView1.TabIndex = 41;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.HeaderText = "Cortes";
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // Peso
+            // 
+            Peso.HeaderText = "Peso";
+            Peso.Name = "Peso";
+            Peso.ReadOnly = true;
+            // 
+            // PrecioColumn
+            // 
+            PrecioColumn.HeaderText = "Precio";
+            PrecioColumn.Name = "PrecioColumn";
+            PrecioColumn.ReadOnly = true;
+            // 
             // FrmComprador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSalmon;
             ClientSize = new Size(794, 493);
+            Controls.Add(dataGridView1);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(buttonAutoCompletDatos);
@@ -357,7 +368,6 @@
             Controls.Add(groupBoxDineroIngresado);
             Controls.Add(groupBox3);
             Controls.Add(buttonComprar);
-            Controls.Add(groupBox2);
             Controls.Add(label2);
             Controls.Add(numericUpDownKilosChorizo);
             Controls.Add(numericUpDownKilosMatambre);
@@ -371,7 +381,6 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosAsado).EndInit();
-            groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosVacio).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosMatambre).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosChorizo).EndInit();
@@ -381,6 +390,7 @@
             groupBoxDineroIngresado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -392,7 +402,6 @@
         private Button buttonAceptarDineroDisponible;
         private Label label1;
         private NumericUpDown numericUpDownKilosAsado;
-        private GroupBox groupBox2;
         private NumericUpDown numericUpDownKilosVacio;
         private NumericUpDown numericUpDownKilosMatambre;
         private NumericUpDown numericUpDownKilosChorizo;
@@ -415,8 +424,11 @@
         private CheckBox checkBoxChorizo;
         private Button buttonMenuPrincipal;
         private Button buttonAutoCompletDatos;
-        private ListBox listBox1Stock;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn Peso;
+        private DataGridViewTextBoxColumn PrecioColumn;
     }
 }

@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrmCarniceria", "FrmCarnice
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Entidades.csproj", "{1505108B-B1EF-41ED-90DC-00BC160D4231}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject4", "TestProject4\TestProject4.csproj", "{0238D250-80D3-4D7C-8126-BA1617EA601A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1505108B-B1EF-41ED-90DC-00BC160D4231}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1505108B-B1EF-41ED-90DC-00BC160D4231}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1505108B-B1EF-41ED-90DC-00BC160D4231}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0238D250-80D3-4D7C-8126-BA1617EA601A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0238D250-80D3-4D7C-8126-BA1617EA601A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0238D250-80D3-4D7C-8126-BA1617EA601A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0238D250-80D3-4D7C-8126-BA1617EA601A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

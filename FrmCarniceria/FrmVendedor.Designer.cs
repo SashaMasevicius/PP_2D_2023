@@ -60,10 +60,15 @@
             buttonClickIngresarMercaderia = new Button();
             button1 = new Button();
             buttonActualizarStock = new Button();
+            dataGridView1 = new DataGridView();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            Peso = new DataGridViewTextBoxColumn();
+            PrecioColumn = new DataGridViewTextBoxColumn();
             groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosVenta).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // comboBoxCortePrecio
@@ -114,7 +119,7 @@
             groupBox4.Controls.Add(comboBoxRestaurante);
             groupBox4.Location = new Point(352, 20);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(245, 197);
+            groupBox4.Size = new Size(245, 183);
             groupBox4.TabIndex = 16;
             groupBox4.TabStop = false;
             groupBox4.Text = "Vender a  tu lista de clientes";
@@ -172,7 +177,7 @@
             // 
             // buttonRetornarMenuPrincipal
             // 
-            buttonRetornarMenuPrincipal.Location = new Point(978, 428);
+            buttonRetornarMenuPrincipal.Location = new Point(1053, 424);
             buttonRetornarMenuPrincipal.Name = "buttonRetornarMenuPrincipal";
             buttonRetornarMenuPrincipal.Size = new Size(107, 54);
             buttonRetornarMenuPrincipal.TabIndex = 20;
@@ -182,9 +187,9 @@
             // 
             // buttonAutocompletar
             // 
-            buttonAutocompletar.Location = new Point(291, 223);
+            buttonAutocompletar.Location = new Point(70, 5);
             buttonAutocompletar.Name = "buttonAutocompletar";
-            buttonAutocompletar.Size = new Size(154, 23);
+            buttonAutocompletar.Size = new Size(150, 23);
             buttonAutocompletar.TabIndex = 21;
             buttonAutocompletar.Text = "AutoCompletarCampos";
             buttonAutocompletar.UseVisualStyleBackColor = true;
@@ -198,7 +203,7 @@
             dataGridView2.BorderStyle = BorderStyle.None;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Columns.AddRange(new DataGridViewColumn[] { ID, COMPRADOR, CORTE, KILOS, PRECIO });
-            dataGridView2.Location = new Point(639, 20);
+            dataGridView2.Location = new Point(714, 20);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowTemplate.Height = 25;
             dataGridView2.Size = new Size(410, 262);
@@ -236,7 +241,7 @@
             // 
             // button_Leer
             // 
-            button_Leer.Location = new Point(705, 304);
+            button_Leer.Location = new Point(785, 302);
             button_Leer.Name = "button_Leer";
             button_Leer.Size = new Size(123, 54);
             button_Leer.TabIndex = 24;
@@ -246,9 +251,9 @@
             // 
             // buttonBorrar
             // 
-            buttonBorrar.Location = new Point(869, 310);
+            buttonBorrar.Location = new Point(955, 302);
             buttonBorrar.Name = "buttonBorrar";
-            buttonBorrar.Size = new Size(116, 48);
+            buttonBorrar.Size = new Size(121, 54);
             buttonBorrar.TabIndex = 28;
             buttonBorrar.Text = "Borrar";
             buttonBorrar.UseVisualStyleBackColor = true;
@@ -279,9 +284,9 @@
             listBox_Stock.ForeColor = SystemColors.WindowText;
             listBox_Stock.FormattingEnabled = true;
             listBox_Stock.ItemHeight = 15;
-            listBox_Stock.Location = new Point(340, 268);
+            listBox_Stock.Location = new Point(530, 207);
             listBox_Stock.Name = "listBox_Stock";
-            listBox_Stock.Size = new Size(257, 109);
+            listBox_Stock.Size = new Size(67, 19);
             listBox_Stock.TabIndex = 29;
             listBox_Stock.TabStop = false;
             // 
@@ -347,7 +352,7 @@
             // 
             // buttonActualizarStock
             // 
-            buttonActualizarStock.Location = new Point(410, 383);
+            buttonActualizarStock.Location = new Point(509, 408);
             buttonActualizarStock.Name = "buttonActualizarStock";
             buttonActualizarStock.Size = new Size(104, 55);
             buttonActualizarStock.TabIndex = 31;
@@ -355,16 +360,47 @@
             buttonActualizarStock.UseVisualStyleBackColor = true;
             buttonActualizarStock.Click += buttonActualizarStock_Click;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.BackgroundColor = Color.Azure;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn2, Peso, PrecioColumn });
+            dataGridView1.Location = new Point(268, 238);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(344, 145);
+            dataGridView1.TabIndex = 32;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.HeaderText = "Cortes";
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // Peso
+            // 
+            Peso.HeaderText = "Peso";
+            Peso.Name = "Peso";
+            Peso.ReadOnly = true;
+            // 
+            // PrecioColumn
+            // 
+            PrecioColumn.HeaderText = "Precio";
+            PrecioColumn.Name = "PrecioColumn";
+            PrecioColumn.ReadOnly = true;
+            // 
             // FrmVendedor
             // 
             AutoScaleDimensions = new SizeF(6F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1078, 476);
+            ClientSize = new Size(1158, 471);
+            Controls.Add(dataGridView1);
             Controls.Add(buttonActualizarStock);
             Controls.Add(button1);
             Controls.Add(button2);
             Controls.Add(label1);
+            Controls.Add(buttonAutocompletar);
             Controls.Add(textBoxPrecio);
             Controls.Add(comboBoxCortePrecio);
             Controls.Add(buttonClickIngresarMercaderia);
@@ -376,7 +412,6 @@
             Controls.Add(numericUpDownKilos);
             Controls.Add(button_Leer);
             Controls.Add(dataGridView2);
-            Controls.Add(buttonAutocompletar);
             Controls.Add(buttonRetornarMenuPrincipal);
             Controls.Add(groupBox4);
             Font = new Font("Segoe UI Light", 9F, FontStyle.Italic, GraphicsUnit.Point);
@@ -388,6 +423,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosVenta).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -441,5 +477,9 @@
         private Button buttonClickIngresarMercaderia;
         private Button button1;
         private Button buttonActualizarStock;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn Peso;
+        private DataGridViewTextBoxColumn PrecioColumn;
     }
 }

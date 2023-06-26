@@ -18,10 +18,10 @@ namespace FrmCarniceria
 
 
 
-            Producto prodUno = new Producto(eCarne.Asado, 1000, 2000);
-            Producto prodDos = new Producto(eCarne.Vacio, 1500, 2200);
-            Producto prodTres = new Producto(eCarne.Matambre, 1200, 2500);
-            Producto prodCuatro = new Producto(eCarne.Chorizo, 800, 1500);
+            //Producto prodUno = new Producto(eCarne.Asado, 1000, 2000);
+            //Producto prodDos = new Producto(eCarne.Vacio, 1500, 2200);
+            //Producto prodTres = new Producto(eCarne.Matambre, 1200, 2500);
+            //Producto prodCuatro = new Producto(eCarne.Chorizo, 800, 1500);
 
 
 

@@ -37,11 +37,17 @@ namespace FrmCarniceria
 
         public void MostrarStock()
         {
-            // Llamar al método mostrarDetalleDeProductos y obtener el resultado
-            string detallesProductos = miHeladera.mostrarDetalleDeProductos();
+            List<Producto> miProducto = CrudStock.Leer();
 
-            // Asignar el resultado al DataSource del ListBox
-            listBox1Stock.DataSource = detallesProductos.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            // Limpiar el DataGridView
+            dataGridView1.Rows.Clear();
+
+            // Agregar cada producto al DataGridView
+            foreach (Producto producto in miProducto)
+            {
+                dataGridView1.Rows.Add(producto.TipoCarne, producto.Peso, producto.PrecioPorKg);
+            }
+
 
         }
 
