@@ -10,9 +10,6 @@
     <Compile Update="FrmIniciarSesion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmModificarCorte.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FrmVendedor.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -9,6 +9,8 @@
         public Ticket(string mensaje, double precioTotalDeLaCompra, double dineroDisponible)
         {
             InitializeComponent();
+            this.Activate();
+
             label1.TextAlign = ContentAlignment.MiddleLeft;
             label1.AutoSize = false;
             label1.Width = 200;

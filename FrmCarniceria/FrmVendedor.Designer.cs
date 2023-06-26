@@ -52,18 +52,18 @@
             CORTECARNE = new DataGridViewTextBoxColumn();
             KG = new DataGridViewTextBoxColumn();
             Prec = new DataGridViewTextBoxColumn();
-            listBox_Stock = new ListBox();
             numericUpDownKilos = new NumericUpDown();
             labelKilos = new Label();
             comboBoxNuevoCorte = new ComboBox();
             label1 = new Label();
             buttonClickIngresarMercaderia = new Button();
-            button1 = new Button();
             buttonActualizarStock = new Button();
             dataGridView1 = new DataGridView();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             Peso = new DataGridViewTextBoxColumn();
             PrecioColumn = new DataGridViewTextBoxColumn();
+            radioButtonAgregarCarne = new RadioButton();
+            radioButtonQuitarCarne = new RadioButton();
             groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosVenta).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -102,7 +102,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(151, 318);
+            button2.Location = new Point(150, 333);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 10;
@@ -277,19 +277,6 @@
             Prec.Name = "Prec";
             Prec.ReadOnly = true;
             // 
-            // listBox_Stock
-            // 
-            listBox_Stock.BackColor = SystemColors.ActiveCaption;
-            listBox_Stock.Enabled = false;
-            listBox_Stock.ForeColor = SystemColors.WindowText;
-            listBox_Stock.FormattingEnabled = true;
-            listBox_Stock.ItemHeight = 15;
-            listBox_Stock.Location = new Point(530, 207);
-            listBox_Stock.Name = "listBox_Stock";
-            listBox_Stock.Size = new Size(67, 19);
-            listBox_Stock.TabIndex = 29;
-            listBox_Stock.TabStop = false;
-            // 
             // numericUpDownKilos
             // 
             numericUpDownKilos.Location = new Point(178, 117);
@@ -324,11 +311,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(70, 31);
+            label1.Location = new Point(52, 49);
             label1.Name = "label1";
-            label1.Size = new Size(133, 20);
+            label1.Size = new Size(175, 20);
             label1.TabIndex = 6;
-            label1.Text = "Ingresar mercaderia";
+            label1.Text = "Ingresar/Quitar mercaderia";
             // 
             // buttonClickIngresarMercaderia
             // 
@@ -339,16 +326,6 @@
             buttonClickIngresarMercaderia.Text = "Aceptar";
             buttonClickIngresarMercaderia.UseVisualStyleBackColor = true;
             buttonClickIngresarMercaderia.Click += button1_Click;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(131, 379);
-            button1.Name = "button1";
-            button1.Size = new Size(113, 59);
-            button1.TabIndex = 30;
-            button1.Text = "Modificar un corte";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
             // 
             // buttonActualizarStock
             // 
@@ -365,7 +342,7 @@
             dataGridView1.BackgroundColor = Color.Azure;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn2, Peso, PrecioColumn });
-            dataGridView1.Location = new Point(268, 238);
+            dataGridView1.Location = new Point(286, 245);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(344, 145);
@@ -389,22 +366,44 @@
             PrecioColumn.Name = "PrecioColumn";
             PrecioColumn.ReadOnly = true;
             // 
+            // radioButtonAgregarCarne
+            // 
+            radioButtonAgregarCarne.AutoSize = true;
+            radioButtonAgregarCarne.Location = new Point(26, 113);
+            radioButtonAgregarCarne.Name = "radioButtonAgregarCarne";
+            radioButtonAgregarCarne.Size = new Size(64, 19);
+            radioButtonAgregarCarne.TabIndex = 33;
+            radioButtonAgregarCarne.TabStop = true;
+            radioButtonAgregarCarne.Text = "Agregar";
+            radioButtonAgregarCarne.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonQuitarCarne
+            // 
+            radioButtonQuitarCarne.AutoSize = true;
+            radioButtonQuitarCarne.Location = new Point(26, 138);
+            radioButtonQuitarCarne.Name = "radioButtonQuitarCarne";
+            radioButtonQuitarCarne.Size = new Size(57, 19);
+            radioButtonQuitarCarne.TabIndex = 34;
+            radioButtonQuitarCarne.TabStop = true;
+            radioButtonQuitarCarne.Text = "Quitar";
+            radioButtonQuitarCarne.UseVisualStyleBackColor = true;
+            // 
             // FrmVendedor
             // 
             AutoScaleDimensions = new SizeF(6F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1158, 471);
+            ClientSize = new Size(1158, 462);
+            Controls.Add(radioButtonQuitarCarne);
+            Controls.Add(radioButtonAgregarCarne);
             Controls.Add(dataGridView1);
             Controls.Add(buttonActualizarStock);
-            Controls.Add(button1);
             Controls.Add(button2);
             Controls.Add(label1);
             Controls.Add(buttonAutocompletar);
             Controls.Add(textBoxPrecio);
             Controls.Add(comboBoxCortePrecio);
             Controls.Add(buttonClickIngresarMercaderia);
-            Controls.Add(listBox_Stock);
             Controls.Add(label2);
             Controls.Add(buttonBorrar);
             Controls.Add(labelKilos);
@@ -469,17 +468,17 @@
         private DataGridViewTextBoxColumn CorteCarne2;
         private DataGridViewTextBoxColumn Kilos2;
         private DataGridViewTextBoxColumn PRECIO2;
-        private ListBox listBox_Stock;
         private NumericUpDown numericUpDownKilos;
         private Label labelKilos;
         private ComboBox comboBoxNuevoCorte;
         private Label label1;
         private Button buttonClickIngresarMercaderia;
-        private Button button1;
         private Button buttonActualizarStock;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn Peso;
         private DataGridViewTextBoxColumn PrecioColumn;
+        private RadioButton radioButtonAgregarCarne;
+        private RadioButton radioButtonQuitarCarne;
     }
 }

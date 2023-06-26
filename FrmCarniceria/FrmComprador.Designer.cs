@@ -57,6 +57,7 @@
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             Peso = new DataGridViewTextBoxColumn();
             PrecioColumn = new DataGridViewTextBoxColumn();
+            listBox1 = new ListBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosAsado).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosVacio).BeginInit();
@@ -84,7 +85,7 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(buttonAceptarDineroDisponible);
             groupBox1.Controls.Add(textBoxDineroDisponible);
-            groupBox1.Location = new Point(71, 69);
+            groupBox1.Location = new Point(50, 69);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(259, 146);
             groupBox1.TabIndex = 3;
@@ -163,7 +164,7 @@
             // 
             // buttonComprar
             // 
-            buttonComprar.Location = new Point(553, 407);
+            buttonComprar.Location = new Point(558, 407);
             buttonComprar.Name = "buttonComprar";
             buttonComprar.Size = new Size(81, 32);
             buttonComprar.TabIndex = 26;
@@ -291,7 +292,7 @@
             // 
             // buttonAutoCompletDatos
             // 
-            buttonAutoCompletDatos.Location = new Point(354, 153);
+            buttonAutoCompletDatos.Location = new Point(103, 12);
             buttonAutoCompletDatos.Name = "buttonAutoCompletDatos";
             buttonAutoCompletDatos.Size = new Size(137, 44);
             buttonAutoCompletDatos.TabIndex = 38;
@@ -326,10 +327,10 @@
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn2, Peso, PrecioColumn });
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.GridColor = SystemColors.ButtonFace;
-            dataGridView1.Location = new Point(41, 243);
+            dataGridView1.Location = new Point(23, 237);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(346, 125);
+            dataGridView1.Size = new Size(333, 142);
             dataGridView1.TabIndex = 41;
             // 
             // dataGridViewTextBoxColumn2
@@ -350,12 +351,22 @@
             PrecioColumn.Name = "PrecioColumn";
             PrecioColumn.ReadOnly = true;
             // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(347, 12);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(110, 34);
+            listBox1.TabIndex = 42;
+            // 
             // FrmComprador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSalmon;
             ClientSize = new Size(794, 493);
+            Controls.Add(listBox1);
             Controls.Add(dataGridView1);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -430,5 +441,6 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn Peso;
         private DataGridViewTextBoxColumn PrecioColumn;
+        private ListBox listBox1;
     }
 }

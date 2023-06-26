@@ -14,6 +14,13 @@ namespace Entidades
         double precioPorKg;
 
 
+        public Producto(int peso)
+        {
+
+            this.peso = peso;
+
+        }
+
         public Producto( int peso, double precioPorKg)
         {
             

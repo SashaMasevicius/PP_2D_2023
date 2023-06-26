@@ -55,31 +55,33 @@ namespace FrmCarniceria
 
 
 
+
             MostrarStock();
 
         }
 
+        // Llamar al método mostrarDetalleDeProductos y obtener el resultado
+        //string detallesProductos = miHeladera.mostrarDetalleDeProductos();
+
+        //// Obtener las filas de datos separados por saltos de línea
+        //string[] filas = detallesProductos.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+
+        //// Limpiar el DataGridView
+        //dataGridView1.Rows.Clear();
+
+        //// Agregar cada fila al DataGridView
+        //foreach (string fila in filas)
+        //{
+        //    // Separar los valores de cada columna en la fila
+        //    string[] valores = fila.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+        //    // Agregar una nueva fila al DataGridView y asignar los valores a las celdas correspondientes
+        //    dataGridView1.Rows.Add(valores[0], valores[1], valores[2]);
+        //}
+
 
         public void MostrarStock()
         {
-            // Llamar al método mostrarDetalleDeProductos y obtener el resultado
-            //string detallesProductos = miHeladera.mostrarDetalleDeProductos();
-
-            //// Obtener las filas de datos separados por saltos de línea
-            //string[] filas = detallesProductos.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-
-            //// Limpiar el DataGridView
-            //dataGridView1.Rows.Clear();
-
-            //// Agregar cada fila al DataGridView
-            //foreach (string fila in filas)
-            //{
-            //    // Separar los valores de cada columna en la fila
-            //    string[] valores = fila.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-
-            //    // Agregar una nueva fila al DataGridView y asignar los valores a las celdas correspondientes
-            //    dataGridView1.Rows.Add(valores[0], valores[1], valores[2]);
-            //}
 
             List<Producto> miProducto = CrudStock.Leer();
 
@@ -99,21 +101,47 @@ namespace FrmCarniceria
 
 
         /// <summary>
-        /// Agrega kilos al corte seleccionado
+        /// Agrega/restar kilos al corte seleccionado
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-            player.SoundLocation = "C:/Users/sasha/OneDrive/Escritorio/BotonSound.wav";
-            player.Play();
-
-            int indexCorte = this.comboBoxNuevoCorte.SelectedIndex;
+            int id = this.comboBoxNuevoCorte.SelectedIndex + 1;
             int cantidadKilosSeleccionado = (int)numericUpDownKilos.Value;
-            miHeladera.AgregarKilosPorCorteSeleccionado(indexCorte, cantidadKilosSeleccionado);
-            MostrarStock();
+            Producto productoExistente = CrudStock.ObtenerProductoPorId(id);
+            int PesoAnterior = productoExistente.Peso;
+            if (radioButtonAgregarCarne.Checked == true)
+            {
+
+
+                int PesoTotal = PesoAnterior + cantidadKilosSeleccionado;
+                double precioActual = productoExistente.PrecioPorKg;
+
+
+                Producto productoModificado = new Producto(PesoTotal, precioActual);
+                productoModificado.id = id;
+                CrudStock.Modificar(productoModificado);
+
+                MostrarStock();
+            }
+
+            if (radioButtonQuitarCarne.Checked == true)
+            {
+
+                int PesoTotal = PesoAnterior - cantidadKilosSeleccionado;
+                double precioActual = productoExistente.PrecioPorKg;
+
+
+                Producto productoModificado = new Producto(PesoTotal, precioActual);
+                productoModificado.id = id;
+                CrudStock.Modificar(productoModificado);
+
+                MostrarStock();
+            }
+
+
+
 
 
 
@@ -136,17 +164,26 @@ namespace FrmCarniceria
             player.SoundLocation = "C:/Users/sasha/OneDrive/Escritorio/BotonSound.wav";
             player.Play();
 
-            string precioValidador = this.textBoxPrecio.Text;
+            int id = this.comboBoxCortePrecio.SelectedIndex + 1;
             double nuevoPrecioElegido;
+            string precioValidador = this.textBoxPrecio.Text;
             bool boolNuevoPrecioNoString = double.TryParse(precioValidador, out nuevoPrecioElegido);
-            int indiceCorteCarne = this.comboBoxCortePrecio.SelectedIndex;
+
 
             if (boolNuevoPrecioNoString) // valido si no ess strring
             {
                 if (nuevoPrecioElegido > 0)
                 {
-                    miHeladera.cambiarPrecioDelCorte(indiceCorteCarne, nuevoPrecioElegido);
+
+                    Producto productoExistente = CrudStock.ObtenerProductoPorId(id);
+                    int PesoAnterior = productoExistente.Peso;
+
+                    Producto productoModificado = new Producto(PesoAnterior, nuevoPrecioElegido);
+                    productoModificado.id = id;
+                    CrudStock.Modificar(productoModificado);
+
                     MostrarStock();
+
 
                 }
                 else
@@ -342,57 +379,21 @@ namespace FrmCarniceria
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            FrmModificarCorte formulario = new FrmModificarCorte();
-            formulario.ShowDialog();
-        }
+        //private void button1_Click_1(object sender, EventArgs e)
+        //{
+        //    FrmModificarCorte formulario = new FrmModificarCorte();
+        //    formulario.ShowDialog();
+        //}
 
         private void buttonActualizarStock_Click(object sender, EventArgs e)
         {
 
-            try
-            {
-                // Actualizar el stock en la base de datos
-                ActualizarStockEnBaseDeDatos();
+            MostrarStock();
 
-                // Mostrar mensaje de éxito
-                MessageBox.Show("El stock se actualizó correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Actualizar el DataGridView con los nuevos datos
-                MostrarStock();
-            }
-            catch (Exception ex)
-            {
-                // Mostrar mensaje de error
-                MessageBox.Show("Error al actualizar el stock: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
 
-        private void ActualizarStockEnBaseDeDatos()
-        {
-            try
-            {
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    string carneString = row.Cells[0].Value.ToString();
-                    eCarne carne = (eCarne)Enum.Parse(typeof(eCarne), carneString);
-                    int kilos = int.Parse(row.Cells[1].Value.ToString());
-                    double precio = double.Parse(row.Cells[2].Value.ToString());
 
-                    Producto producto = new Producto(carne, kilos, precio);
 
-                    CrudStock.Modificar(producto);
-                }
-
-                MessageBox.Show("El stock se actualizó correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al actualizar el stock: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        
     }
 }

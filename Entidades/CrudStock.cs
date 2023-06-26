@@ -13,6 +13,11 @@ namespace Entidades
         static SqlCommand command;
         static SqlConnection connection;
 
+
+
+    
+
+
         static CrudStock()
         {
             connectionString = @"Server = DESKTOP-548T647; Database = Productos; Trusted_Connection = True";
@@ -21,6 +26,37 @@ namespace Entidades
             connection = new SqlConnection(connectionString);
             command.Connection = connection;
             command.CommandType = System.Data.CommandType.Text;
+        }
+
+        public static Producto ObtenerProductoPorId(int id)
+        {
+            try
+            {
+                connection.Open();
+                command.Parameters.Clear(); // Limpiar los parámetros existentes
+                command.CommandText = "SELECT * FROM TableStockNueva WHERE ID = @id";
+                command.Parameters.AddWithValue("id", id);
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                if (dataReader.Read())
+                {
+                    eCarne carne = (eCarne)Enum.Parse(typeof(eCarne), dataReader["corte"].ToString());
+                    int kilos = Convert.ToInt32(dataReader["peso"]);
+                    double precio = Convert.ToDouble(dataReader["precio"]);
+
+                    return new Producto(carne, kilos, precio);
+                }
+
+                return null; // El producto no fue encontrado
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static List<Producto> Leer()

@@ -1,5 +1,5 @@
 ﻿using Entidades;
-using System.Windows.Forms;
+using System;
 
 namespace FrmCarniceria
 {
@@ -29,8 +29,8 @@ namespace FrmCarniceria
 
 
             MostrarStock();
-            saldoInsuficiente += ActualizarHerramientas;
-            saldoInsuficiente += ventanaEmergente;
+            //saldoInsuficiente += ActualizarHerramientas;
+            //saldoInsuficiente += ventanaEmergente;
             this.Load += CargarHilo;
         }
 
@@ -190,6 +190,68 @@ namespace FrmCarniceria
 
             }
         }
+
+        private void RestarKilosDesdeBaseDeDatos()
+        {
+            if (checkBoxAsado.Checked == true)
+            {
+                int cantidadKilosSeleccionado = (int)numericUpDownKilosAsado.Value;
+                Producto productoExistente = CrudStock.ObtenerProductoPorId(1);
+                int PesoAnterior = productoExistente.Peso;
+
+                Task.Run(() =>
+                {
+                    // Restar los kilos en segundo plano
+                    int PesoTotal = PesoAnterior - cantidadKilosSeleccionado;
+                    double precioActual = productoExistente.PrecioPorKg;
+                    Producto productoModificado = new Producto(PesoTotal, precioActual);
+                    CrudStock.Modificar(productoModificado);
+
+                    // Actualizar la interfaz de usuario desde el hilo principal
+                    Invoke(new Action(() =>
+                    {
+                        MostrarStock();
+                    }));
+                });
+            }
+        
+
+
+            //{
+            //    int cantidadKilosSeleccionado = (int)numericUpDownKilosAsado.Value;
+            //    Producto productoExistente = CrudStock.ObtenerProductoPorId(2);
+            //    int PesoAnterior = productoExistente.Peso;
+            //    int PesoTotal = PesoAnterior - cantidadKilosSeleccionado;
+            //    double precioActual = productoExistente.PrecioPorKg;
+            //    Producto productoModificado = new Producto(PesoTotal, precioActual);
+            //    CrudStock.Modificar(productoModificado);
+            //    MostrarStock();
+            //}
+            //if (checkBoxMatambre.Checked)
+            //{
+            //    int cantidadKilosSeleccionado = (int)numericUpDownKilosAsado.Value;
+            //    Producto productoExistente = CrudStock.ObtenerProductoPorId(3);
+            //    int PesoAnterior = productoExistente.Peso;
+            //    int PesoTotal = PesoAnterior - cantidadKilosSeleccionado;
+            //    double precioActual = productoExistente.PrecioPorKg;
+            //    Producto productoModificado = new Producto(PesoTotal, precioActual);
+            //    CrudStock.Modificar(productoModificado);
+            //    MostrarStock();
+            //}
+            //if (checkBoxChorizo.Checked)
+            //{
+            //    int cantidadKilosSeleccionado = (int)numericUpDownKilosAsado.Value;
+            //    Producto productoExistente = CrudStock.ObtenerProductoPorId(4);
+            //    int PesoAnterior = productoExistente.Peso;
+            //    int PesoTotal = PesoAnterior - cantidadKilosSeleccionado;
+            //    double precioActual = productoExistente.PrecioPorKg;
+            //    Producto productoModificado = new Producto(PesoTotal, precioActual);
+            //    CrudStock.Modificar(productoModificado);
+            //    MostrarStock();
+            //}
+
+
+        }
         /// <summary>
         /// Acepta compra realizada y disminuye stock
         /// </summary>
@@ -197,24 +259,47 @@ namespace FrmCarniceria
         public void aceptarCompraIngresandoANuevoFormularioRestarKilos(double dineroDisponible)
         {
 
+
+
             Ticket frmTicket = new Ticket(mensaje, precioTotalDeLaCompra, dineroDisponible);
-            DialogResult result = frmTicket.ShowDialog();
+            frmTicket.Show();
+            frmTicket.BringToFront();
 
-            if (result == DialogResult.OK)
-            {
-                //dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
-                // si todo esta ok . resto los kilos al stock
+            // El código a continuación se ejecutará sin bloquear el formulario FrmComprador
+            dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
+            // si todo está bien, resta los kilos al stock
+            //RestarKilosAlStockSegunCorte();
 
-                RestarKilosAlStockSegunCorte();
+            // actualiza datos de stock
+            
+            ActualizarHerramientas();
 
-                // actualizo datos de stock
-                MostrarStock();
-                ActualizarHerramientas();
+            MostrarStock();
+            //Ticket frmTicket = new Ticket(mensaje, precioTotalDeLaCompra, dineroDisponible);
+            //DialogResult result = frmTicket.ShowDialog();
 
-            }
+            //if (result == DialogResult.OK)
+            //{
+            //    dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
+            //    // si todo esta ok . resto los kilos al stock
 
+            //    RestarKilosAlStockSegunCorte();
+
+            //    // actualizo datos de stock
+            //    MostrarStock();
+            //    ActualizarHerramientas();
+            // }
         }
 
+        private bool ValidarCheckButtonMedioDePago()
+        {
+            if (this.radioButtonTarjeta.Checked == true || this.radioButtonEfectivo.Checked == true)
+            {
+                return true;
+
+            }
+            return false;
+        }
 
         /// <summary>
         /// Boton para realizar la compra y mostrar el ticket
@@ -225,18 +310,18 @@ namespace FrmCarniceria
 
         private void button1_Click(object sender, EventArgs e)
         {
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-            player.SoundLocation = "C:/Users/sasha/OneDrive/Escritorio/BotonSound.wav";
-            player.Play();
+            //System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+            //player.SoundLocation = "C:/Users/sasha/OneDrive/Escritorio/BotonSound.wav";
+            //player.Play();
 
-            // Obtener el texto del Label
+            //Obtener el texto del Label
             string textoLabel = labelpPrecioDisponibleIngresado.Text;
             double dineroDisponible;
             Double.TryParse(textoLabel, out dineroDisponible);
 
 
-            // si no  elige precio y medio de pago
-            if (validarPrecioParaComprar == false && validarMedioDePagoParaComprar == false)
+            //// si no  elige precio y medio de pago
+            if (ValidarCheckButtonMedioDePago() == false)
             {
                 MessageBox.Show("ERROR: Debe ingresar monto y medio de pago para poder realizar la compra");
             }
@@ -257,13 +342,13 @@ namespace FrmCarniceria
                         if (dineroDisponible >= precioTotalDeLaCompra)
                         {
                             dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
-                            aceptarCompraIngresandoANuevoFormularioRestarKilos(dineroDisponible);
+                           RestarKilosDesdeBaseDeDatos();
+                            //aceptarCompraIngresandoANuevoFormularioRestarKilos(dineroDisponible);
                             VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
                         }
                         else
                         {
                             VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
-
                         }
                     } // si es efectivo
                     if (this.radioButtonEfectivo.Checked == true)
@@ -271,8 +356,9 @@ namespace FrmCarniceria
                         if (dineroDisponible >= precioTotalDeLaCompra)
                         {
                             dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
-                            aceptarCompraIngresandoANuevoFormularioRestarKilos(dineroDisponible);
+                           // aceptarCompraIngresandoANuevoFormularioRestarKilos(dineroDisponible);
                             VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
+
 
                         }
                         else
@@ -290,9 +376,9 @@ namespace FrmCarniceria
 
 
 
+
+
         }
-
-
 
 
         /// <summary>
@@ -334,12 +420,22 @@ namespace FrmCarniceria
         {
             if (dineroDisponible <= precioTotalDeLaCompra)
             {
+
                 NoTieneDinero.Invoke("Error, no tiene suficiente dinero para realizar la compra");
                 saldoInsuficiente?.Invoke();
 
             }
             else
             {
+                Ticket frmTicket = new Ticket(mensaje, precioTotalDeLaCompra, dineroDisponible);
+                frmTicket.Show();
+                frmTicket.BringToFront();
+
+                dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
+
+                ActualizarHerramientas();
+
+                MostrarStock();
                 TieneDinero.Invoke("Compra exitosa");
             }
 
@@ -489,6 +585,11 @@ namespace FrmCarniceria
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

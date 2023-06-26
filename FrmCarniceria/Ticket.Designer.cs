@@ -60,6 +60,7 @@
             Controls.Add(buttonAceptarCompra);
             Name = "Ticket";
             Text = "Ticket";
+            TopMost = true;
             Load += Ticket_Load;
             ResumeLayout(false);
             PerformLayout();
