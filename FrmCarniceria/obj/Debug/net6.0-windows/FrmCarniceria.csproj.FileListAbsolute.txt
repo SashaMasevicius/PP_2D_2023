@@ -62,7 +62,6 @@ C:\Users\sasha\OneDrive\Escritorio\SPP2D_2023\PP_2D_2023\FrmCarniceria\bin\Debug
 C:\Users\sasha\OneDrive\Escritorio\SPP2D_2023\PP_2D_2023\FrmCarniceria\bin\Debug\net6.0-windows\Entidades.pdb
 C:\Users\sasha\OneDrive\Escritorio\SPP2D_2023\PP_2D_2023\FrmCarniceria\obj\Debug\net6.0-windows\FrmCarniceria.csproj.AssemblyReference.cache
 C:\Users\sasha\OneDrive\Escritorio\SPP2D_2023\PP_2D_2023\FrmCarniceria\obj\Debug\net6.0-windows\FrmCarniceria.FrmCliente.resources
-C:\Users\sasha\OneDrive\Escritorio\SPP2D_2023\PP_2D_2023\FrmCarniceria\obj\Debug\net6.0-windows\FrmCarniceria.FrmComprador.resources
 C:\Users\sasha\OneDrive\Escritorio\SPP2D_2023\PP_2D_2023\FrmCarniceria\obj\Debug\net6.0-windows\FrmCarniceria.FrmCrearUsuario.resources
 C:\Users\sasha\OneDrive\Escritorio\SPP2D_2023\PP_2D_2023\FrmCarniceria\obj\Debug\net6.0-windows\FrmCarniceria.FrmIniciarSesion.resources
 C:\Users\sasha\OneDrive\Escritorio\SPP2D_2023\PP_2D_2023\FrmCarniceria\obj\Debug\net6.0-windows\FrmCarniceria.FrmVendedor.resources

@@ -199,7 +199,9 @@ namespace FrmCarniceria
             string nombreCorteCarne = this.comboBoxCortesVenta.Text;
             int kilosVendidos = (int)this.numericUpDownKilosVenta.Value;
             int indiceCorteCarne = this.comboBoxCortesVenta.SelectedIndex;
-            double precioVendido = (double)(miHeladera.obtenerPrecio(indiceCorteCarne) * kilosVendidos);
+
+
+            double precioVendido = ObtenerPrecioCarne(indiceCorteCarne+1);
 
 
 
@@ -436,6 +438,58 @@ namespace FrmCarniceria
                 MessageBox.Show("Por favor, ingresa un ID válido para eliminar la venta.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        /// <summary>
+        /// precio por kilo seleccionado
+        /// </summary>
+        /// <returns></returns>
+        public double ObtenerPrecioCarne(int id)
+        {
+            int cantidadKilosSeleccionado = (int)numericUpDownKilosVenta.Value;
+            Producto productoExistente = CrudStock.ObtenerProductoPorId(id);
+            double precioAsado = productoExistente.PrecioPorKg;
+            double PrecioVendido = precioAsado * cantidadKilosSeleccionado;
+            return PrecioVendido;
+        }
+        /// <summary>
+        /// precio por kilo seleccionado
+        /// </summary>
+        /// <returns></returns>
+        //public double ObtenerPrecioVacioPorKilo()
+        //{
+        //    int cantidadKilosSeleccionado = (int)numericUpDownKilosVenta.Value;
+        //    Producto productoExistente = CrudStock.ObtenerProductoPorId(2);
+        //    double precioVacio = productoExistente.PrecioPorKg;
+        //    double PrecioVendido = precioVacio * cantidadKilosSeleccionado;
+        //    return PrecioVendido;
+        //}
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <returns></returns>
+        //public double ObtenerPrecioMatambrePorKilo()
+        //{
+        //    int cantidadKilosSeleccionado = (int)numericUpDownKilosVenta.Value;
+        //    Producto productoExistente = CrudStock.ObtenerProductoPorId(3);
+        //    double precioAsado = productoExistente.PrecioPorKg;
+        //    double PrecioMatambre = precioAsado * cantidadKilosSeleccionado;
+        //    return PrecioMatambre;
+        //}
+
+        ///// <summary>
+        ///// precio por kilo seleccionado
+        ///// </summary>
+        ///// <returns></returns>
+        //public double ObtenerPrecioChorizoPorKilo()
+        //{
+        //    int cantidadKilosSeleccionado = (int)numericUpDownKilosVenta.Value;
+        //    Producto productoExistente = CrudStock.ObtenerProductoPorId(4);
+        //    double precioChorizo = productoExistente.PrecioPorKg;
+        //    double PrecioVendido = precioChorizo * cantidadKilosSeleccionado;
+        //    return PrecioVendido;
+        //}
+
+
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {

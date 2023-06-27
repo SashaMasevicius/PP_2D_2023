@@ -4,9 +4,6 @@
     <Compile Update="FrmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmComprador.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FrmCrearUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
