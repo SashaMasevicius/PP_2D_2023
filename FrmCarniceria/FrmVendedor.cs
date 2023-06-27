@@ -19,6 +19,7 @@ namespace FrmCarniceria
     public partial class FrmVendedor : Form, iStockMensaje
     {
         Vendedor vendedor;
+        Comprador comprador;
         Heladera miHeladera;
         List<VentasHistorial> listaVentas;
         List<Producto> miListaProductos;
@@ -201,6 +202,16 @@ namespace FrmCarniceria
             double precioVendido = (double)(miHeladera.obtenerPrecio(indiceCorteCarne) * kilosVendidos);
 
 
+
+
+            if (kilosVendidos > Comprador.ObtenerPesoAsadoEnStock() || kilosVendidos > Comprador.ObtenerPesoVacioEnStock()
+                || kilosVendidos > Comprador.ObtenerPesoMatambreEnStock() || kilosVendidos > Comprador.ObtenerPesoChorizoEnStock())
+            {
+                MessageBox.Show("ERROR. La cantidad que seleccionaste supera al stock");
+
+            }
+            else
+            {
                 this.dataGridView2.Visible = true;
                 //creo una venta
                 VentasHistorial ventasHist = new VentasHistorial(nombreComprador, nombreCorteCarne, kilosVendidos, precioVendido);
@@ -209,6 +220,8 @@ namespace FrmCarniceria
                 RestarKilosALStock();
                 ActualizarDataGridView();
                 MostrarStock();
+            }
+                
 
 
                 //crear archivo txt

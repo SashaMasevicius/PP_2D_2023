@@ -162,6 +162,48 @@
             return 0;
         }
 
+      
+
+        /// <summary>
+        /// Obtener kilos del stock asado
+        /// </summary>
+        /// <returns></returns>
+        public static int ObtenerPesoAsadoEnStock()
+        {
+
+            Producto productoExistente = CrudStock.ObtenerProductoPorId(1);
+            int peso = productoExistente.Peso;
+            return peso;
+        }
+        /// <summary>
+        /// Obtener kilos del stock vacio
+        /// </summary>
+        /// <returns></returns>
+        public static int ObtenerPesoVacioEnStock()
+        {
+            Producto productoExistente = CrudStock.ObtenerProductoPorId(2);
+            int peso = productoExistente.Peso;
+            return peso;
+        }
+        /// <summary>
+        /// Obtener kilos del stock Matambre
+        /// </summary>
+        /// <returns></returns>
+        public static int ObtenerPesoMatambreEnStock()
+        {
+            Producto productoExistente = CrudStock.ObtenerProductoPorId(3);
+            int peso = productoExistente.Peso;
+            return peso;
+        }
+
+        public static int ObtenerPesoChorizoEnStock()
+        {
+            Producto productoExistente = CrudStock.ObtenerProductoPorId(4);
+            int peso = productoExistente.Peso;
+            return peso;
+        }
+
+
     } //fin
 
 

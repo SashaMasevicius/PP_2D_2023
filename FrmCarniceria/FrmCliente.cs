@@ -94,8 +94,8 @@ namespace FrmCarniceria
                 if (dineroDisponible > precioFinal)
                 {
 
-                    if (cantidadKilosAsado > ObtenerPesoAsadoEnStock() || cantidadKilosVacio > ObtenerPesoVacioEnStock()
-                        || cantidadKilosMatambre > ObtenerPesoMatambreEnStock() || cantidadKilosChorizo > ObtenerPesoChorizoEnStock())
+                    if (cantidadKilosAsado > Comprador.ObtenerPesoAsadoEnStock() || cantidadKilosVacio > Comprador.ObtenerPesoVacioEnStock()
+                        || cantidadKilosMatambre > Comprador.ObtenerPesoMatambreEnStock() || cantidadKilosChorizo > Comprador.ObtenerPesoChorizoEnStock())
                     {
                         MessageBox.Show("ERROR. La cantidad que seleccionaste supera al stock");
                     }
@@ -219,49 +219,7 @@ namespace FrmCarniceria
             return PrecioVendido;
         }
 
-        /// <summary>
-        /// Obtener kilos del stock asado
-        /// </summary>
-        /// <returns></returns>
-        public int ObtenerPesoAsadoEnStock()
-        {
-
-            Producto productoExistente = CrudStock.ObtenerProductoPorId(1);
-            int peso = productoExistente.Peso;
-            return peso;
-        }
-        /// <summary>
-        /// Obtener kilos del stock vacio
-        /// </summary>
-        /// <returns></returns>
-        public int ObtenerPesoVacioEnStock()
-        {
-            Producto productoExistente = CrudStock.ObtenerProductoPorId(2);
-            int peso = productoExistente.Peso;
-            return peso;
-        }
-        /// <summary>
-        /// Obtener kilos del stock Matambre
-        /// </summary>
-        /// <returns></returns>
-        public int ObtenerPesoMatambreEnStock()
-        {
-            Producto productoExistente = CrudStock.ObtenerProductoPorId(3);
-            int peso = productoExistente.Peso;
-            return peso;
-        }
-
-        /// <summary>
-        /// Obtener kilos del stock Chorizo
-        /// </summary>
-        /// <returns></returns>
-        public int ObtenerPesoChorizoEnStock()
-        {
-            Producto productoExistente = CrudStock.ObtenerProductoPorId(4);
-            int peso = productoExistente.Peso;
-            return peso;
-        }
-
+ 
         /// <summary>
         /// resto kilos al corte para el stock
         /// </summary>

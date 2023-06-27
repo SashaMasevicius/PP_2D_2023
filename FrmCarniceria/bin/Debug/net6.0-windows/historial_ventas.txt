@@ -499,3 +499,17 @@ Matambre KG 4 = 10000
  Total:21000
  -----------------------
 
+27/06/2023 14:05:41  
+ Detalle de compra:
+Asado KG 5 = 10000  
+Matambre KG 4 = 10000  
+ Total:21000
+ -----------------------
+
+27/06/2023 14:05:51  
+ Detalle de compra:
+Asado KG 5 = 10000  
+Matambre KG 4 = 10000  
+ Total:21000
+ -----------------------
+
