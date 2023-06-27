@@ -79,8 +79,8 @@ namespace FrmCarniceria
                 {
                     if (item is Comprador)
                     {
-                        FrmComprador formularioComprador;
-                        formularioComprador = new FrmComprador(((Comprador)item), miHeladera);
+                        FrmCliente formularioComprador;
+                        formularioComprador = new FrmCliente(((Comprador)item), miHeladera);
                         formularioComprador.Show();
                         //this.Hide();
                         comprobar = true;

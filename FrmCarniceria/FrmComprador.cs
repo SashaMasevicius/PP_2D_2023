@@ -29,9 +29,9 @@ namespace FrmCarniceria
 
 
             MostrarStock();
-            //saldoInsuficiente += ActualizarHerramientas;
-            //saldoInsuficiente += ventanaEmergente;
-            this.Load += CargarHilo;
+            saldoInsuficiente += ActualizarHerramientas;
+            saldoInsuficiente += ventanaEmergente;
+            //this.Load += CargarHilo;
         }
 
 
@@ -47,7 +47,6 @@ namespace FrmCarniceria
             {
                 dataGridView1.Rows.Add(producto.TipoCarne, producto.Peso, producto.PrecioPorKg);
             }
-
 
         }
 
@@ -193,28 +192,28 @@ namespace FrmCarniceria
 
         private void RestarKilosDesdeBaseDeDatos()
         {
-            if (checkBoxAsado.Checked == true)
-            {
-                int cantidadKilosSeleccionado = (int)numericUpDownKilosAsado.Value;
-                Producto productoExistente = CrudStock.ObtenerProductoPorId(1);
-                int PesoAnterior = productoExistente.Peso;
+            //if (checkBoxAsado.Checked == true)
+            //{
+            //    int cantidadKilosSeleccionado = (int)numericUpDownKilosAsado.Value;
+            //    Producto productoExistente = CrudStock.ObtenerProductoPorId(1);
+            //    int PesoAnterior = productoExistente.Peso;
 
-                Task.Run(() =>
-                {
-                    // Restar los kilos en segundo plano
-                    int PesoTotal = PesoAnterior - cantidadKilosSeleccionado;
-                    double precioActual = productoExistente.PrecioPorKg;
-                    Producto productoModificado = new Producto(PesoTotal, precioActual);
-                    CrudStock.Modificar(productoModificado);
+            //    Task.Run(() =>
+            //    {
+            //        // Restar los kilos en segundo plano
+            //        int PesoTotal = PesoAnterior - cantidadKilosSeleccionado;
+            //        double precioActual = productoExistente.PrecioPorKg;
+            //        Producto productoModificado = new Producto(PesoTotal, precioActual);
+            //        CrudStock.Modificar(productoModificado);
 
-                    // Actualizar la interfaz de usuario desde el hilo principal
-                    Invoke(new Action(() =>
-                    {
-                        MostrarStock();
-                    }));
-                });
-            }
-        
+            //        // Actualizar la interfaz de usuario desde el hilo principal
+            //        BeginInvoke((Action)(() =>
+            //        {
+            //            MostrarStock();
+            //        }));
+            //    });
+            //}
+
 
 
             //{
@@ -271,7 +270,7 @@ namespace FrmCarniceria
             //RestarKilosAlStockSegunCorte();
 
             // actualiza datos de stock
-            
+
             ActualizarHerramientas();
 
             MostrarStock();
@@ -310,68 +309,70 @@ namespace FrmCarniceria
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            MessageBox.Show("DSA");
             //System.Media.SoundPlayer player = new System.Media.SoundPlayer();
             //player.SoundLocation = "C:/Users/sasha/OneDrive/Escritorio/BotonSound.wav";
             //player.Play();
 
             //Obtener el texto del Label
-            string textoLabel = labelpPrecioDisponibleIngresado.Text;
-            double dineroDisponible;
-            Double.TryParse(textoLabel, out dineroDisponible);
+            //string textoLabel = labelpPrecioDisponibleIngresado.Text;
+            //double dineroDisponible;
+            //Double.TryParse(textoLabel, out dineroDisponible);
 
 
-            //// si no  elige precio y medio de pago
-            if (ValidarCheckButtonMedioDePago() == false)
-            {
-                MessageBox.Show("ERROR: Debe ingresar monto y medio de pago para poder realizar la compra");
-            }
-            else //si   elige precio y medio de pago
-            {
-                //guardoMensaje y guarrdo precioDeLaCompra
-                mensaje = ObtenerPrecioTotalDeLaCompraDevolverMensaje();
+            ////// si no  elige precio y medio de pago
+            //if (ValidarCheckButtonMedioDePago() == false)
+            //{
+            //    MessageBox.Show("ERROR: Debe ingresar monto y medio de pago para poder realizar la compra");
+            //}
+            //else //si   elige precio y medio de pago
+            //{
+            //    //guardoMensaje y guarrdo precioDeLaCompra
+            //    mensaje = ObtenerPrecioTotalDeLaCompraDevolverMensaje();
 
-                // si todos los retornos dan 1
-                if (retornoStockAsado == 1 && retornoStockVacio == 1 && retornoStockMatambre == 1 && retornoStockChorizo == 1)
-                {
+            //    // si todos los retornos dan 1
+            //    if (retornoStockAsado == 1 && retornoStockVacio == 1 && retornoStockMatambre == 1 && retornoStockChorizo == 1)
+            //    {
 
-                    //si es tarjeta
-                    if (this.radioButtonTarjeta.Checked == true)
-                    {
-                        precioTotalDeLaCompra = precioTotalDeLaCompra + precioTotalDeLaCompra * 0.05;
+            //        //si es tarjeta
+            //        if (this.radioButtonTarjeta.Checked == true)
+            //        {
+            //            precioTotalDeLaCompra = precioTotalDeLaCompra + precioTotalDeLaCompra * 0.05;
 
-                        if (dineroDisponible >= precioTotalDeLaCompra)
-                        {
-                            dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
-                           RestarKilosDesdeBaseDeDatos();
+            //            if (dineroDisponible >= precioTotalDeLaCompra)
+            //            {
+            //                dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
+            //                //RestarKilosDesdeBaseDeDatos();
                             //aceptarCompraIngresandoANuevoFormularioRestarKilos(dineroDisponible);
-                            VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
-                        }
-                        else
-                        {
-                            VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
-                        }
-                    } // si es efectivo
-                    if (this.radioButtonEfectivo.Checked == true)
-                    {
-                        if (dineroDisponible >= precioTotalDeLaCompra)
-                        {
-                            dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
-                           // aceptarCompraIngresandoANuevoFormularioRestarKilos(dineroDisponible);
-                            VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
+            //                VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
+            //            }
+            //            else
+            //            {
+            //                VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
+            //            }
+            //        } // si es efectivo
+            //        if (this.radioButtonEfectivo.Checked == true)
+            //        {
+            //            if (dineroDisponible >= precioTotalDeLaCompra)
+            //            {
+            //                dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
+            //                // aceptarCompraIngresandoANuevoFormularioRestarKilos(dineroDisponible);
+            //                VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
 
 
-                        }
-                        else
-                        {
-                            VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Error, compraste mas kilos de los que hay en stock, verifica la cantidad disponible");
-                }
-            }
+            //            }
+            //            else
+            //            {
+            //                VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
+            //            }
+            //        }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Error, compraste mas kilos de los que hay en stock, verifica la cantidad disponible");
+            //    }
+            //}
 
 
 
@@ -427,15 +428,7 @@ namespace FrmCarniceria
             }
             else
             {
-                Ticket frmTicket = new Ticket(mensaje, precioTotalDeLaCompra, dineroDisponible);
-                frmTicket.Show();
-                frmTicket.BringToFront();
 
-                dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
-
-                ActualizarHerramientas();
-
-                MostrarStock();
                 TieneDinero.Invoke("Compra exitosa");
             }
 
@@ -592,6 +585,72 @@ namespace FrmCarniceria
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+            player.SoundLocation = "C:/Users/sasha/OneDrive/Escritorio/BotonSound.wav";
+            player.Play();
+
+            //Obtener el texto del Label
+            string textoLabel = labelpPrecioDisponibleIngresado.Text;
+            double dineroDisponible;
+            Double.TryParse(textoLabel, out dineroDisponible);
+
+
+            //// si no  elige precio y medio de pago
+            if (ValidarCheckButtonMedioDePago() == false)
+            {
+                MessageBox.Show("ERROR: Debe ingresar monto y medio de pago para poder realizar la compra");
+            }
+            else //si   elige precio y medio de pago
+            {
+                //guardoMensaje y guarrdo precioDeLaCompra
+                mensaje = ObtenerPrecioTotalDeLaCompraDevolverMensaje();
+
+                // si todos los retornos dan 1
+                if (retornoStockAsado == 1 && retornoStockVacio == 1 && retornoStockMatambre == 1 && retornoStockChorizo == 1)
+                {
+
+                    //si es tarjeta
+                    if (this.radioButtonTarjeta.Checked == true)
+                    {
+                        precioTotalDeLaCompra = precioTotalDeLaCompra + precioTotalDeLaCompra * 0.05;
+
+                        if (dineroDisponible >= precioTotalDeLaCompra)
+                        {
+                            dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
+                            //RestarKilosDesdeBaseDeDatos();
+                            //aceptarCompraIngresandoANuevoFormularioRestarKilos(dineroDisponible);
+                            VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
+                        }
+                        else
+                        {
+                            VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
+                        }
+                    } // si es efectivo
+                    if (this.radioButtonEfectivo.Checked == true)
+                    {
+                        if (dineroDisponible >= precioTotalDeLaCompra)
+                        {
+                            dineroDisponible = dineroDisponible - precioTotalDeLaCompra;
+                            // aceptarCompraIngresandoANuevoFormularioRestarKilos(dineroDisponible);
+                            VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
+
+
+                        }
+                        else
+                        {
+                            VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDinero, MostrarMensajeDinero);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error, compraste mas kilos de los que hay en stock, verifica la cantidad disponible");
+                }
+            }
         }
     }
 }

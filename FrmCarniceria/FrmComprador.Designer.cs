@@ -57,7 +57,7 @@
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             Peso = new DataGridViewTextBoxColumn();
             PrecioColumn = new DataGridViewTextBoxColumn();
-            listBox1 = new ListBox();
+            button2 = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosAsado).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownKilosVacio).BeginInit();
@@ -351,14 +351,15 @@
             PrecioColumn.Name = "PrecioColumn";
             PrecioColumn.ReadOnly = true;
             // 
-            // listBox1
+            // button2
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(347, 12);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(110, 34);
-            listBox1.TabIndex = 42;
+            button2.Location = new Point(707, 301);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 42;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click_1;
             // 
             // FrmComprador
             // 
@@ -366,7 +367,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSalmon;
             ClientSize = new Size(794, 493);
-            Controls.Add(listBox1);
+            Controls.Add(button2);
             Controls.Add(dataGridView1);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -441,6 +442,6 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn Peso;
         private DataGridViewTextBoxColumn PrecioColumn;
-        private ListBox listBox1;
+        private Button button2;
     }
 }

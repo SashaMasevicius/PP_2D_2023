@@ -244,3 +244,171 @@ Matambre4 Kg = 8000$
  Total:11313,75
  -----------------------
 
+26/06/2023 17:43:28  
+ Detalles de compra: 
+Asado5 Kg = 2775$
+Matambre4 Kg = 8000$
+ Total:11313,75
+ -----------------------
+
+26/06/2023 17:43:35  
+ Detalles de compra: 
+Asado5 Kg = 2775$
+ Total:2913,75
+ -----------------------
+
+26/06/2023 17:50:38  
+ Detalles de compra: 
+Asado5 Kg = 2775$
+Matambre4 Kg = 8000$
+ Total:11313,75
+ -----------------------
+
+26/06/2023 17:50:44  
+ Detalles de compra: 
+Asado5 Kg = 2775$
+Matambre4 Kg = 8000$
+ Total:11313,75
+ -----------------------
+
+26/06/2023 18:33:16  
+  Total:1
+ -----------------------
+
+26/06/2023 18:34:07  
+  Total:1
+ -----------------------
+
+26/06/2023 20:17:07  
+ Detalle de compra:
+Asado KG 5 = 2775  
+ Total:2775
+ -----------------------
+
+26/06/2023 20:17:33  
+ Detalle de compra:
+Asado KG 5 = 2775  
+Asado KG 4 = 8000  
+ Total:10775
+ -----------------------
+
+26/06/2023 20:42:44  
+ Detalle de compra:
+Asado KG 10 = 5550  
+Asado KG 5 = 10000  
+ Total:15550
+ -----------------------
+
+26/06/2023 20:42:53  
+ Detalle de compra:
+Asado KG 10 = 5550  
+Asado KG 5 = 10000  
+ Total:15550
+ -----------------------
+
+26/06/2023 20:42:56  
+ Detalle de compra:
+Asado KG 10 = 5550  
+Asado KG 5 = 10000  
+ Total:15550
+ -----------------------
+
+26/06/2023 20:43:22  
+ Detalle de compra:
+ Total:0
+ -----------------------
+
+26/06/2023 20:43:40  
+ Detalle de compra:
+ Total:0
+ -----------------------
+
+26/06/2023 20:49:33  
+ Detalle de compra:
+ Total:0
+ -----------------------
+
+26/06/2023 20:49:34  
+ Detalle de compra:
+ Total:0
+ -----------------------
+
+26/06/2023 21:02:16  
+ Detalle de compra:
+Asado KG 4 = 8000  
+ Total:8400
+ -----------------------
+
+26/06/2023 21:02:24  
+ Detalle de compra:
+Asado KG 5 = 10000  
+ Total:10500
+ -----------------------
+
+26/06/2023 21:02:28  
+ Detalle de compra:
+Asado KG 5 = 10000  
+ Total:10000
+ -----------------------
+
+26/06/2023 21:04:31  
+ Detalle de compra:
+Asado KG 6 = 12000  
+ Total:12600
+ -----------------------
+
+26/06/2023 21:10:43  
+ Detalle de compra:
+Asado KG 10 = 20000  
+ Total:21000
+ -----------------------
+
+26/06/2023 21:12:30  
+ Detalle de compra:
+Asado KG 1 = 300  
+Asado KG 5 = 10000  
+ Total:10815
+ -----------------------
+
+26/06/2023 21:18:54  
+ Detalle de compra:
+Asado KG 5 = 2775  
+Asado KG 5 = 10000  
+ Total:13413,75
+ -----------------------
+
+26/06/2023 21:21:25  
+ Detalle de compra:
+Asado KG 5 = 2775  
+Vacio KG 4 = 1200  
+Matambre KG 3 = 6000  
+Chorizo KG 5 = 7500  
+ Total:18348,75
+ -----------------------
+
+26/06/2023 21:25:14  
+ Detalle de compra:
+Asado KG 5 = 5000  
+Vacio KG 5 = 5000  
+Matambre KG 5 = 5000  
+Chorizo KG 5 = 5000  
+ Total:21000
+ -----------------------
+
+26/06/2023 21:27:07  
+ Detalle de compra:
+Asado KG 2 = 2000  
+Vacio KG 2 = 2000  
+Matambre KG 2 = 2000  
+Chorizo KG 2 = 2000  
+ Total:8400
+ -----------------------
+
+26/06/2023 21:43:08  
+ Detalle de compra:
+Asado KG 5 = 5000  
+Vacio KG 1 = 1000  
+Matambre KG 5 = 5000  
+ Total:11000
+ -----------------------
+
