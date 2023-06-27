@@ -121,10 +121,16 @@
   <data name="CuentaDni" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CuentaDni.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Carniceria222" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Carniceria222.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="carniceria" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\carniceria.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PedidosYa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PedidosYa.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cortesAsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cortesAsado.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

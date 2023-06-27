@@ -177,7 +177,7 @@
             // 
             // buttonRetornarMenuPrincipal
             // 
-            buttonRetornarMenuPrincipal.Location = new Point(1053, 424);
+            buttonRetornarMenuPrincipal.Location = new Point(1174, 409);
             buttonRetornarMenuPrincipal.Name = "buttonRetornarMenuPrincipal";
             buttonRetornarMenuPrincipal.Size = new Size(107, 54);
             buttonRetornarMenuPrincipal.TabIndex = 20;
@@ -393,7 +393,7 @@
             AutoScaleDimensions = new SizeF(6F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1158, 462);
+            ClientSize = new Size(1279, 462);
             Controls.Add(radioButtonQuitarCarne);
             Controls.Add(radioButtonAgregarCarne);
             Controls.Add(dataGridView1);

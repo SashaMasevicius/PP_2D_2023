@@ -412,3 +412,10 @@ Matambre KG 5 = 5000
  Total:11000
  -----------------------
 
+27/06/2023 00:43:03  
+ Detalle de compra:
+Asado KG 5 = 5000  
+Matambre KG 4 = 4000  
+ Total:9450
+ -----------------------
+

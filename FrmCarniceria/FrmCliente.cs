@@ -26,7 +26,7 @@ namespace FrmCarniceria
             MostrarStock();
             saldoInsuficiente += ActualizarHerramientas;
             saldoInsuficiente += ventanaEmergente;
-            //this.Load += CargarHilo;
+            this.Load += CargarHilo;
         }
 
 
@@ -104,7 +104,11 @@ namespace FrmCarniceria
             }
 
         }
-
+        /// <summary>
+        /// boton que desencadena en la compra del prpoducto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonComprar_Click(object sender, EventArgs e)
         {
             System.Media.SoundPlayer player = new System.Media.SoundPlayer();
@@ -122,9 +126,9 @@ namespace FrmCarniceria
                 if (ValidarSeleccionDeOpcionesDeCarne() == true)
                 {
 
-                  
 
-                        IngresarFrmNuevoTicket();
+
+                    IngresarFrmNuevoTicket();
 
                 }
                 else
@@ -141,6 +145,10 @@ namespace FrmCarniceria
 
         }
 
+        /// <summary>
+        /// precio por kilo seleccionado
+        /// </summary>
+        /// <returns></returns>
         public double ObtenerPrecioAsadoPorKilo()
         {
             int cantidadKilosSeleccionado = (int)numericUpDownAsado.Value;
@@ -149,7 +157,10 @@ namespace FrmCarniceria
             double PrecioVendido = precioAsado * cantidadKilosSeleccionado;
             return PrecioVendido;
         }
-
+        /// <summary>
+        /// precio por kilo seleccionado
+        /// </summary>
+        /// <returns></returns>
         public double ObtenerPrecioVacioPorKilo()
         {
             int cantidadKilosSeleccionado = (int)numericUpDownVacio.Value;
@@ -158,7 +169,10 @@ namespace FrmCarniceria
             double PrecioVendido = precioVacio * cantidadKilosSeleccionado;
             return PrecioVendido;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public double ObtenerPrecioMatambrePorKilo()
         {
             int cantidadKilosSeleccionado = (int)numericUpDownMatambre.Value;
@@ -168,6 +182,10 @@ namespace FrmCarniceria
             return PrecioMatambre;
         }
 
+        /// <summary>
+        /// precio por kilo seleccionado
+        /// </summary>
+        /// <returns></returns>
         public double ObtenerPrecioChorizoPorKilo()
         {
             int cantidadKilosSeleccionado = (int)numericUpDownChorizo.Value;
@@ -177,6 +195,9 @@ namespace FrmCarniceria
             return PrecioVendido;
         }
 
+        /// <summary>
+        /// resto kilos al corte para el stock
+        /// </summary>
         public void RestarKilosPorCorte()
         {
 
@@ -244,7 +265,10 @@ namespace FrmCarniceria
                 MostrarStock();
             }
         }
-
+        /// <summary>
+        /// obtengo el precio total de la compra (suma de la compra de toods los cortes)
+        /// </summary>
+        /// <returns></returns>
         public double ObtenerPrecioTotalDeCompra()
         {
             double asado = 0;
@@ -272,7 +296,10 @@ namespace FrmCarniceria
             precioFinal = asado + vacio + matambre + chorizo;
             return precioFinal;
         }
-
+        /// <summary>
+        /// calculo precio con y sin descuento ( tarjeta 5 % mas)
+        /// </summary>
+        /// <returns></returns>
         private double CalcularPrecioConYSinDescuento()
         {
             if (radioButtonTarjeta.Checked == true)
@@ -288,6 +315,10 @@ namespace FrmCarniceria
             return 0;
         }
 
+        /// <summary>
+        /// mensaje para ticket
+        /// </summary>
+        /// <returns></returns>
         public string ObtenerMensajeDeCompra()
         {
 
@@ -320,7 +351,9 @@ namespace FrmCarniceria
 
             return sb.ToString();
         }
-
+        /// <summary>
+        /// actualizo herramientas
+        /// </summary>
         public void ActualizarHerramientas()
         {
             textBoxDinero.Text = "0";
@@ -335,7 +368,10 @@ namespace FrmCarniceria
             numericUpDownChorizo.Value = 1;
             label1.Text = "";
         }
-
+        /// <summary>
+        /// valido medio de pago
+        /// </summary>
+        /// <returns></returns>
         public bool ValidarSeleccionMedioDePago()
         {
             if (radioButtonTarjeta.Checked == false && radioButtonEfectivo.Checked == false)
@@ -344,6 +380,10 @@ namespace FrmCarniceria
             }
             return true;
         }
+        /// <summary>
+        /// valido que seleccione algun corte
+        /// </summary>
+        /// <returns></returns>
         public bool ValidarSeleccionDeOpcionesDeCarne()
         {
             if (this.checkBoxAsado.Checked == false && this.checkBoxVacio.Checked == false
@@ -403,7 +443,92 @@ namespace FrmCarniceria
             }
 
         }
+        /// <summary>
+        /// Mostrar publicidad en un hilo secundario
+        /// </summary>
+        private async void MostrarHiloSecundarioPublicidad()
+        {
+            try
+            {
+                if (this.IsDisposed || pictureBox1.IsDisposed || pictureBox2.IsDisposed)
+                    return;
 
+                while (true)
+                {
+                    try
+                    {
+                        if (this.IsDisposed || pictureBox1.IsDisposed || pictureBox2.IsDisposed)
+                            break;
+
+                        pictureBox1.Invoke((MethodInvoker)(() => pictureBox1.Visible = true));
+                        await Task.Delay(1500);
+
+                        if (this.IsDisposed || pictureBox1.IsDisposed || pictureBox2.IsDisposed)
+                            break;
+
+                        pictureBox1.Invoke((MethodInvoker)(() => pictureBox1.Visible = false));
+                        await Task.Delay(1500);
+
+                        if (this.IsDisposed || pictureBox1.IsDisposed || pictureBox2.IsDisposed)
+                            break;
+
+                        pictureBox2.Invoke((MethodInvoker)(() => pictureBox2.Visible = true));
+                        await Task.Delay(10000);
+
+                        if (this.IsDisposed || pictureBox1.IsDisposed || pictureBox2.IsDisposed)
+                            break;
+
+                        pictureBox2.Invoke((MethodInvoker)(() => pictureBox2.Visible = false));
+                    }
+                    catch (Exception ex)
+                    {
+                       
+                        MessageBox.Show("Se ha producido un error en el hilo de publicidad: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Se ha producido un error al iniciar el hilo de publicidad: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        /// <summary>
+        /// 
+        /// cargar nuevo hilo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CargarHilo(object sender, EventArgs e)
+        {
+            Thread publicidadThread = new Thread(MostrarHiloSecundarioPublicidad);
+            publicidadThread.Start();
+        }
+
+
+        private void FrmCliente_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+        /// <summary>
+        /// boton para autocompletar datos (prueba)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBoxDinero.Text = "50000";
+            radioButtonTarjeta.Checked = true;
+            checkBoxAsado.Checked = true;
+            checkBoxMatambre.Checked = true;
+            numericUpDownAsado.Value = 5;
+            numericUpDownMatambre.Value = 4;
+        }
     }
 
 

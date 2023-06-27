@@ -73,6 +73,26 @@ namespace FrmCarniceria.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Carniceria222 {
+            get {
+                object obj = ResourceManager.GetObject("Carniceria222", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cortesAsado {
+            get {
+                object obj = ResourceManager.GetObject("cortesAsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CuentaDni {
             get {
                 object obj = ResourceManager.GetObject("CuentaDni", resourceCulture);

@@ -48,7 +48,6 @@ namespace FrmCarniceria
 
 
             // creo label con informacion
-            //  this.labelDetalles.Text = miHeladera.mostrarDetalleDeProductos();
             this.dataGridView2.Visible = false;
 
             this.dataGridView2.ColumnCount = 5;
@@ -60,35 +59,18 @@ namespace FrmCarniceria
 
         }
 
-        // Llamar al método mostrarDetalleDeProductos y obtener el resultado
-        //string detallesProductos = miHeladera.mostrarDetalleDeProductos();
-
-        //// Obtener las filas de datos separados por saltos de línea
-        //string[] filas = detallesProductos.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-
-        //// Limpiar el DataGridView
-        //dataGridView1.Rows.Clear();
-
-        //// Agregar cada fila al DataGridView
-        //foreach (string fila in filas)
-        //{
-        //    // Separar los valores de cada columna en la fila
-        //    string[] valores = fila.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-
-        //    // Agregar una nueva fila al DataGridView y asignar los valores a las celdas correspondientes
-        //    dataGridView1.Rows.Add(valores[0], valores[1], valores[2]);
-        //}
-
+       
+        /// <summary>
+        /// muestro stock en dataGrridView
+        /// </summary>
 
         public void MostrarStock()
         {
 
             List<Producto> miProducto = CrudStock.Leer();
 
-            // Limpiar el DataGridView
             dataGridView1.Rows.Clear();
 
-            // Agregar cada producto al DataGridView
             foreach (Producto producto in miProducto)
             {
                 dataGridView1.Rows.Add(producto.TipoCarne, producto.Peso, producto.PrecioPorKg);
@@ -261,11 +243,14 @@ namespace FrmCarniceria
             numericUpDownKilosVenta.Value = 5;
         }
 
+        /// <summary>
+        /// cierro
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonRetornarMenuPrincipal_Click(object sender, EventArgs e)
         {
-            //FrmIniciarSesion formularioIniciarSesion;
-            //formularioIniciarSesion = new FrmIniciarSesion();
-            //formularioIniciarSesion.Show();
+ 
             this.Hide();
         }
 
@@ -323,11 +308,13 @@ namespace FrmCarniceria
 
         }
 
-        //private void button_Modificar_Click(object sender, EventArgs e)
-        //{
 
-        //}
-
+        /// <summary>
+        /// 
+        /// IDventas a eliminar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonBorrar_Click(object sender, EventArgs e)
         {
 
@@ -379,12 +366,12 @@ namespace FrmCarniceria
 
         }
 
-        //private void button1_Click_1(object sender, EventArgs e)
-        //{
-        //    FrmModificarCorte formulario = new FrmModificarCorte();
-        //    formulario.ShowDialog();
-        //}
 
+        /// <summary>
+        /// actualizo stock con boton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonActualizarStock_Click(object sender, EventArgs e)
         {
 

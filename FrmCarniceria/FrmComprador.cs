@@ -31,7 +31,7 @@ namespace FrmCarniceria
             MostrarStock();
             saldoInsuficiente += ActualizarHerramientas;
             saldoInsuficiente += ventanaEmergente;
-            //this.Load += CargarHilo;
+            this.Load += CargarHilo;
         }
 
 

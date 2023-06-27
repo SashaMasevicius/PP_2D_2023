@@ -9,7 +9,7 @@ using System.IO;
 
 namespace Entidades
 {
-    internal class Serializar
+    public class Serializar
     {
         public static string SerializeToJson<T>(T obj)
         {

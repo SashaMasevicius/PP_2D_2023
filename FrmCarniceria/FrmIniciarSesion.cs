@@ -8,6 +8,10 @@ namespace FrmCarniceria
         List<Usuario> miLista;
         Heladera miHeladera;
         List<Producto> listaProductos;
+
+        private const string JsonFileName = "productos.json";
+        private const string XmlFileName = "productos.xml";
+
         //const
         public FrmIniciarSesion()
         {
@@ -48,7 +52,15 @@ namespace FrmCarniceria
             miHeladera = new Heladera(listaProductos);
             // CrudUsuarios.Guardar();
 
+            CargarProductosDesdeJson();
+            CargarProductosDesdeXml();
 
+
+
+            //string directoryPath = AppDomain.CurrentDomain.BaseDirectory; 
+            //string jsonFilePath = Path.Combine(directoryPath, JsonFileName); 
+            //string xmlFilePath = Path.Combine(directoryPath, XmlFileName); 
+            //MessageBox.Show($"Ruta del archivo JSON: {jsonFilePath}\nRuta del archivo XML: {xmlFilePath}", "Rutas de archivos");
 
         }
 
@@ -154,6 +166,85 @@ namespace FrmCarniceria
 
             // actuualizo la lista de usuarios después de cerrar la ventana emergente
             miLista = CrudUsuarios.Leer();
+        }
+
+        /// <summary>
+        /// cuando cierro app guardo en json y xml
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FrmIniciarSesion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+            GuardarProductosEnJson();
+            GuardarProductosEnXml();
+        }
+
+        /// <summary>
+        /// guardo en jsn
+        /// </summary>
+        private void GuardarProductosEnJson()
+        {
+            try
+            {
+                List<Producto> productos = CrudStock.Leer(); 
+                string json = Serializar.SerializeToJson(productos);
+                File.WriteAllText(JsonFileName, json);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar los productos en formato JSON: " + ex.Message);
+            }
+        }
+        /// <summary>
+        /// cargo enjson
+        /// </summary>
+        private void CargarProductosDesdeJson()
+        {
+            try
+            {
+                if (File.Exists(JsonFileName))
+                {
+                    string json = File.ReadAllText(JsonFileName);
+                    listaProductos = Serializar.DeserializeFromJson<List<Producto>>(json);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los productos desde el archivo JSON: " + ex.Message);
+            }
+        }
+        /// <summary>
+        /// guardo en xml
+        /// </summary>
+        private void GuardarProductosEnXml()
+        {
+            try
+            {
+                List<Producto> productos = CrudStock.Leer(); // Obtener productos de la base de datos
+                Serializar.SerializeToXml(productos, XmlFileName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar los productos en formato XML: " + ex.Message);
+            }
+        }
+        /// <summary>
+        /// cargo en xml
+        /// </summary>
+        private void CargarProductosDesdeXml()
+        {
+            try
+            {
+                if (File.Exists(XmlFileName))
+                {
+                    listaProductos = Serializar.DeserializeFromXml<List<Producto>>(XmlFileName);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los productos desde el archivo XML: " + ex.Message);
+            }
         }
     }
 }
