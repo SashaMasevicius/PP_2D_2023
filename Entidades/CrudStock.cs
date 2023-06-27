@@ -33,7 +33,7 @@ namespace Entidades
             try
             {
                 connection.Open();
-                command.Parameters.Clear(); // Limpiar los parámetros existentes
+                command.Parameters.Clear(); // limpiar 
                 command.CommandText = "SELECT * FROM TableStockNueva WHERE ID = @id";
                 command.Parameters.AddWithValue("id", id);
                 SqlDataReader dataReader = command.ExecuteReader();
@@ -47,7 +47,7 @@ namespace Entidades
                     return new Producto(carne, kilos, precio);
                 }
 
-                return null; // El producto no fue encontrado
+                return null; // no fue encontrado
             }
             catch (Exception)
             {

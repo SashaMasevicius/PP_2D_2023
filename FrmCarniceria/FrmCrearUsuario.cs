@@ -22,7 +22,7 @@ namespace FrmCarniceria
         {
             string usuario = textBox_Usuario.Text;
             string contrasenia = textBoxContrasena.Text;
-            int tipoUsuario = comboBox1.SelectedIndex; // Obtener el índice del tipo de usuario seleccionado en el ComboBox
+            int tipoUsuario = comboBox1.SelectedIndex; 
             string contrasenaVendedor = "1234";
 
             
@@ -37,7 +37,7 @@ namespace FrmCarniceria
                 //dialogo
                 string input = Microsoft.VisualBasic.Interaction.InputBox("Ingrese la contraseña de vendedor:", "Contraseña de Vendedor", "");
 
-                // Verificar la contraseña ingresada
+                // vrificar la contraseña ingresada
                 if (input == contrasenaVendedor)
                 {
                     nuevoUsuario = new Vendedor(usuario, contrasenia,1);

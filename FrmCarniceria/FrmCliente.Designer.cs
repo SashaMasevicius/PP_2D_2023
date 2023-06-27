@@ -251,7 +251,7 @@
             // 
             groupBox1.Controls.Add(textBoxDinero);
             groupBox1.Controls.Add(buttonDineroDisponible);
-            groupBox1.Cursor = Cursors.SizeAll;
+            groupBox1.Cursor = Cursors.Hand;
             groupBox1.Location = new Point(397, 61);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(185, 108);
@@ -264,6 +264,7 @@
             groupBox2.Controls.Add(label2);
             groupBox2.Controls.Add(radioButtonTarjeta);
             groupBox2.Controls.Add(radioButtonEfectivo);
+            groupBox2.Cursor = Cursors.Hand;
             groupBox2.Location = new Point(411, 201);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(171, 100);
@@ -292,6 +293,7 @@
             groupBox3.Controls.Add(checkBoxMatambre);
             groupBox3.Controls.Add(checkBoxVacio);
             groupBox3.Controls.Add(checkBoxAsado);
+            groupBox3.Cursor = Cursors.Hand;
             groupBox3.Location = new Point(617, 61);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(171, 240);
@@ -301,6 +303,7 @@
             // 
             // button1
             // 
+            button1.Cursor = Cursors.Hand;
             button1.Location = new Point(725, 377);
             button1.Name = "button1";
             button1.Size = new Size(75, 73);
@@ -311,6 +314,7 @@
             // 
             // button2
             // 
+            button2.Cursor = Cursors.Hand;
             button2.Location = new Point(488, 12);
             button2.Name = "button2";
             button2.Size = new Size(157, 38);

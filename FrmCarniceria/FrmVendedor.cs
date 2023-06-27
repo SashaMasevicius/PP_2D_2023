@@ -59,7 +59,7 @@ namespace FrmCarniceria
 
         }
 
-       
+
         /// <summary>
         /// muestro stock en dataGrridView
         /// </summary>
@@ -200,32 +200,95 @@ namespace FrmCarniceria
             int indiceCorteCarne = this.comboBoxCortesVenta.SelectedIndex;
             double precioVendido = (double)(miHeladera.obtenerPrecio(indiceCorteCarne) * kilosVendidos);
 
-            if (this.vendedor.DisminuirKilosDelStock(miHeladera, indiceCorteCarne, kilosVendidos) != -1)
-            {
-                this.dataGridView2.Visible = true;
 
+                this.dataGridView2.Visible = true;
                 //creo una venta
                 VentasHistorial ventasHist = new VentasHistorial(nombreComprador, nombreCorteCarne, kilosVendidos, precioVendido);
                 //guardo venta
                 CrudHistorialVentas.Guardar(ventasHist);
-
+                RestarKilosALStock();
                 ActualizarDataGridView();
                 MostrarStock();
 
 
                 //crear archivo txt
 
-            }
-            else
-            {
-                MessageBox.Show("La cantidad de kilos excede la cantidad que hay en stock.");
-            }
+
 
 
         }
 
 
+        private void RestarKilosALStock()
+        {
 
+            int indiceCorteCarne = this.comboBoxCortesVenta.SelectedIndex;
+            int kilosVendidos = (int)this.numericUpDownKilosVenta.Value;
+
+            if (indiceCorteCarne == 0)
+            {
+
+                Producto productoExistente = CrudStock.ObtenerProductoPorId(1);
+                int PesoAnterior = productoExistente.Peso;
+                int cantidadKilosAsado = kilosVendidos;
+                int PesoTotalA = PesoAnterior - cantidadKilosAsado;
+                double precioActualA = productoExistente.PrecioPorKg;
+
+
+                Producto productoModificado = new Producto(PesoTotalA, precioActualA);
+                productoModificado.id = 1;
+                CrudStock.Modificar(productoModificado);
+
+                MostrarStock();
+            }
+            if (indiceCorteCarne == 1)
+            {
+                Producto productoExistente = CrudStock.ObtenerProductoPorId(2);
+                int PesoAnterior = productoExistente.Peso;
+                int cantidadKilosVacio = kilosVendidos;
+                int PesoTotalV = PesoAnterior - cantidadKilosVacio;
+                double precioActualV = productoExistente.PrecioPorKg;
+
+
+                Producto productoModificado = new Producto(PesoTotalV, precioActualV);
+                productoModificado.id = 2;
+                CrudStock.Modificar(productoModificado);
+
+                MostrarStock();
+            }
+            if (indiceCorteCarne == 2)
+            {
+                Producto productoExistente = CrudStock.ObtenerProductoPorId(3);
+                int PesoAnterior = productoExistente.Peso;
+                int cantidadKilosMatambre = kilosVendidos;
+                int PesoTotalM = PesoAnterior - cantidadKilosMatambre;
+                double precioActualM = productoExistente.PrecioPorKg;
+
+
+                Producto productoModificado = new Producto(PesoTotalM, precioActualM);
+                productoModificado.id = 3;
+                CrudStock.Modificar(productoModificado);
+
+
+                MostrarStock();
+            }
+            if (indiceCorteCarne == 3)
+            {
+                Producto productoExistente = CrudStock.ObtenerProductoPorId(4);
+                int PesoAnterior = productoExistente.Peso;
+                int cantidadKilosChorizo = kilosVendidos;
+                int PesoTotalC = PesoAnterior - cantidadKilosChorizo;
+                double precioActualC = productoExistente.PrecioPorKg;
+
+
+                Producto productoModificado = new Producto(PesoTotalC, precioActualC);
+                productoModificado.id = 4;
+                CrudStock.Modificar(productoModificado);
+
+
+                MostrarStock();
+            }
+        }
 
         /// <summary>
         /// autocompleta campos para prueba
@@ -250,7 +313,7 @@ namespace FrmCarniceria
         /// <param name="e"></param>
         private void buttonRetornarMenuPrincipal_Click(object sender, EventArgs e)
         {
- 
+
             this.Hide();
         }
 
@@ -318,7 +381,7 @@ namespace FrmCarniceria
         private void buttonBorrar_Click(object sender, EventArgs e)
         {
 
-            // cuadro interactuar usuario
+            // interactua
             string idString = Microsoft.VisualBasic.Interaction.InputBox("Ingrese el ID Ventas a eliminar:", "Eliminar Venta");
 
             // id valido

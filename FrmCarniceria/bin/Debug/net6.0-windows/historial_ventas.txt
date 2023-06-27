@@ -419,3 +419,83 @@ Matambre KG 4 = 4000
  Total:9450
  -----------------------
 
+27/06/2023 10:48:04  
+ Detalle de compra:
+Asado KG 5 = 10000  
+Matambre KG 4 = 10000  
+Chorizo KG 10 = 15000  
+ Total:36750
+ -----------------------
+
+27/06/2023 11:03:38  
+ Detalle de compra:
+Chorizo KG 8 = 12000  
+ Total:12600
+ -----------------------
+
+27/06/2023 11:04:29  
+ Detalle de compra:
+Asado KG 5 = 10000  
+Matambre KG 4 = 10000  
+Chorizo KG 7 = 10500  
+ Total:32025
+ -----------------------
+
+27/06/2023 11:06:30  
+ Detalle de compra:
+Asado KG 5 = 10000  
+Matambre KG 4 = 10000  
+ Total:21000
+ -----------------------
+
+27/06/2023 11:06:49  
+ Detalle de compra:
+Chorizo KG 10 = 15000  
+ Total:15750
+ -----------------------
+
+27/06/2023 11:09:46  
+ Detalle de compra:
+Asado KG 5 = 10000  
+Matambre KG 4 = 10000  
+ Total:21000
+ -----------------------
+
+27/06/2023 11:10:14  
+ Detalle de compra:
+Chorizo KG 15 = 22500  
+ Total:23625
+ -----------------------
+
+27/06/2023 11:13:33  
+ Detalle de compra:
+Chorizo KG 14 = 21000  
+ Total:22050
+ -----------------------
+
+27/06/2023 11:13:49  
+ Detalle de compra:
+Chorizo KG 0 = 0  
+ Total:0
+ -----------------------
+
+27/06/2023 11:14:28  
+ Detalle de compra:
+Chorizo KG 1 = 1500  
+ Total:1500
+ -----------------------
+
+27/06/2023 13:24:43  
+ Detalle de compra:
+Asado KG 5 = 10000  
+Matambre KG 4 = 10000  
+ Total:20000
+ -----------------------
+
+27/06/2023 13:57:31  
+ Detalle de compra:
+Asado KG 5 = 10000  
+Matambre KG 4 = 10000  
+ Total:21000
+ -----------------------
+

@@ -66,7 +66,7 @@
             }
             catch (Exception ex)
             {
-                // Manejo de excepciones si ocurre algún error al guardar el historial
+                
                 MessageBox.Show("Error al guardar el historial de ventas: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

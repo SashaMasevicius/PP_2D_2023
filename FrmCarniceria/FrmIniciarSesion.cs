@@ -221,7 +221,7 @@ namespace FrmCarniceria
         {
             try
             {
-                List<Producto> productos = CrudStock.Leer(); // Obtener productos de la base de datos
+                List<Producto> productos = CrudStock.Leer();
                 Serializar.SerializeToXml(productos, XmlFileName);
             }
             catch (Exception ex)

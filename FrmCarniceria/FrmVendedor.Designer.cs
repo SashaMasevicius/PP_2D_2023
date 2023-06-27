@@ -102,6 +102,7 @@
             // 
             // button2
             // 
+            button2.Cursor = Cursors.Hand;
             button2.Location = new Point(150, 333);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
@@ -126,6 +127,7 @@
             // 
             // buttonVenderListaDeClientes
             // 
+            buttonVenderListaDeClientes.Cursor = Cursors.Hand;
             buttonVenderListaDeClientes.Location = new Point(157, 156);
             buttonVenderListaDeClientes.Name = "buttonVenderListaDeClientes";
             buttonVenderListaDeClientes.Size = new Size(75, 23);
@@ -187,6 +189,7 @@
             // 
             // buttonAutocompletar
             // 
+            buttonAutocompletar.Cursor = Cursors.Hand;
             buttonAutocompletar.Location = new Point(70, 5);
             buttonAutocompletar.Name = "buttonAutocompletar";
             buttonAutocompletar.Size = new Size(150, 23);
@@ -206,7 +209,7 @@
             dataGridView2.Location = new Point(714, 20);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(410, 262);
+            dataGridView2.Size = new Size(542, 262);
             dataGridView2.TabIndex = 22;
             // 
             // ID
@@ -241,6 +244,7 @@
             // 
             // button_Leer
             // 
+            button_Leer.Cursor = Cursors.Hand;
             button_Leer.Location = new Point(785, 302);
             button_Leer.Name = "button_Leer";
             button_Leer.Size = new Size(123, 54);
@@ -319,6 +323,7 @@
             // 
             // buttonClickIngresarMercaderia
             // 
+            buttonClickIngresarMercaderia.Cursor = Cursors.Hand;
             buttonClickIngresarMercaderia.Location = new Point(150, 159);
             buttonClickIngresarMercaderia.Name = "buttonClickIngresarMercaderia";
             buttonClickIngresarMercaderia.Size = new Size(75, 23);
@@ -329,6 +334,7 @@
             // 
             // buttonActualizarStock
             // 
+            buttonActualizarStock.Cursor = Cursors.Hand;
             buttonActualizarStock.Location = new Point(509, 408);
             buttonActualizarStock.Name = "buttonActualizarStock";
             buttonActualizarStock.Size = new Size(104, 55);

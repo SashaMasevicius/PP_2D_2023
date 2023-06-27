@@ -9,7 +9,7 @@ namespace FrmCarniceria
         Heladera miHeladera;
         bool validarPrecioParaComprar;
         public event Action saldoInsuficiente;
-
+        delegate void PictureBoxVisibleDelegate(PictureBox pictureBox, bool visible);
 
         public FrmCliente()
         {
@@ -74,6 +74,17 @@ namespace FrmCarniceria
 
         private void IngresarFrmNuevoTicket()
         {
+
+            int cantidadKilosAsado = (int)numericUpDownAsado.Value;
+            int cantidadKilosVacio = (int)numericUpDownVacio.Value;
+            int cantidadKilosMatambre = (int)numericUpDownMatambre.Value;
+            int cantidadKilosChorizo = (int)numericUpDownChorizo.Value;
+
+
+ 
+
+
+
             double dineroDisponible;
             double precioFinal = CalcularPrecioConYSinDescuento();
             if (double.TryParse(textBoxDinero.Text, out dineroDisponible))
@@ -82,11 +93,22 @@ namespace FrmCarniceria
                 double vuelto = dineroDisponible - precioFinal;
                 if (dineroDisponible > precioFinal)
                 {
-                    Ticket frmTicket = new Ticket(ObtenerMensajeDeCompra(), precioFinal, vuelto);
-                    frmTicket.Show();
-                    RestarKilosPorCorte();
-                    ActualizarHerramientas();
-                    VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDeDinero, MostrarMensajeDeDinero);
+
+                    if (cantidadKilosAsado > ObtenerPesoAsadoEnStock() || cantidadKilosVacio > ObtenerPesoVacioEnStock()
+                        || cantidadKilosMatambre > ObtenerPesoMatambreEnStock() || cantidadKilosChorizo > ObtenerPesoChorizoEnStock())
+                    {
+                        MessageBox.Show("ERROR. La cantidad que seleccionaste supera al stock");
+                    }
+                    else
+                    {
+                        Ticket frmTicket = new Ticket(ObtenerMensajeDeCompra(), precioFinal, vuelto);
+                        frmTicket.Show();
+                        RestarKilosPorCorte();
+                        ActualizarHerramientas();
+                        VerificarDineroDelCliente(dineroDisponible, MostrarMensajeDeDinero, MostrarMensajeDeDinero);
+
+                    }
+
 
                 }
                 else
@@ -114,6 +136,8 @@ namespace FrmCarniceria
             System.Media.SoundPlayer player = new System.Media.SoundPlayer();
             player.SoundLocation = "C:/Users/sasha/OneDrive/Escritorio/BotonSound.wav";
             player.Play();
+
+
 
 
             double dineroDisponible;
@@ -193,6 +217,49 @@ namespace FrmCarniceria
             double precioChorizo = productoExistente.PrecioPorKg;
             double PrecioVendido = precioChorizo * cantidadKilosSeleccionado;
             return PrecioVendido;
+        }
+
+        /// <summary>
+        /// Obtener kilos del stock asado
+        /// </summary>
+        /// <returns></returns>
+        public int ObtenerPesoAsadoEnStock()
+        {
+
+            Producto productoExistente = CrudStock.ObtenerProductoPorId(1);
+            int peso = productoExistente.Peso;
+            return peso;
+        }
+        /// <summary>
+        /// Obtener kilos del stock vacio
+        /// </summary>
+        /// <returns></returns>
+        public int ObtenerPesoVacioEnStock()
+        {
+            Producto productoExistente = CrudStock.ObtenerProductoPorId(2);
+            int peso = productoExistente.Peso;
+            return peso;
+        }
+        /// <summary>
+        /// Obtener kilos del stock Matambre
+        /// </summary>
+        /// <returns></returns>
+        public int ObtenerPesoMatambreEnStock()
+        {
+            Producto productoExistente = CrudStock.ObtenerProductoPorId(3);
+            int peso = productoExistente.Peso;
+            return peso;
+        }
+
+        /// <summary>
+        /// Obtener kilos del stock Chorizo
+        /// </summary>
+        /// <returns></returns>
+        public int ObtenerPesoChorizoEnStock()
+        {
+            Producto productoExistente = CrudStock.ObtenerProductoPorId(4);
+            int peso = productoExistente.Peso;
+            return peso;
         }
 
         /// <summary>
@@ -460,37 +527,52 @@ namespace FrmCarniceria
                         if (this.IsDisposed || pictureBox1.IsDisposed || pictureBox2.IsDisposed)
                             break;
 
-                        pictureBox1.Invoke((MethodInvoker)(() => pictureBox1.Visible = true));
+                        SetPictureBoxVisible(pictureBox1, true);
                         await Task.Delay(1500);
 
                         if (this.IsDisposed || pictureBox1.IsDisposed || pictureBox2.IsDisposed)
                             break;
 
-                        pictureBox1.Invoke((MethodInvoker)(() => pictureBox1.Visible = false));
+                        SetPictureBoxVisible(pictureBox1, false);
                         await Task.Delay(1500);
 
                         if (this.IsDisposed || pictureBox1.IsDisposed || pictureBox2.IsDisposed)
                             break;
 
-                        pictureBox2.Invoke((MethodInvoker)(() => pictureBox2.Visible = true));
-                        await Task.Delay(10000);
+                        SetPictureBoxVisible(pictureBox2, true);
+                        await Task.Delay(1000);
 
                         if (this.IsDisposed || pictureBox1.IsDisposed || pictureBox2.IsDisposed)
                             break;
 
-                        pictureBox2.Invoke((MethodInvoker)(() => pictureBox2.Visible = false));
+                        SetPictureBoxVisible(pictureBox2, false);
                     }
                     catch (Exception ex)
                     {
-                       
                         MessageBox.Show("Se ha producido un error en el hilo de publicidad: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Se ha producido un error al iniciar el hilo de publicidad: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        /// <summary>
+        /// para acceder correctamente al pictureBox utilizando el invoke.
+        /// </summary>
+        /// <param name="pictureBox"></param>
+        /// <param name="visible"></param>
+        private void SetPictureBoxVisible(PictureBox pictureBox, bool visible)
+        {
+            if (pictureBox.InvokeRequired)
+            {
+                PictureBoxVisibleDelegate del = new PictureBoxVisibleDelegate(SetPictureBoxVisible);
+                this.Invoke(del, new object[] { pictureBox, visible });
+            }
+            else
+            {
+                pictureBox.Visible = visible;
             }
         }
         /// <summary>
